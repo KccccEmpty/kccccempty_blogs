@@ -202,9 +202,844 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Redis
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         Redis
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#nosql" class="md-nav__link">
+    NoSQL概述
+  </a>
+  
+    <nav class="md-nav" aria-label="NoSQL概述">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#nosql_1" class="md-nav__link">
+    为什么要用NoSQL
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nosql_2" class="md-nav__link">
+    什么是NoSQL
+  </a>
+  
+    <nav class="md-nav" aria-label="什么是NoSQL">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1nosql" class="md-nav__link">
+    1、NoSQL
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2nosql" class="md-nav__link">
+    2、NoSQL特点
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nosql_3" class="md-nav__link">
+    NoSQL的四大分类
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#redis_1" class="md-nav__link">
+    Redis 入门
+  </a>
+  
+    <nav class="md-nav" aria-label="Redis 入门">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    概述
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#windows" class="md-nav__link">
+    Windows安装
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#linux" class="md-nav__link">
+    Linux安装
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    测试性能
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    基础的知识（面试题内容）
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    五大数据类型
+  </a>
+  
+    <nav class="md-nav" aria-label="五大数据类型">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#redis-key" class="md-nav__link">
+    Redis-Key
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#string" class="md-nav__link">
+    String（字符串）
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#list" class="md-nav__link">
+    List
+  </a>
+  
+    <nav class="md-nav" aria-label="List">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#set" class="md-nav__link">
+    Set（集合）
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hash" class="md-nav__link">
+    Hash
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#zset" class="md-nav__link">
+    Zset（有序集合）
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    三种特殊数据类型
+  </a>
+  
+    <nav class="md-nav" aria-label="三种特殊数据类型">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#geospatial" class="md-nav__link">
+    geospatial 地理位置
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hyperloglogs" class="md-nav__link">
+    Hyperloglogs
+  </a>
+  
+    <nav class="md-nav" aria-label="Hyperloglogs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    什么是基数？
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    简介：
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    常用命令
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bitmaps" class="md-nav__link">
+    Bitmaps
+  </a>
+  
+    <nav class="md-nav" aria-label="Bitmaps">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    位存储
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    常用命令
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_18" class="md-nav__link">
+    事务
+  </a>
+  
+    <nav class="md-nav" aria-label="事务">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_19" class="md-nav__link">
+    重点：
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#redis_2" class="md-nav__link">
+    Redis的事务:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_20" class="md-nav__link">
+    正常事务执行顺序：
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_21" class="md-nav__link">
+    放弃事务：
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_22" class="md-nav__link">
+    编译性错误
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_23" class="md-nav__link">
+    运行时异常
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#watch" class="md-nav__link">
+    监控 watch（面试常问）
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#redis_3" class="md-nav__link">
+    Redis监控测试
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#jedis" class="md-nav__link">
+    Jedis
+  </a>
+  
+    <nav class="md-nav" aria-label="Jedis">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#jedis_1" class="md-nav__link">
+    什么是Jedis
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_24" class="md-nav__link">
+    导包
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_25" class="md-nav__link">
+    编码测试
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#api" class="md-nav__link">
+    常用的API
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#jedis_2" class="md-nav__link">
+    Jedis事务
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#springboot" class="md-nav__link">
+    SpringBoot整合
+  </a>
+  
+    <nav class="md-nav" aria-label="SpringBoot整合">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_26" class="md-nav__link">
+    整合测试
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#redisconf" class="md-nav__link">
+    Redis.conf 详解
+  </a>
+  
+    <nav class="md-nav" aria-label="Redis.conf 详解">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_27" class="md-nav__link">
+    单位
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#includes" class="md-nav__link">
+    包含（INCLUDES)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#network" class="md-nav__link">
+    网络（NETWORK）
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#general" class="md-nav__link">
+    通用（GENERAL)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#snapshotting" class="md-nav__link">
+    快照（SNAPSHOTTING）
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#replication" class="md-nav__link">
+    复制（REPLICATION）
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#security" class="md-nav__link">
+    安全（SECURITY）
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#clients" class="md-nav__link">
+    客户端（CLIENTS)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#memorymanagement" class="md-nav__link">
+    内存（MEMORYMANAGEMENT）
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#append-only-aof" class="md-nav__link">
+    APPEND ONLY aof配置
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#redis_4" class="md-nav__link">
+    Redis持久化
+  </a>
+  
+    <nav class="md-nav" aria-label="Redis持久化">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#rdbredis-database" class="md-nav__link">
+    RDB（Redis DataBase）
+  </a>
+  
+    <nav class="md-nav" aria-label="RDB（Redis DataBase）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#rdb" class="md-nav__link">
+    什么是RDB
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_28" class="md-nav__link">
+    触发机制
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rdb_1" class="md-nav__link">
+    恢复rdb文件
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_29" class="md-nav__link">
+    优缺点
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aof-append-only-file" class="md-nav__link">
+    AOF ( Append Only FiLE)
+  </a>
+  
+    <nav class="md-nav" aria-label="AOF ( Append Only FiLE)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#aof" class="md-nav__link">
+    AOF是什么
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_30" class="md-nav__link">
+    优缺点
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_31" class="md-nav__link">
+    扩展
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#redis_5" class="md-nav__link">
+    Redis 发布订阅
+  </a>
+  
+    <nav class="md-nav" aria-label="Redis 发布订阅">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_32" class="md-nav__link">
+    命令
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_33" class="md-nav__link">
+    原理
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#redis_6" class="md-nav__link">
+    Redis 主从复制
+  </a>
+  
+    <nav class="md-nav" aria-label="Redis 主从复制">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_34" class="md-nav__link">
+    概念
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_35" class="md-nav__link">
+    环境配置
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_36" class="md-nav__link">
+    一主二从
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_37" class="md-nav__link">
+    细节
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_38" class="md-nav__link">
+    复制原理
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_39" class="md-nav__link">
+    主机宕机
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_40" class="md-nav__link">
+    哨兵模式
+  </a>
+  
+    <nav class="md-nav" aria-label="哨兵模式">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_41" class="md-nav__link">
+    概述
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_42" class="md-nav__link">
+    测试
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_43" class="md-nav__link">
+    优缺点
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#redis_7" class="md-nav__link">
+    Redis 缓存穿透和雪崩
+  </a>
+  
+    <nav class="md-nav" aria-label="Redis 缓存穿透和雪崩">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_44" class="md-nav__link">
+    缓存穿透（查不到）
+  </a>
+  
+    <nav class="md-nav" aria-label="缓存穿透（查不到）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_45" class="md-nav__link">
+    概念
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_46" class="md-nav__link">
+    解决方案
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_47" class="md-nav__link">
+    缓存击穿（量太大）
+  </a>
+  
+    <nav class="md-nav" aria-label="缓存击穿（量太大）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_48" class="md-nav__link">
+    概述
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_49" class="md-nav__link">
+    解决方案
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_50" class="md-nav__link">
+    缓存雪崩
+  </a>
+  
+    <nav class="md-nav" aria-label="缓存雪崩">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_51" class="md-nav__link">
+    概念
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_52" class="md-nav__link">
+    解决方案
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -293,6 +1128,825 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#nosql" class="md-nav__link">
+    NoSQL概述
+  </a>
+  
+    <nav class="md-nav" aria-label="NoSQL概述">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#nosql_1" class="md-nav__link">
+    为什么要用NoSQL
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nosql_2" class="md-nav__link">
+    什么是NoSQL
+  </a>
+  
+    <nav class="md-nav" aria-label="什么是NoSQL">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1nosql" class="md-nav__link">
+    1、NoSQL
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2nosql" class="md-nav__link">
+    2、NoSQL特点
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nosql_3" class="md-nav__link">
+    NoSQL的四大分类
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#redis_1" class="md-nav__link">
+    Redis 入门
+  </a>
+  
+    <nav class="md-nav" aria-label="Redis 入门">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    概述
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#windows" class="md-nav__link">
+    Windows安装
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#linux" class="md-nav__link">
+    Linux安装
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    测试性能
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    基础的知识（面试题内容）
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    五大数据类型
+  </a>
+  
+    <nav class="md-nav" aria-label="五大数据类型">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#redis-key" class="md-nav__link">
+    Redis-Key
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#string" class="md-nav__link">
+    String（字符串）
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#list" class="md-nav__link">
+    List
+  </a>
+  
+    <nav class="md-nav" aria-label="List">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#set" class="md-nav__link">
+    Set（集合）
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hash" class="md-nav__link">
+    Hash
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#zset" class="md-nav__link">
+    Zset（有序集合）
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    三种特殊数据类型
+  </a>
+  
+    <nav class="md-nav" aria-label="三种特殊数据类型">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#geospatial" class="md-nav__link">
+    geospatial 地理位置
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hyperloglogs" class="md-nav__link">
+    Hyperloglogs
+  </a>
+  
+    <nav class="md-nav" aria-label="Hyperloglogs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    什么是基数？
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    简介：
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    常用命令
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bitmaps" class="md-nav__link">
+    Bitmaps
+  </a>
+  
+    <nav class="md-nav" aria-label="Bitmaps">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    位存储
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    常用命令
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_18" class="md-nav__link">
+    事务
+  </a>
+  
+    <nav class="md-nav" aria-label="事务">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_19" class="md-nav__link">
+    重点：
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#redis_2" class="md-nav__link">
+    Redis的事务:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_20" class="md-nav__link">
+    正常事务执行顺序：
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_21" class="md-nav__link">
+    放弃事务：
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_22" class="md-nav__link">
+    编译性错误
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_23" class="md-nav__link">
+    运行时异常
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#watch" class="md-nav__link">
+    监控 watch（面试常问）
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#redis_3" class="md-nav__link">
+    Redis监控测试
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#jedis" class="md-nav__link">
+    Jedis
+  </a>
+  
+    <nav class="md-nav" aria-label="Jedis">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#jedis_1" class="md-nav__link">
+    什么是Jedis
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_24" class="md-nav__link">
+    导包
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_25" class="md-nav__link">
+    编码测试
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#api" class="md-nav__link">
+    常用的API
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#jedis_2" class="md-nav__link">
+    Jedis事务
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#springboot" class="md-nav__link">
+    SpringBoot整合
+  </a>
+  
+    <nav class="md-nav" aria-label="SpringBoot整合">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_26" class="md-nav__link">
+    整合测试
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#redisconf" class="md-nav__link">
+    Redis.conf 详解
+  </a>
+  
+    <nav class="md-nav" aria-label="Redis.conf 详解">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_27" class="md-nav__link">
+    单位
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#includes" class="md-nav__link">
+    包含（INCLUDES)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#network" class="md-nav__link">
+    网络（NETWORK）
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#general" class="md-nav__link">
+    通用（GENERAL)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#snapshotting" class="md-nav__link">
+    快照（SNAPSHOTTING）
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#replication" class="md-nav__link">
+    复制（REPLICATION）
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#security" class="md-nav__link">
+    安全（SECURITY）
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#clients" class="md-nav__link">
+    客户端（CLIENTS)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#memorymanagement" class="md-nav__link">
+    内存（MEMORYMANAGEMENT）
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#append-only-aof" class="md-nav__link">
+    APPEND ONLY aof配置
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#redis_4" class="md-nav__link">
+    Redis持久化
+  </a>
+  
+    <nav class="md-nav" aria-label="Redis持久化">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#rdbredis-database" class="md-nav__link">
+    RDB（Redis DataBase）
+  </a>
+  
+    <nav class="md-nav" aria-label="RDB（Redis DataBase）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#rdb" class="md-nav__link">
+    什么是RDB
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_28" class="md-nav__link">
+    触发机制
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rdb_1" class="md-nav__link">
+    恢复rdb文件
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_29" class="md-nav__link">
+    优缺点
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aof-append-only-file" class="md-nav__link">
+    AOF ( Append Only FiLE)
+  </a>
+  
+    <nav class="md-nav" aria-label="AOF ( Append Only FiLE)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#aof" class="md-nav__link">
+    AOF是什么
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_30" class="md-nav__link">
+    优缺点
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_31" class="md-nav__link">
+    扩展
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#redis_5" class="md-nav__link">
+    Redis 发布订阅
+  </a>
+  
+    <nav class="md-nav" aria-label="Redis 发布订阅">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_32" class="md-nav__link">
+    命令
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_33" class="md-nav__link">
+    原理
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#redis_6" class="md-nav__link">
+    Redis 主从复制
+  </a>
+  
+    <nav class="md-nav" aria-label="Redis 主从复制">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_34" class="md-nav__link">
+    概念
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_35" class="md-nav__link">
+    环境配置
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_36" class="md-nav__link">
+    一主二从
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_37" class="md-nav__link">
+    细节
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_38" class="md-nav__link">
+    复制原理
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_39" class="md-nav__link">
+    主机宕机
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_40" class="md-nav__link">
+    哨兵模式
+  </a>
+  
+    <nav class="md-nav" aria-label="哨兵模式">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_41" class="md-nav__link">
+    概述
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_42" class="md-nav__link">
+    测试
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_43" class="md-nav__link">
+    优缺点
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#redis_7" class="md-nav__link">
+    Redis 缓存穿透和雪崩
+  </a>
+  
+    <nav class="md-nav" aria-label="Redis 缓存穿透和雪崩">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_44" class="md-nav__link">
+    缓存穿透（查不到）
+  </a>
+  
+    <nav class="md-nav" aria-label="缓存穿透（查不到）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_45" class="md-nav__link">
+    概念
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_46" class="md-nav__link">
+    解决方案
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_47" class="md-nav__link">
+    缓存击穿（量太大）
+  </a>
+  
+    <nav class="md-nav" aria-label="缓存击穿（量太大）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_48" class="md-nav__link">
+    概述
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_49" class="md-nav__link">
+    解决方案
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_50" class="md-nav__link">
+    缓存雪崩
+  </a>
+  
+    <nav class="md-nav" aria-label="缓存雪崩">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_51" class="md-nav__link">
+    概念
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_52" class="md-nav__link">
+    解决方案
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -306,8 +1960,8 @@
 
 
 <h1 id="redis">Redis</h1>
-<h1 id="nosql">NoSQL概述</h1>
-<h2 id="nosql_1">为什么要用NoSQL</h2>
+<h2 id="nosql">NoSQL概述</h2>
+<h3 id="nosql_1">为什么要用NoSQL</h3>
 <p><strong>1、单机MySQL的年代</strong></p>
 <p>App -&gt; DAL(Database Access Layer) -&gt; MySQL</p>
 <p>90年代，一个基本的网站访问量一般不会太大，单个数据库完全足够！</p>
@@ -332,11 +1986,11 @@
 <p><strong>6、为什么要用NoSQL</strong></p>
 <p>用户的个人信息，社交网络，地理位置。用户自己产生的数据，用户日志等等爆发式增长。</p>
 <p>这时候我们就需要使用NoSQL数据库，Nosql 可以很好的处理以上情况。</p>
-<h2 id="nosql_2">什么是NoSQL</h2>
-<h3 id="1nosql"><strong>1、NoSQL</strong></h3>
+<h3 id="nosql_2">什么是NoSQL</h3>
+<h4 id="1nosql"><strong>1、NoSQL</strong></h4>
 <p>NoSQL = Not Only SQL （不仅仅是SQL）泛指非关系型数据库 </p>
 <p>很多的数据类型用户的个人信息，社交网络，地理位置。这些数据类型的存储不需要一个固定的格式!不需要多月的操作就可以横向扩展的! Map<String,Object>使用键值对来控制!</p>
-<h3 id="2nosql">2、NoSQL特点</h3>
+<h4 id="2nosql">2、NoSQL特点</h4>
 <p>解耦！</p>
 <p>1、方便扩展（数据之间没有关系，很好扩展）</p>
 <p>2、大数据量高性能（Redis 可以一秒写8万次，读取11万次，NoSQL的缓存记录级，是一种细粒度的缓存，性能会比较高）</p>
@@ -373,7 +2027,7 @@
 <li>高可拓 （随时水平拆分，机器不够了，可用扩展机器来解决）</li>
 <li>高性能（保证用户体验和性能）</li>
 </ol>
-<h2 id="nosql_3">NoSQL的四大分类</h2>
+<h3 id="nosql_3">NoSQL的四大分类</h3>
 <p><strong>KV键值对：</strong></p>
 <ul>
 <li>新浪：Redis</li>
@@ -398,8 +2052,8 @@
 <li>neo4j</li>
 <li>InfoGrid</li>
 </ul>
-<h1 id="redis_1">Redis 入门</h1>
-<h2 id="_1">概述</h2>
+<h2 id="redis_1">Redis 入门</h2>
+<h3 id="_1">概述</h3>
 <p><strong>Redis是什么？</strong></p>
 <p>Redis（Remote Dictionary Server )，即远程字典服务.</p>
 <p>是一个开源的使用ANSI C语言 编写、支持网络、可基于内存亦可持久化的日志型、Key-Value 数据库 ，并提供多种语言的API。</p>
@@ -424,7 +2078,7 @@
 <p><img alt="image-20210928161640561" src="../Redis.assets/image-20210928161640561.png" /></p>
 <p>注意：Window在 Github下载（停更很久了）</p>
 <p>Redis推荐都是在Linux服务器上搭建，基于Linux学习</p>
-<h2 id="windows">Windows安装</h2>
+<h3 id="windows">Windows安装</h3>
 <p>1、下载压缩包：https://github.com/MicrosoftArchive/redis/tags</p>
 <p><img alt="image-20211001172509134" src="../Redis.assets/image-20211001172509134.png" /></p>
 <p><img alt="image-20211001172524853" src="../Redis.assets/image-20211001172524853.png" /></p>
@@ -434,7 +2088,7 @@
 <p>5、输入ping命令测试连接</p>
 <p><img alt="image-20211001172918567" src="../Redis.assets/image-20211001172918567.png" /></p>
 <p>推荐使用Linux去开发，不推荐windows</p>
-<h2 id="linux">Linux安装</h2>
+<h3 id="linux">Linux安装</h3>
 <p>1、官网点击直接下载安装包</p>
 <p>2、移动安装包到/opt目录并解压</p>
 <pre><code class="language-bash">mv redis-6.2.5.tar.gz /opt
@@ -478,7 +2132,7 @@ exit
 
 </code></pre>
 <p><img alt="image-20210928164952815" src="../Redis.assets/image-20210928164952815.png" /></p>
-<h2 id="_2">测试性能</h2>
+<h3 id="_2">测试性能</h3>
 <p><strong>redis-benchmark</strong>是一个压力测试工具</p>
 <p>官方自带的性能测试工具</p>
 <p>redis-benchmark 命令参数：</p>
@@ -492,7 +2146,7 @@ redis-benchmark -h localhost -p 6379 -c 100 -n 100000
 <p>100个并发客户端</p>
 <p>每次写入3个字节</p>
 <p>只有一台服务器来处理这些请求，单机性能</p>
-<h2 id="_3">基础的知识（面试题内容）</h2>
+<h3 id="_3">基础的知识（面试题内容）</h3>
 <p><strong>1、redis默认有16个数据库</strong></p>
 <p><img alt="image-20210928170313289" src="../Redis.assets/image-20210928170313289.png" /></p>
 <p>2、默认使用的是第<strong>0</strong>个</p>
@@ -529,10 +2183,10 @@ OK
 <p>但是注意：<strong>Redis6.0是默认禁用多线程的</strong>，但可以通过配置文件redis.conf中的io-threads-do-reads 等于 true 来开启。但是还不够，除此之外我们还需要设置线程的数量才能正确地开启多线程的功能，同样是修改Redis的配置，例如设置 io-threads 4，表示开启4个线程。</p>
 <p>【关于线程数的设置，官方的建议是如果为4核CPU，那么设置线程数为2或3；如果为8核CPU，那么设置线程数为6.总之线程数一定要小于机器的CPU核数，线程数并不是越大越好。】</p>
 <p>关于Redis的性能，Redis的作者在2019年的RedisConf大会上提到，Redis6.0引入的多线程IO特性对性能的提升至少是一倍以上。国人也有在阿里云使用4个线程的Redis版本和单线程的Redis进行比较测试，发现测试结果和Redis作者说的一致，性能基本可以提高一倍。</p>
-<h1 id="_4">五大数据类型</h1>
+<h2 id="_4">五大数据类型</h2>
 <p><img alt="image-20210928173321104" src="../Redis.assets/image-20210928173321104.png" /></p>
 <p>Redis 是一个开源（BSD许可）的，内存中的数据结构存储系统，它可以用作<strong>数据库</strong>、<strong>缓存</strong>和<strong>消息中间件</strong>。 它支持多种类型的数据结构，如 <a href="http://www.redis.cn/topics/data-types-intro.html#strings">字符串（strings）</a>， <a href="http://www.redis.cn/topics/data-types-intro.html#hashes">散列（hashes）</a>， <a href="http://www.redis.cn/topics/data-types-intro.html#lists">列表（lists）</a>， <a href="http://www.redis.cn/topics/data-types-intro.html#sets">集合（sets）</a>， <a href="http://www.redis.cn/topics/data-types-intro.html#sorted-sets">有序集合（sorted sets）</a> 与范围查询， <a href="http://www.redis.cn/topics/data-types-intro.html#bitmaps">bitmaps</a>， <a href="http://www.redis.cn/topics/data-types-intro.html#hyperloglogs">hyperloglogs</a> 和 <a href="http://www.redis.cn/commands/geoadd.html">地理空间（geospatial）</a> 索引半径查询。 Redis 内置了 <a href="http://www.redis.cn/topics/replication.html">复制（replication）</a>，<a href="http://www.redis.cn/commands/eval.html">LUA脚本（Lua scripting）</a>， <a href="http://www.redis.cn/topics/lru-cache.html">LRU驱动事件（LRU eviction）</a>，<a href="http://www.redis.cn/topics/transactions.html">事务（transactions）</a> 和不同级别的 <a href="http://www.redis.cn/topics/persistence.html">磁盘持久化（persistence）</a>， 并通过 <a href="http://www.redis.cn/topics/sentinel.html">Redis哨兵（Sentinel）</a>和自动 <a href="http://www.redis.cn/topics/cluster-tutorial.html">分区（Cluster）</a>提供高可用性（high availability）。</p>
-<h2 id="redis-key">Redis-Key</h2>
+<h3 id="redis-key">Redis-Key</h3>
 <p>常用命令：</p>
 <pre><code class="language-bash">set key value # set
 get key # get
@@ -556,7 +2210,7 @@ ttl key  # 查看当前key的剩余时间
 type key # 查看当前key的类型
 </code></pre>
 <p>不清楚的命令可以去官网查</p>
-<h2 id="string">String（字符串）</h2>
+<h3 id="string">String（字符串）</h3>
 <p>所有命令不区分大小写</p>
 <pre><code class="language-bash">APPEND key &quot;xxx&quot; # 向一个key后追加xxx内容，如果当前key不存在，就相当于set key
 key1 = &quot;hello&quot;
@@ -614,7 +2268,7 @@ mget use1:1:name ser:1:age
 <li>粉丝数</li>
 <li>对象缓存存储</li>
 </ul>
-<h2 id="list">List</h2>
+<h3 id="list">List</h3>
 <p>在redis里面，可以用list实现栈、队列、阻塞队列</p>
 <p>```bash
 127.0.0.1:6379&gt; LPUSH list one # 将一个值或者多个值，插入到列表头部
@@ -674,7 +2328,7 @@ lrem list 2 three # 移除list中2个three</p>
 <li>在两边插入或者改动值，效率最高!中间元素，相对来说效率会低一点~</li>
 </ul>
 <p>可以应用为消息队列：Lpush Rpop ，栈（Lpush Lpop）</p>
-<h2 id="set">Set（集合）</h2>
+<h3 id="set">Set（集合）</h3>
 <p>set中的值不能重复</p>
 <pre><code class="language-bash">sadd set &quot;hello&quot; # 往set集合中添加hello
 sadd set &quot;kongcheng&quot;
@@ -699,7 +2353,7 @@ sdiff set1 set2 # (set1 - set1与set2的交集)差集
 sinter set1 set2 # set1 与 set2 的交集
 sunion set1 set2 # set1 与 set2 的并集
 </code></pre>
-<h2 id="hash">Hash</h2>
+<h3 id="hash">Hash</h3>
 <p>Map集合，key - map</p>
 <pre><code class="language-bash">hset hash field1 kongcheng # set 
 hmset hash field1 hello field2 world
@@ -722,7 +2376,7 @@ hincrby hash field11 1 # 增加
 
 hsetnx hash field hello # set if not exist
 </code></pre>
-<h2 id="zset">Zset（有序集合）</h2>
+<h3 id="zset">Zset（有序集合）</h3>
 <p>在Set的基础上，增加了一个值：</p>
 <p>set k1 v1 </p>
 <p>zset k1 score1 v1</p>
@@ -756,8 +2410,8 @@ zcard set # 获取有序集合中的个数
 <p>案例思路：</p>
 <p>1、重要消息 带权重进行判断</p>
 <p>2、排行榜应用实现</p>
-<h1 id="_12">三种特殊数据类型</h1>
-<h2 id="geospatial">geospatial 地理位置</h2>
+<h2 id="_12">三种特殊数据类型</h2>
+<h3 id="geospatial">geospatial 地理位置</h3>
 <p>朋友的定位，附件的人，打车距离计算</p>
 <p>Redis 的 Geo 在Redis3.2版本 就推出了，这个功能可以推算地理位置的信息，两地之间的距离，方圆几里的人。</p>
 <p>六个命令：</p>
@@ -806,12 +2460,12 @@ georadiusbymember key member radius m|km|ft|mi [WITHCOORD] [WITHDIST] [WITHHASH]
 <p><strong>基于zset数据类型，可以通过zset的基本指令来操作key。</strong></p>
 <pre><code class="language-bash">zrange key 0 -1 # 可查询key中所有city
 </code></pre>
-<h2 id="hyperloglogs">Hyperloglogs</h2>
-<h3 id="_13"><strong>什么是基数</strong>？</h3>
+<h3 id="hyperloglogs">Hyperloglogs</h3>
+<h4 id="_13"><strong>什么是基数</strong>？</h4>
 <p>A {1, 3, 5, 7, 8, 7}</p>
 <p>B {1, 3, 5, 7, 8}</p>
 <p>基数（不重复的元素）= 5 ，可以接受误差</p>
-<h3 id="_14"><strong>简介：</strong></h3>
+<h4 id="_14"><strong>简介：</strong></h4>
 <p>Redis 2.8.8版本就更新了Hyperloglogs数据结构</p>
 <p>Redis Hyperloglog 基数统计的算法</p>
 <p>优点：占用的内存是固定的，2^64 不同的元素的技术，（每个HyperLogLog结构需要12K字节再加上key本身的几个字节），如果要从内存角度来比较的话，Hyperloglog首选。</p>
@@ -819,7 +2473,7 @@ georadiusbymember key member radius m|km|ft|mi [WITHCOORD] [WITHDIST] [WITHHASH]
 <p>传统的方式，set 保存用户的ID，然后就可以统计 set 中的元素数量作为标准判断！</p>
 <p>这个方式如果保存大量的用户id，就会比较麻烦，我们的目的是为了计数，而不是保存用户ID</p>
 <p><strong>0.81% 错误率！</strong> 统计UV任务，可以忽略不计的。</p>
-<h3 id="_15">常用命令</h3>
+<h4 id="_15">常用命令</h4>
 <p><img alt="image-20211001152747685" src="../Redis.assets/image-20211001152747685.png" /></p>
 <p>1、PFADD</p>
 <pre><code class="language-bash">PFADD key element [element ...]
@@ -846,13 +2500,13 @@ redis&gt;
 </code></pre>
 <p>如果允许容错，那么可以使用Hyperloglog</p>
 <p>如果不允许容错，使用set或者自己的数据类型</p>
-<h2 id="bitmaps">Bitmaps</h2>
-<h3 id="_16">位存储</h3>
+<h3 id="bitmaps">Bitmaps</h3>
+<h4 id="_16">位存储</h4>
 <p>统计性别信息：0 1 0 0 1 1 0 （男、女）</p>
 <p>统计用户信息：登录、未登录 or 打卡、未打卡</p>
 <p>两个状态的，都可以使用Bitmaps</p>
 <p>Bitmaps 位图，数据结构。都是操作二进制位来进行记录，就只有0和1两个状态！</p>
-<h3 id="_17">常用命令</h3>
+<h4 id="_17">常用命令</h4>
 <p>1、setbit</p>
 <pre><code class="language-bash">SETBIT key offset value
 </code></pre>
@@ -862,24 +2516,24 @@ redis&gt;
 <p>3、bitcount </p>
 <pre><code class="language-bash">BITCOUNT key [start end]
 </code></pre>
-<h1 id="_18">事务</h1>
+<h2 id="_18">事务</h2>
 <p>Redis事务本质：一组命令的集合！一个事务中的所有命令都会被序列化，在事务执行过程中，会按照顺序执行。</p>
 <p>一次性、顺序性、排他性，执行一些列的命令</p>
 <pre><code class="language-bash">------ 队列 set set set 执行 ------
 </code></pre>
-<h2 id="_19">重点：</h2>
+<h3 id="_19">重点：</h3>
 <ul>
 <li>Redis单条命令式保存原子性，但是事务不保证原子性！</li>
 <li>Redis事务没有隔离级别的概念</li>
 <li>所有的命令在事务中，并没有直接被执行，只有发起执行命令的时候才会执行</li>
 </ul>
-<h2 id="redis_2">Redis的事务:</h2>
+<h3 id="redis_2">Redis的事务:</h3>
 <ul>
 <li>开启事务（ multi ）</li>
 <li>命令入队（ ... ）</li>
 <li>执行事务（ exec ）</li>
 </ul>
-<h2 id="_20">正常事务执行顺序：</h2>
+<h3 id="_20">正常事务执行顺序：</h3>
 <pre><code class="language-bash">&gt; MULTI # 开启事务
 OK
 # 命令入队
@@ -891,7 +2545,7 @@ QUEUED
 1) (integer) 1
 2) (integer) 1
 </code></pre>
-<h2 id="_21">放弃事务：</h2>
+<h3 id="_21">放弃事务：</h3>
 <p>当执行 DISCARD命令时， 事务会被放弃， 事务队列会被清空， 并且客户端会从事务状态中退出：</p>
 <pre><code class="language-bash">&gt; SET foo 1
 OK
@@ -904,11 +2558,11 @@ OK
 &gt; GET foo
 &quot;1&quot;
 </code></pre>
-<h2 id="_22">编译性错误</h2>
+<h3 id="_22">编译性错误</h3>
 <p>代码有问题，命令有错，事务中<strong>所有的命令都不会被执行</strong></p>
-<h2 id="_23">运行时异常</h2>
+<h3 id="_23">运行时异常</h3>
 <p>如果事务队列中存在语法性，那么执行命令的时候，<strong>其他命令是可以正常执行的</strong>，错误命令抛出异 常!</p>
-<h2 id="watch">监控 watch（面试常问）</h2>
+<h3 id="watch">监控 watch（面试常问）</h3>
 <p><strong>悲观锁：</strong></p>
 <ul>
 <li>很悲观，什么时候都会出问题，无论做什么都会加锁</li>
@@ -919,16 +2573,16 @@ OK
 <li>获取version</li>
 <li>更新的时候比较version</li>
 </ul>
-<h2 id="redis_3">Redis监控测试</h2>
+<h3 id="redis_3">Redis监控测试</h3>
 <p>watch：标记所有指定的key 被监视起来，在<strong>事务中</strong>有条件的执行<strong>（乐观锁）</strong>。</p>
 <p>被 WATCH的键会被监视，并会发觉这些键是否被改动过了。 如果有至少一个被监视的键在 <strong>EXEC</strong> 执行之前被修改了， 那么整个事务都会被取消， EXEC返回nil-reply来表示事务已经失败。</p>
 <pre><code class="language-bash">WATCH key [key ...]
 </code></pre>
-<h1 id="jedis">Jedis</h1>
+<h2 id="jedis">Jedis</h2>
 <p>使用java来操作redis</p>
-<h2 id="jedis_1">什么是Jedis</h2>
+<h3 id="jedis_1">什么是Jedis</h3>
 <p>Jedis 是 Redis 官方推荐的 java 连接开发工具，使用java操作 Redis 的中间件。，需要对 Jedis 十分的熟悉。</p>
-<h2 id="_24">导包</h2>
+<h3 id="_24">导包</h3>
 <pre><code class="language-xml">&lt;!-- https://mvnrepository.com/artifact/redis.clients/jedis --&gt;
 &lt;dependency&gt;
     &lt;groupId&gt;redis.clients&lt;/groupId&gt;
@@ -941,7 +2595,7 @@ OK
     &lt;version&gt;1.2.62&lt;/version&gt;
 &lt;/dependency&gt;
 </code></pre>
-<h2 id="_25">编码测试</h2>
+<h3 id="_25">编码测试</h3>
 <ul>
 <li>连接数据库</li>
 <li>操作命令</li>
@@ -956,7 +2610,7 @@ OK
 </code></pre>
 <p>输出：</p>
 <p><img alt="image-20211001173444144" src="../Redis.assets/image-20211001173444144.png" /></p>
-<h2 id="api">常用的API</h2>
+<h3 id="api">常用的API</h3>
 <p>String</p>
 <p>List</p>
 <p>Set</p>
@@ -964,7 +2618,7 @@ OK
 <p>Zset</p>
 <p>所有的API命令与上述命令相同</p>
 <p><img alt="image-20211002154203560" src="../Redis.assets/image-20211002154203560.png" /></p>
-<h2 id="jedis_2">Jedis事务</h2>
+<h3 id="jedis_2">Jedis事务</h3>
 <pre><code class="language-java">public class TestJedis {
     public static void main(String[] args) {
         Jedis jedis = new Jedis(&quot;127.0.0.1&quot;, 6379);
@@ -989,7 +2643,7 @@ OK
     }
 }
 </code></pre>
-<h1 id="springboot">SpringBoot整合</h1>
+<h2 id="springboot">SpringBoot整合</h2>
 <p>说明：在SpringBoot2.x 之后，原来使用的jedi 被替换为了lettuce</p>
 <p>jedis : 采用的直连，多个线程操作的话，是不安全的，如果想要避免不安全的话，使用 jedis pool 连接池。更像BIO模式</p>
 <p>lettuce : 采用netty， 实例可以在多个线程中进行共享，不存在线程不安全的情况，可以减少线程数据了，更像NIO模式</p>
@@ -1016,7 +2670,7 @@ public StringRedisTemplate stringRedisTemplate(RedisConnectionFactory redisConne
     return template;
 }
 </code></pre>
-<h2 id="_26">整合测试</h2>
+<h3 id="_26">整合测试</h3>
 <p>1、导入依赖</p>
 <pre><code class="language-xml">&lt;dependency&gt;
     &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
@@ -1084,20 +2738,20 @@ public class RedisConfig {
 </code></pre>
 <p>5、编写RedisUtils工具类，避免使用原生redisTemplate</p>
 <p>可在CSDN直接找别人封装好的，然后导入上面第4步自定义序列化的redisTemplate</p>
-<h1 id="redisconf">Redis.conf 详解</h1>
+<h2 id="redisconf">Redis.conf 详解</h2>
 <p>启动的时候，就通过配置文件来启动！</p>
-<h2 id="_27">单位</h2>
+<h3 id="_27">单位</h3>
 <p><img alt="image-20211002173226026" src="../Redis.assets/image-20211002173226026.png" /></p>
 <p>1、配置文件 unit单位对大小写不敏感</p>
-<h2 id="includes">包含（INCLUDES)</h2>
+<h3 id="includes">包含（INCLUDES)</h3>
 <p><img alt="image-20211002173324619" src="../Redis.assets/image-20211002173324619.png" /></p>
 <p>就是好比我们学习Spring中的Import、include</p>
-<h2 id="network">网络（NETWORK）</h2>
+<h3 id="network">网络（NETWORK）</h3>
 <pre><code class="language-bash">bind 127.0.0.1 -::1 # 绑定的ip
 protected-mode yes # 保护模式
 port 6379 # 端口设置
 </code></pre>
-<h2 id="general">通用（GENERAL)</h2>
+<h3 id="general">通用（GENERAL)</h3>
 <pre><code class="language-bash">daemonize yes # 以守护进程的方式来运行，默认是no，我们需要自己开启为yes
 
 pidfile /var/run/redis_6379.pid # 如果以后台方式运行，我们就需要指定一个pid 文件
@@ -1114,7 +2768,7 @@ logfile &quot;&quot; # 日志的文件位置名
 databases 16 # 数据库的数量，默认是 16 个数据库
 always-show logo yes # 是否总是显示logo
 </code></pre>
-<h2 id="snapshotting">快照（SNAPSHOTTING）</h2>
+<h3 id="snapshotting">快照（SNAPSHOTTING）</h3>
 <p>持久化，在规定的时间内，执行了多少次操作，则会持久到文件 .rdb .aof</p>
 <p>redis是内存数据库，如果没有持久化，那么数据断电及失</p>
 <pre><code class="language-bash"># 如果3600s内，如果至少有1个key进行了修改，我们就进行持久化操作
@@ -1133,8 +2787,8 @@ rdbcompression yes # 保存rdb文件的时候，进行错误的检查校验
 
 dir ./ # rdb 文件保存的目录
 </code></pre>
-<h2 id="replication">复制（REPLICATION）</h2>
-<h2 id="security">安全（SECURITY）</h2>
+<h3 id="replication">复制（REPLICATION）</h3>
+<h3 id="security">安全（SECURITY）</h3>
 <pre><code class="language-bash">requirepass 123456 # 设置密码
 
 # redis-cli中输入密码指令
@@ -1142,10 +2796,10 @@ auth 123456
 
 config set requirepass 123456 # 命令行输入设置密码
 </code></pre>
-<h2 id="clients">客户端（CLIENTS)</h2>
+<h3 id="clients">客户端（CLIENTS)</h3>
 <pre><code class="language-bash">maxclients # 最大连接客户端数量
 </code></pre>
-<h2 id="memorymanagement">内存（MEMORYMANAGEMENT）</h2>
+<h3 id="memorymanagement">内存（MEMORYMANAGEMENT）</h3>
 <pre><code class="language-bash">maxmemory &lt;bytes&gt; # redis 配置最大的内存容量
 
 maxmemory-policy noeviction # 内存到达上限之后的处理策略
@@ -1159,7 +2813,7 @@ maxmemory-policy noeviction # 内存到达上限之后的处理策略
 7、volatile-ttl -&gt; 删除即将过期的
 8、noeviction -&gt; 永不过期，返回错误
 </code></pre>
-<h2 id="append-only-aof">APPEND ONLY aof配置</h2>
+<h3 id="append-only-aof">APPEND ONLY aof配置</h3>
 <pre><code class="language-bash">appendonly no # 默认是不开启aof模式的。默认是使用rdb方式持久化的，在大部分所有的情况下，rdb完全够用
 appendfilename &quot;appendonly.aof&quot; # 持久化的文件的名字
 
@@ -1167,11 +2821,11 @@ appendfsync always  # 每次修改都会sync ，消耗性能
 appendfsync everysec # 每秒执行一次 sync ， 可能会丢失这1s的数据
 appendfsync no # 不执行sync， 这个时候操作系统自己同步数据，速度最快
 </code></pre>
-<h1 id="redis_4">Redis持久化</h1>
+<h2 id="redis_4">Redis持久化</h2>
 <p>面试和工作，持久化都是重点！</p>
 <p>Redis是内存数据库，如果不将内存中的数据库状态保存到磁盘，那么一旦服务器进程退出，服务器中的数据库状态也会消失。所以Redis提供了持久化功能!</p>
-<h2 id="rdbredis-database">RDB（Redis DataBase）</h2>
-<h3 id="rdb">什么是RDB</h3>
+<h3 id="rdbredis-database">RDB（Redis DataBase）</h3>
+<h4 id="rdb">什么是RDB</h4>
 <p>主从复制中，rdb就是备用了，从机上面。</p>
 <p><img alt="image-20211002193115650" src="../Redis.assets/image-20211002193115650.png" /></p>
 <p>在指定的时间间隔内将内存中的数据集快照写入磁盘，也就是行话讲的Snapshot快照，它恢复时是将快照文件直接读到内存里。</p>
@@ -1179,28 +2833,28 @@ appendfsync no # 不执行sync， 这个时候操作系统自己同步数据，�
 <p>有时候在生产环境我们会将这个文件进行备份</p>
 <p><strong>RDB保存的文件是 dump.rdb</strong> 都是在我们的配置文件 ：快照中配置</p>
 <p><img alt="image-20211002191721576" src="../Redis.assets/image-20211002191721576.png" /></p>
-<h3 id="_28">触发机制</h3>
+<h4 id="_28">触发机制</h4>
 <p>1、save的规则满足的情况下，会自动触发rdb规则</p>
 <p>2、执行 flushall 命令， 也会触发我们的rdb规则</p>
 <p>3、退出redis ， 也会产生 rbd  文件</p>
 <p>备份就自动生成一个 dump.rdb</p>
-<h3 id="rdb_1">恢复rdb文件</h3>
+<h4 id="rdb_1">恢复rdb文件</h4>
 <p>1、只需要将rdb文件放在我们redis启动目录（redis-server同级目录）就可以，redis启动的时候会自动检查dump.rdb 恢复其中的数据</p>
 <p>2、查看需要存在的位置</p>
 <pre><code class="language-bash">127.0.0.1:6379&gt; config get dir
 1) &quot;dir&quot;
 2) &quot;/usr/local/bin&quot; # 如果在这个目录下存在 dump.rdb 文件，启动就会自动恢复其中的数据
 </code></pre>
-<h3 id="_29">优缺点</h3>
+<h4 id="_29">优缺点</h4>
 <p>优点：</p>
 <p>1、适合大规模的数据恢复！ dump.rdb</p>
 <p>2、对数据的完整性要求不高</p>
 <p>缺点：</p>
 <p>1、需要一定的时间间隔进程操作，如果redis意外宕机了，最后一次修改数据就丢失了</p>
 <p>2、fork进程的时候，会占用一定的内存空间</p>
-<h1 id="aof-append-only-file">AOF ( Append Only FiLE)</h1>
+<h2 id="aof-append-only-file">AOF ( Append Only FiLE)</h2>
 <p>将我们的所有的命令都记录下来，history，恢复的时候就把这个文件全部在执行一遍。</p>
-<h2 id="aof">AOF是什么</h2>
+<h3 id="aof">AOF是什么</h3>
 <p>以日志的形式来记录每个写操作，将Redis执行过的所有指令记录下来(读操作不记录)，只许追加文件但不可以改写文件，redis启动之初会读取该文件重新构建数据，换言之，redis重启的话就根据日志文件的内容将写指令从前到后执行一次以完成数据的恢复工作</p>
 <p><strong>AOF保存的是 appendonly.aof 文件</strong></p>
 <p><img alt="image-20211002193743234" src="../Redis.assets/image-20211002193743234.png" /></p>
@@ -1209,7 +2863,7 @@ appendfsync no # 不执行sync， 这个时候操作系统自己同步数据，�
 <p>redis提供了工具 redis-check-aof </p>
 <pre><code class="language-bash">redis-check-aop --fix
 </code></pre>
-<h2 id="_30">优缺点</h2>
+<h3 id="_30">优缺点</h3>
 <p>优点：</p>
 <p>1、每一次修改都同步，文件的完整性更好；</p>
 <p>2、每秒同步一次，可能会丢失一秒的数据</p>
@@ -1217,7 +2871,7 @@ appendfsync no # 不执行sync， 这个时候操作系统自己同步数据，�
 <p>缺点：</p>
 <p>1、相对于数据文件来说，aof 远远大于 rdb，修复的速度也比 rdb 慢</p>
 <p>2、aof 的运行效率也要比 rdb 慢，所有默认的配置就是 rbd 持久化</p>
-<h2 id="_31">扩展</h2>
+<h3 id="_31">扩展</h3>
 <p>1、RDB持久化方式能够在指定的时间间隔内对你的数据进行快照存储</p>
 <p>2、AOF持久化方式记录每次对服务器写的操作，当服务器重启的时候会重新执行这些命令来恢复原始的数据，AOF命令以Redis 协议追加保存每次写的操作到文件末尾，Redis还能对AOF文件进行后台重写，使得AOF文件的体积不至于过大。</p>
 <p>3、<strong>只做缓存，如果你只希望你的数据在服务器运行的时候存在，你也可以不使用任何持久化</strong></p>
@@ -1233,14 +2887,14 @@ appendfsync no # 不执行sync， 这个时候操作系统自己同步数据，�
 <li>如果Enable AOF，好处是在最恶劣情况下也只会丢失不超过两秒数据，启动脚本较简单只load自己的AOF文件就可以了，代价一是带来了持续的lO，二是AOF rewrite的最后将rewrite过程中产生的新数据写到新文件造成的阻塞几乎是不可避免的。只要硬盘许可，应该尽量减少AOF rewrite的频率，AOF重写的基础大小默认值64M太小了，可以设到5G以上，默认超过原大小100%大小重写可以改到适当的数值。</li>
 <li>如果不Enable AOF，仅靠Master-Slave Replcation实现高可用性也可以，能省掉一大笔IO，也减少了rewrite时带来的系统波动。代价是如果Master/Slave同时倒掉，会丢失十几分钟的数据，启动脚本也要比较两个Master/Slave中的RDB文件，载入较新的那个，微博就是这种架构。</li>
 </ul>
-<h1 id="redis_5">Redis 发布订阅</h1>
+<h2 id="redis_5">Redis 发布订阅</h2>
 <p>Redis 发布订阅(pub/sub)是一种消息通信模式∶发送者(pub)发送消息，订阅者(sub)接收消息。</p>
 <p>Redis客户端可以订阅任意数量的频道。</p>
 <p>订阅/发布消息图:</p>
 <p><img alt="image-20211002195236468" src="../Redis.assets/image-20211002195236468.png" /></p>
-<h2 id="_32">命令</h2>
+<h3 id="_32">命令</h3>
 <p><img alt="image-20211002195907434" src="../Redis.assets/image-20211002195907434.png" /></p>
-<h2 id="_33">原理</h2>
+<h3 id="_33">原理</h3>
 <p>Redis是使用C实现的，通过分析Redis源码里的pubsub.c文件，了解发布和订阅机制的底层实现，籍此加深对Redis的理解。</p>
 <p>Redis通过PUBLISH、SUBSCRIBE和PSUBSCRIBE等命令实现发布和订阅功能。</p>
 <p>通过SUBSCRIBE命令订阅某频道后，redis-server里维护了一个字典，字典的键就是一个个channel，而字典的值则是一个链表，链表中保存了所有订阅这个channel 的客户端。SUBSCRIBE命令的关键，就是将客户端添加到给定channel的订阅链表中。<img alt="image-20211002201142673" src="../Redis.assets/image-20211002201142673.png" /></p>
@@ -1251,8 +2905,8 @@ appendfsync no # 不执行sync， 这个时候操作系统自己同步数据，�
 <p>2、实时聊天！（频道当做聊天室，将信息回显给所有人）</p>
 <p>3、订阅、关注系统</p>
 <p>复杂场景 一般 使用消息中间件 MQ</p>
-<h1 id="redis_6">Redis 主从复制</h1>
-<h2 id="_34">概念</h2>
+<h2 id="redis_6">Redis 主从复制</h2>
+<h3 id="_34">概念</h3>
 <p>主从复制，是指将一台Redis服务器的数据，复制到其他的Redis服务器。前者称为主节点(master/leader)，后者称为从节点(slave/follower);<strong>数据的复制是单向的，只能由主节点到从节点</strong>。Master以写为主，Slave以读为主。</p>
 <p>默认情况下，每台Redis服务器都是主节点;且一个主节点可以有多个从节点(或没 有从节点)，但一个从节点只能有一个主节点。</p>
 <p><strong>主从复制的作用主要包括:</strong></p>
@@ -1266,7 +2920,7 @@ appendfsync no # 不执行sync， 这个时候操作系统自己同步数据，�
 <p>电商网站上的商品，一般都是一次上传，无数次浏览的，说专业点也就是"多读少写"。</p>
 <p><img alt="image-20211002201639672" src="../Redis.assets/image-20211002201639672.png" /></p>
 <p>主从复制，读写分离！80%的情况下都是在进行读操作，减缓服务器的压力，架构中经常使用，一主二从。</p>
-<h2 id="_35">环境配置</h2>
+<h3 id="_35">环境配置</h3>
 <p>只配置从库，不用配置主库！</p>
 <pre><code class="language-bash">info replication # 查看当前库的信息
 
@@ -1291,7 +2945,7 @@ repl_backlog_histlen:0
 <p>3、修改logfile （日志）</p>
 <p>4、修改dbfilename  （rdb）</p>
 <p>根据不同配置文件启动三个redis进程</p>
-<h2 id="_36">一主二从</h2>
+<h3 id="_36">一主二从</h3>
 <p><strong>默认情况下，每台Redis服务器都是主节点</strong>; 我们一般情况下只用配置从机就好了!</p>
 <p>配置从机：</p>
 <pre><code class="language-bash">SLAVEOF ip port # 认主，找主机
@@ -1299,26 +2953,26 @@ repl_backlog_histlen:0
 <p>真实的从主配置应该在配置文件中配置，这样的话是永久的，我们这里使用的是命令，暂时的。</p>
 <p>配置文件：</p>
 <p><img alt="image-20211002203851580" src="../Redis.assets/image-20211002203851580.png" /></p>
-<h2 id="_37">细节</h2>
+<h3 id="_37">细节</h3>
 <ul>
 <li>主机可以写，从机不能写只能读 ! 主机中的所有信息和数据，都会自动被从机保存 !</li>
 <li>主机断开连接，从机依旧连接到主机的，但是没有写操作，这个时候，主机如果回来了，从机依旧可以直接获取到主机写的信息!</li>
 <li>如果是使用命令行，来配置的主从，这个时候如果重启，就会变成主机。只要变为从机，立马就会从主机中获取值</li>
 </ul>
-<h2 id="_38">复制原理</h2>
+<h3 id="_38">复制原理</h3>
 <p>Slave启动战功连接到 master 后会发送一个 sync 同步命令</p>
 <p>Master接到命令，启动后台的存盘进程，同时收集所有接收到的用于修改数据集命令，在后台进程执行完毕之后，<strong>master将传送整个数据文件到slave，并完成一次完全同步。</strong></p>
 <p><strong>全量复制 </strong>: 而slave服务在接收到数据库文件数据后，将其存盘并加载到内存中。</p>
 <p><strong>增量复制 </strong>: Master继续将新的所有收集到的修改命令依次传给slave，完成同步</p>
 <p>但是只要是重新连接master，一次完全同步（全量复制)将被自动执行，我们的数据一定可以在从机上面看到</p>
-<h2 id="_39">主机宕机</h2>
+<h3 id="_39">主机宕机</h3>
 <p>从机可以 “谋朝篡位” ，自己又当主机</p>
 <pre><code class="language-bash">slaveof no one
 </code></pre>
 <p>此时主机再恢复，主机下也没有此从机了。</p>
-<h2 id="_40">哨兵模式</h2>
+<h3 id="_40">哨兵模式</h3>
 <p>（自动选择老大的模式）</p>
-<h3 id="_41">概述</h3>
+<h4 id="_41">概述</h4>
 <p>主从切换技术的方法是︰当主服务器宕机后，需要手动把一台从服务器切换为主服务器，这就需要人工干预，费事费力，还会造成一段时间内服务不可用。这不是一种推荐的方式，更多时候，我们优先考虑哨兵模式。Redis从2.8开始正式提供了Sentinel (哨兵）架构来解决这个问题。</p>
 <p>谋朝篡位的自动版，能够后台监控主机是否故障，如果故障了根据投票数<strong>自动将从库转换为主库</strong>。</p>
 <p>哨兵模式是一种特殊的模式，首先Redis提供了哨兵的命令，哨兵是一个独立的进程，作为进程，它会独立运行。其原理是<strong>哨兵通过发送命令，等待Redis服务器响应，从而监控运行的多个Redis实例。</strong></p>
@@ -1331,7 +2985,7 @@ repl_backlog_histlen:0
 <p>然而一个哨兵进程对Redis服务器进行监控，可能会出现问题，为此，我们可以使用多个哨兵进行监控。各个哨兵之间还会进行监控，这样就形成了多哨兵模式。</p>
 <p><img alt="image-20211002205800838" src="../Redis.assets/image-20211002205800838.png" /></p>
 <p>假设主服务器宕机，哨兵1先检测到这个结果，系统并不会马上进行failover过程，仅仅是哨兵1主观的认为主服务器不可用，这个现象成为<strong>主观下线</strong>、当后面的哨兵也检测到主服务器不可用，并且数量达到一定值时，那么哨兵之间就会进行一次投票，投票的结果由一个哨兵发起了进行failover[故障转移]操作。切换成功后，就会通过发布订阅模式，让各个哨兵把自己监控的从服务器实现切换主机，这个过程称为<strong>客观下线</strong></p>
-<h3 id="_42">测试</h3>
+<h4 id="_42">测试</h4>
 <p>1、配置哨兵配置文件sentinel.conf</p>
 <pre><code class="language-bash"># sentinel monitor 被监控的名称 ip port 1
 sentinel monitor myredis 127.0.0.1 6379 1
@@ -1343,7 +2997,7 @@ sentinel monitor myredis 127.0.0.1 6379 1
 </code></pre>
 <p>主机宕机后，哨兵会自动投票选举一个新的从机作为主机；</p>
 <p>当主机恢复后，<strong>只能归并到新的主机下，当做从机</strong>，这就是哨兵模式的规则。</p>
-<h3 id="_43">优缺点</h3>
+<h4 id="_43">优缺点</h4>
 <p>优点：</p>
 <p>1、哨兵集群，基于主从复制模式，所有的主从配置优点，它全有</p>
 <p>2、主从可以切换，故障可以转移，系统的可用性更好</p>
@@ -1351,14 +3005,14 @@ sentinel monitor myredis 127.0.0.1 6379 1
 <p>缺点：</p>
 <p>1、Redis 不好在线扩容，集群容量一旦到达上限，在线扩容就十分麻烦</p>
 <p>2、实现哨兵模式的配置其实很麻烦，里面有很多选择</p>
-<h1 id="redis_7">Redis 缓存穿透和雪崩</h1>
+<h2 id="redis_7">Redis 缓存穿透和雪崩</h2>
 <p><strong>（面试高频，工作常用）</strong></p>
 <p>Redis缓存的使用，极大的提升了应用程序的性能和效率，特别是数据查询方面。但同时，它也带来了一些问题。其中，最要害的问题，就是数据的一致性问题，从严格意义上讲，这个问题无解。如果对数据的一致性要求很高，那么就不能使用缓存。</p>
 <p>另外的一些典型问题就是，缓存穿透、缓存雪崩和缓存击穿。目前，业界也都有比较流行的解决方案。</p>
-<h2 id="_44">缓存穿透（查不到）</h2>
-<h3 id="_45">概念</h3>
+<h3 id="_44">缓存穿透（查不到）</h3>
+<h4 id="_45">概念</h4>
 <p>缓存穿透的概念很简单，用户想要查询一个数据，发现redis内存数据库没有，也就是缓存没有命中，于是向持久层数据库（MySQL）查询。发现也没有，于是本次查询失败。当用户很多的时候，缓存都没有命中（秒杀场景！），于是都去请求了持久层数据库。这会给持久层数据库造成很大的压力，这时候就相当于出现了缓存穿透。</p>
-<h3 id="_46">解决方案</h3>
+<h4 id="_46">解决方案</h4>
 <p><strong>1、布隆过滤器</strong></p>
 <p>布隆过滤器是一种数据结构，对所有可能查询的参数以hash形式存储，在控制层先进行校验，不符合则丢弃，从而避免了对底层存储系统的查询压力;</p>
 <p><img alt="image-20211002212335259" src="../Redis.assets/image-20211002212335259.png" /></p>
@@ -1368,20 +3022,20 @@ sentinel monitor myredis 127.0.0.1 6379 1
 <p>但是这种方法会存在两个问题∶</p>
 <p>1、如果空值能够被缓存起来，这就意味着缓存需要更多的空间存储更多的键，因为这当中可能会有很多的空值的键;</p>
 <p>2、即使对空值设置了过期时间，还是会存在缓存层和存储层的数据会有一段时间窗口的不一致，这对于需要保持一致性的业务会有影响。</p>
-<h2 id="_47">缓存击穿（量太大）</h2>
-<h3 id="_48">概述</h3>
+<h3 id="_47">缓存击穿（量太大）</h3>
+<h4 id="_48">概述</h4>
 <p>这里需要注意和缓存击穿的区别，缓存击穿，是指一个key非常热点，在不停的扛着大并发，大并发集中对这一个点进行访问，当这个key在失效的瞬间，持续的大并发就穿破缓存，直接请求数据库，就像在一个屏障上凿开了一个洞。</p>
 <p>当某个key在过期的瞬间，有大量的请求并发访问，这类数据一般是热点数据，由于缓存过期，会同时访问数据库来查询最新数据，并且回写缓存，会导使数据库瞬间压力过大。</p>
-<h3 id="_49">解决方案</h3>
+<h4 id="_49">解决方案</h4>
 <p><strong>1、设置热点数据永不过潮</strong></p>
 <p>从缓存层面来看，没有设置过期时间，所以不会出现热点 key过期后产生的问题。</p>
 <p><strong>2、加互斥锁</strong></p>
 <p>分布式锁︰使用分布式锁，保证对于每个key同时只有一个线程去查询后端服务，其他线程没有获得分布式锁的权限，因此只需要等待即可。这种方式将高并发的压力转移到了分布式锁，因此对分布式锁的考验很大。</p>
-<h2 id="_50">缓存雪崩</h2>
-<h3 id="_51">概念</h3>
+<h3 id="_50">缓存雪崩</h3>
+<h4 id="_51">概念</h4>
 <p>缓存雪崩，是指在某一个时间段，<strong>缓存集中过期失效。</strong></p>
 <p>产生雪崩的原因之一，比如在写本文的时候，马上就要到双十二零点，很快就会迎来一波抢购，这波商品时间比较集中的放入了缓存，假设缓存一个小时。那么到了凌晨一点钟的时候，这批商品的缓存就都过期了。而对这批商品的访问查询，都落到了数据库上，对于数据库而言，就会产生周期性的压力波峰。于是所有的请求都会达到存储层，存储层的调用量会暴增，造成存储层也会挂掉的情况。</p>
-<h3 id="_52">解决方案</h3>
+<h4 id="_52">解决方案</h4>
 <p><strong>1、redis高可用</strong></p>
 <p>这个思想的含义是，既然redis有可能挂掉，那我多增设几台redis ，这样一台挂掉之后其他的还可以继续工作，其实就是搭建的集群。（异地多活）</p>
 <p><strong>2、限流降级</strong></p>
