@@ -426,11 +426,11 @@
 <p>在下方红色窗口输入网络 ID 加入网络</p>
 <p><img alt="image-20220109142915833" src="../ZeroTier.assets/image-20220109142915833.png" /></p>
 <p>7、Ubuntu 安装  Zerotier</p>
-<pre><code class="language-bash">sudo apt-get update ; sudo apt-get install curl ; curl -s https://install.zerotier.com | sudo bash
-</code></pre>
+<div class="highlight"><pre><span></span><code>sudo apt-get update <span class="p">;</span> sudo apt-get install curl <span class="p">;</span> curl -s https://install.zerotier.com <span class="p">|</span> sudo bash
+</code></pre></div>
 <p>添加网络ID</p>
-<pre><code class="language-bash">sudo zerotier-cli join 网络ID
-</code></pre>
+<div class="highlight"><pre><span></span><code>sudo zerotier-cli join 网络ID
+</code></pre></div>
 <p>8、最后在 ZeroTier Web 端（网页端）在刚才那个虚拟局域网中的Member设置中，把要加入的设备在下图中打勾，运行进入局域网</p>
 <p><img alt="image-20220109143300826" src="../ZeroTier.assets/image-20220109143300826.png" /></p>
 <p>9、之后公网设备输入电脑的 虚拟IP 加端口号即可连接设备</p>
@@ -442,52 +442,51 @@
 <p>由于 Zerotier 的中转服务器在境外，导致直连延迟和丢包都比较高，所以可以采用 ZeroTier 官网中的 Moon 服务器搭建过程，把自己带有公网IP的服务器作为中转服务器，进行转发，达到降低延迟的效果。</p>
 <p>1、购买云服务器（此处我采用的是 腾讯云服务器，对linux服务器操作生疏的小白建议学习下linux系统基础）</p>
 <p>2、敲入下列命令按照 ZeroTier</p>
-<pre><code class="language-bash">curl -s https://install.zerotier.com/  sudo bash
-# 如果安装失败，多输入几遍即可安装成功，是因为网络问题可能导致安装包下载失败
-</code></pre>
+<div class="highlight"><pre><span></span><code>curl -s https://install.zerotier.com/  sudo bash
+<span class="c1"># 如果安装失败，多输入几遍即可安装成功，是因为网络问题可能导致安装包下载失败</span>
+</code></pre></div>
 <p>3、加入上面创建的虚拟局域网</p>
-<pre><code class="language-bash">zerotier-cli join 网络ID
-</code></pre>
+<div class="highlight"><pre><span></span><code>zerotier-cli join 网络ID
+</code></pre></div>
 <p>加入之后记得在网页端通过验证</p>
 <p>4、生成 moon.json 模板</p>
-<pre><code class="language-bash"># 只有安装成功后才有这个目录
-cd /var/lib/zerotier-one
+<div class="highlight"><pre><span></span><code><span class="c1"># 只有安装成功后才有这个目录</span>
+<span class="nb">cd</span> /var/lib/zerotier-one
 zerotier-idtool initmoon identity.public &gt; moon.json 
-</code></pre>
+</code></pre></div>
 <p><img alt="image-20220109155018218" src="../ZeroTier.assets/image-20220109155018218.png" /></p>
 <p>5、修改 moon.json 在 <code>stableEndpoints</code> 处 如下列格式添加自己的公网IP，端口号必须为9993，这是zerotier的端口号</p>
-<pre><code class="language-bash">{
- &quot;id&quot;: &quot;e2b252dsff&quot;,
- &quot;objtype&quot;: &quot;world&quot;,
- &quot;roots&quot;: [
-  {
-   &quot;identity&quot;: &quot;e2b252d5d7:0:1fc79095544b4951aab8078c10b9882e21c9fcf438b7b43ca546fb9da7a6e34e437d1c2b044d111c77dffcea85cee14085b5919d0532e062ae0b5764db27058d&quot;,
-   &quot;stableEndpoints&quot;: [&quot;1.2.3.4/9993&quot;]
-  }
- ],
- &quot;signingKey&quot;: &quot;c317db708ac2acae01746ab4d3acc224edfhghge16eae9gfgadfh9cc1e847307fd1da8317289hghgdca6594349aae50016481cdacb0c29c2c56e00345de0a11b1e9fafce767897b&quot;,
- &quot;signingKey_SECRET&quot;: &quot;03fb533be8cc5acb4f873d5182a0b0b5bgfgd4d8cbe7fa811e18a5295749c0cd94gfgf51685d5d67c78b4e07a552f6172a5265093e44849c19710ab73dc9c03a4b731ac5&quot;,
- &quot;updatesMustBeSignedBy&quot;: &quot;c317db708ac2acae01746ab4dgf3acc224edfe16eagfdgfe99cc1e847307fd1da8317289dca6594349aae50016481cdacb0c29c2c56e00345de0a11b1e9fafce767897b&quot;,
- &quot;worldType&quot;: &quot;moon&quot;
-}
-
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="o">{</span>
+ <span class="s2">&quot;id&quot;</span>: <span class="s2">&quot;e2b252dsff&quot;</span>,
+ <span class="s2">&quot;objtype&quot;</span>: <span class="s2">&quot;world&quot;</span>,
+ <span class="s2">&quot;roots&quot;</span>: <span class="o">[</span>
+  <span class="o">{</span>
+   <span class="s2">&quot;identity&quot;</span>: <span class="s2">&quot;e2b252d5d7:0:1fc79095544b4951aab8078c10b9882e21c9fcf438b7b43ca546fb9da7a6e34e437d1c2b044d111c77dffcea85cee14085b5919d0532e062ae0b5764db27058d&quot;</span>,
+   <span class="s2">&quot;stableEndpoints&quot;</span>: <span class="o">[</span><span class="s2">&quot;1.2.3.4/9993&quot;</span><span class="o">]</span>
+  <span class="o">}</span>
+ <span class="o">]</span>,
+ <span class="s2">&quot;signingKey&quot;</span>: <span class="s2">&quot;c317db708ac2acae01746ab4d3acc224edfhghge16eae9gfgadfh9cc1e847307fd1da8317289hghgdca6594349aae50016481cdacb0c29c2c56e00345de0a11b1e9fafce767897b&quot;</span>,
+ <span class="s2">&quot;signingKey_SECRET&quot;</span>: <span class="s2">&quot;03fb533be8cc5acb4f873d5182a0b0b5bgfgd4d8cbe7fa811e18a5295749c0cd94gfgf51685d5d67c78b4e07a552f6172a5265093e44849c19710ab73dc9c03a4b731ac5&quot;</span>,
+ <span class="s2">&quot;updatesMustBeSignedBy&quot;</span>: <span class="s2">&quot;c317db708ac2acae01746ab4dgf3acc224edfe16eagfdgfe99cc1e847307fd1da8317289dca6594349aae50016481cdacb0c29c2c56e00345de0a11b1e9fafce767897b&quot;</span>,
+ <span class="s2">&quot;worldType&quot;</span>: <span class="s2">&quot;moon&quot;</span>
+<span class="o">}</span>
+</code></pre></div>
 <p>6、记住上面 moon.json文件中的 id：<code>e2b252dsff</code></p>
 <p>7、生成加密签名文件</p>
-<pre><code class="language-bash">zerotier-idtool genmoon moon.json 
-</code></pre>
+<div class="highlight"><pre><span></span><code>zerotier-idtool genmoon moon.json 
+</code></pre></div>
 <p>在 Zerotier 安装目录下（/var/lib/zerotier-one）建立文件夹 moons.d，将生成的 .moon文件拷贝进去。
 重启 zerotier，<strong>重启电脑</strong>。至此，VPS 上（moon 服务器）配置完成。</p>
 <p>8、最后一步，服务端配置后，我们需要在每台客户端配置一个Moon服务器文件（感觉这部非常繁琐及可以完全由ZeroTirer下发，不知道为何要这样做。），配置客户端，输入指令</p>
-<pre><code class="language-bash">zerotier-cli orbit &lt;id&gt; &lt;id&gt;
-</code></pre>
+<div class="highlight"><pre><span></span><code>zerotier-cli orbit &lt;id&gt; &lt;id&gt;
+</code></pre></div>
 <p><img alt="image-20220109155720306" src="../ZeroTier.assets/image-20220109155720306.png" /></p>
 <p>这里一般会出现一个文件权限问题，报错 显示 <strong>authtoken.secret not found or readable in C:\ProgramData\ZeroTier\One (try again as root)</strong></p>
 <p>解决方式参考这篇博客：https://blog.csdn.net/qq_39518314/article/details/119979511</p>
 <p>亲测可以解决</p>
 <p>再输入下列指令检查是否找到Moon服务器</p>
-<pre><code class="language-bash">zerotier-cli listpeers 
-</code></pre>
+<div class="highlight"><pre><span></span><code>zerotier-cli listpeers 
+</code></pre></div>
 <p><img alt="image-20220109155754429" src="../ZeroTier.assets/image-20220109155754429.png" /></p>
 <p>出现如上图结果，说明配置成功，且连接成功</p>
 <h2 id="bug">我自己遇到的BUG</h2>

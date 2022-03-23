@@ -1975,7 +1975,7 @@
 <p>出现以上的三种情况之一，必须要晋级</p>
 <p><strong>2、Memcached（缓存）+ MySQL + 垂直拆分（读写分离）</strong></p>
 <p>网站80%的情况都在读，每次都要去查询数据库的话就十分麻烦，所以说我们希望减轻数据库的压力，我们可以使用缓存来保证效率</p>
-<p>发展过程：优化数据结构和索引 --&gt; 文件缓存（IO） --&gt; Memcached（当时最热门的技术）</p>
+<p>发展过程：优化数据结构和索引 &rarr; 文件缓存（IO） &rarr; Memcached（当时最热门的技术）</p>
 <p><strong>3、分库分表 + 水平拆分 + MySQL集群 （不同集群之间数据不同）</strong></p>
 <p>购买 订单 支付 三个表分开放在不同的数据库，减轻压力，放在不同集群。 </p>
 <p><strong>4、如今</strong></p>
@@ -1996,7 +1996,7 @@
 <p>2、大数据量高性能（Redis 可以一秒写8万次，读取11万次，NoSQL的缓存记录级，是一种细粒度的缓存，性能会比较高）</p>
 <p>3、数据类型是多样型（不需要事先设计数据库）</p>
 <p>4、传统RDBMS和NoSQL</p>
-<pre><code>传统的RDBMS
+<div class="highlight"><pre><span></span><code>传统的RDBMS
 - 结构化组织 
 - SQL
 - 数据和关系都存在单独的表中
@@ -2004,8 +2004,8 @@
 - 严格的一致性
 - 基础的事务
 - ....
-</code></pre>
-<pre><code>Nosql
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>Nosql
 - 不仅仅是数据
 - 没有固定的查询语言
 - 键值对存储，列存储， 文档存储，图形数据库（社交关系）
@@ -2013,7 +2013,7 @@
 - CAP定理 和 BASE （异地多活）-》初级架构师
 - 高性能，高可用，高可扩
 - ...
-</code></pre>
+</code></pre></div>
 <p>5、了解：3V + 3高</p>
 <p>大数据时代的3V:主要是描述问题的</p>
 <ol>
@@ -2091,46 +2091,45 @@
 <h3 id="linux">Linux安装</h3>
 <p>1、官网点击直接下载安装包</p>
 <p>2、移动安装包到/opt目录并解压</p>
-<pre><code class="language-bash">mv redis-6.2.5.tar.gz /opt
+<div class="highlight"><pre><span></span><code>mv redis-6.2.5.tar.gz /opt
 tar -zxvf redis-6.2.5.tar.gz
-cd redis-6.2.5
-</code></pre>
+<span class="nb">cd</span> redis-6.2.5
+</code></pre></div>
 <p>3、进入解压后的文件，可以看到redis的配置文件</p>
 <p><img alt="image-20210928163017691" src="../Redis.assets/image-20210928163017691.png" /></p>
 <p>4、基本的环境安装</p>
-<pre><code class="language-bash">yum install gcc-c++
+<div class="highlight"><pre><span></span><code>yum install gcc-c++
 
-make # 编译
+make <span class="c1"># 编译</span>
 
 make install
-</code></pre>
+</code></pre></div>
 <p><img alt="image-20210928163311206" src="../Redis.assets/image-20210928163311206.png" /></p>
 <p><img alt="image-20210928163338102" src="../Redis.assets/image-20210928163338102.png" /></p>
 <p>5、redis的默认安装路径 <strong>/usr/local/bin</strong></p>
 <p><img alt="image-20210928163514096" src="../Redis.assets/image-20210928163514096.png" /></p>
 <p>6、将redis配置文件（<strong>/opt/redis-6.2.5/redis.conf</strong>），<strong>复制</strong>到<strong>/usr/local/bin/myconf</strong>下（没有则创建一个）</p>
-<pre><code class="language-bash">cp /opt/redis-6.2.5/redis.conf usr/local/bin/myconf
-</code></pre>
+<div class="highlight"><pre><span></span><code>cp /opt/redis-6.2.5/redis.conf usr/local/bin/myconf
+</code></pre></div>
 <p>7、redis默认不是后台启动，修改配置文件</p>
 <p><img alt="image-20210928164305583" src="../Redis.assets/image-20210928164305583.png" /></p>
 <p>将daemonize 修改为 yes</p>
 <p>8、启动Redis服务并测试</p>
 <p><img alt="image-20210928164634512" src="../Redis.assets/image-20210928164634512.png" /></p>
-<pre><code class="language-bash">redis-server myconf/redis.conf
+<div class="highlight"><pre><span></span><code>redis-server myconf/redis.conf
 
-redis-cli -p 6379 # 使用Redis客户端进行连接
+redis-cli -p <span class="m">6379</span> <span class="c1"># 使用Redis客户端进行连接</span>
 
-# 连接成功
-</code></pre>
+<span class="c1"># 连接成功</span>
+</code></pre></div>
 <p>9、查看redis的进程是否开启</p>
-<pre><code class="language-bash">ps -ef|grep redis
-</code></pre>
+<div class="highlight"><pre><span></span><code>ps -ef<span class="p">|</span>grep redis
+</code></pre></div>
 <p><img alt="image-20210928164850463" src="../Redis.assets/image-20210928164850463.png" /></p>
 <p>11、关闭Redis服务</p>
-<pre><code class="language-bash">shutdown
-exit
-
-</code></pre>
+<div class="highlight"><pre><span></span><code>shutdown
+<span class="nb">exit</span>
+</code></pre></div>
 <p><img alt="image-20210928164952815" src="../Redis.assets/image-20210928164952815.png" /></p>
 <h3 id="_2">测试性能</h3>
 <p><strong>redis-benchmark</strong>是一个压力测试工具</p>
@@ -2138,9 +2137,9 @@ exit
 <p>redis-benchmark 命令参数：</p>
 <p><img alt="image-20210928165416333" src="../Redis.assets/image-20210928165416333.png" /></p>
 <p>测试：</p>
-<pre><code class="language-bash"># 100个并发连接 100000请求
-redis-benchmark -h localhost -p 6379 -c 100 -n 100000
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="c1"># 100个并发连接 100000请求</span>
+redis-benchmark -h localhost -p <span class="m">6379</span> -c <span class="m">100</span> -n <span class="m">100000</span>
+</code></pre></div>
 <p><img alt="image-20210928165903695" src="../Redis.assets/image-20210928165903695.png" /></p>
 <p>10w个请求</p>
 <p>100个并发客户端</p>
@@ -2151,11 +2150,11 @@ redis-benchmark -h localhost -p 6379 -c 100 -n 100000
 <p><img alt="image-20210928170313289" src="../Redis.assets/image-20210928170313289.png" /></p>
 <p>2、默认使用的是第<strong>0</strong>个</p>
 <p>可以使用select来切换数据库</p>
-<pre><code class="language-bash">127.0.0.1:6379&gt; select 3 #切换到3数据库
+<div class="highlight"><pre><span></span><code><span class="m">127</span>.0.0.1:6379&gt; <span class="k">select</span> <span class="m">3</span> <span class="c1">#切换到3数据库</span>
 OK
-127.0.0.1:6379[3]&gt; DBSIZE # 查看数据库大小
-(integer) 0
-</code></pre>
+<span class="m">127</span>.0.0.1:6379<span class="o">[</span><span class="m">3</span><span class="o">]</span>&gt; DBSIZE <span class="c1"># 查看数据库大小</span>
+<span class="o">(</span>integer<span class="o">)</span> <span class="m">0</span>
+</code></pre></div>
 <p>3、Redis在4.0之前是单线程运行的的，之后开始<strong>支持</strong>多线程</p>
 <p>Redis是基于内存操作，CPU不是Redis性能瓶颈，Redis的瓶颈是根据机器的内存和网络带宽；</p>
 <p>Redis4.0之前使用单线程的原因：</p>
@@ -2188,79 +2187,79 @@ OK
 <p>Redis 是一个开源（BSD许可）的，内存中的数据结构存储系统，它可以用作<strong>数据库</strong>、<strong>缓存</strong>和<strong>消息中间件</strong>。 它支持多种类型的数据结构，如 <a href="http://www.redis.cn/topics/data-types-intro.html#strings">字符串（strings）</a>， <a href="http://www.redis.cn/topics/data-types-intro.html#hashes">散列（hashes）</a>， <a href="http://www.redis.cn/topics/data-types-intro.html#lists">列表（lists）</a>， <a href="http://www.redis.cn/topics/data-types-intro.html#sets">集合（sets）</a>， <a href="http://www.redis.cn/topics/data-types-intro.html#sorted-sets">有序集合（sorted sets）</a> 与范围查询， <a href="http://www.redis.cn/topics/data-types-intro.html#bitmaps">bitmaps</a>， <a href="http://www.redis.cn/topics/data-types-intro.html#hyperloglogs">hyperloglogs</a> 和 <a href="http://www.redis.cn/commands/geoadd.html">地理空间（geospatial）</a> 索引半径查询。 Redis 内置了 <a href="http://www.redis.cn/topics/replication.html">复制（replication）</a>，<a href="http://www.redis.cn/commands/eval.html">LUA脚本（Lua scripting）</a>， <a href="http://www.redis.cn/topics/lru-cache.html">LRU驱动事件（LRU eviction）</a>，<a href="http://www.redis.cn/topics/transactions.html">事务（transactions）</a> 和不同级别的 <a href="http://www.redis.cn/topics/persistence.html">磁盘持久化（persistence）</a>， 并通过 <a href="http://www.redis.cn/topics/sentinel.html">Redis哨兵（Sentinel）</a>和自动 <a href="http://www.redis.cn/topics/cluster-tutorial.html">分区（Cluster）</a>提供高可用性（high availability）。</p>
 <h3 id="redis-key">Redis-Key</h3>
 <p>常用命令：</p>
-<pre><code class="language-bash">set key value # set
-get key # get
+<div class="highlight"><pre><span></span><code><span class="nb">set</span> key value <span class="c1"># set</span>
+get key <span class="c1"># get</span>
 
-key * # 查看当前数据库所有的key
+key * <span class="c1"># 查看当前数据库所有的key</span>
 
-flushdb # 清空当前数据库的
+flushdb <span class="c1"># 清空当前数据库的</span>
 
-FLUSHALL # 清空所有数据库
+FLUSHALL <span class="c1"># 清空所有数据库</span>
 
-EXISTS KEY # 检查是否存在该KEY
+EXISTS KEY <span class="c1"># 检查是否存在该KEY</span>
 
-move key 1 # 将 key 移动到1数据库
+move key <span class="m">1</span> <span class="c1"># 将 key 移动到1数据库</span>
 
-del key # 删除key
+del key <span class="c1"># 删除key</span>
 
-EXPIRE KEY 10 # key 在10s后将会被清除
+EXPIRE KEY <span class="m">10</span> <span class="c1"># key 在10s后将会被清除</span>
 
-ttl key  # 查看当前key的剩余时间
+ttl key  <span class="c1"># 查看当前key的剩余时间</span>
 
-type key # 查看当前key的类型
-</code></pre>
+<span class="nb">type</span> key <span class="c1"># 查看当前key的类型</span>
+</code></pre></div>
 <p>不清楚的命令可以去官网查</p>
 <h3 id="string">String（字符串）</h3>
 <p>所有命令不区分大小写</p>
-<pre><code class="language-bash">APPEND key &quot;xxx&quot; # 向一个key后追加xxx内容，如果当前key不存在，就相当于set key
-key1 = &quot;hello&quot;
-APPEND key1 &quot;world&quot;
-key1 = &quot;helloworld&quot;
+<div class="highlight"><pre><span></span><code>APPEND key <span class="s2">&quot;xxx&quot;</span> <span class="c1"># 向一个key后追加xxx内容，如果当前key不存在，就相当于set key</span>
+<span class="nv">key1</span> <span class="o">=</span> <span class="s2">&quot;hello&quot;</span>
+APPEND key1 <span class="s2">&quot;world&quot;</span>
+<span class="nv">key1</span> <span class="o">=</span> <span class="s2">&quot;helloworld&quot;</span>
 
-STRLEN key # 输出key的长度
-</code></pre>
+STRLEN key <span class="c1"># 输出key的长度</span>
+</code></pre></div>
 <p>增加减少命令：</p>
-<pre><code class="language-bash">incr key # key值+1 ， i++
-INCRBY key 10 # key值+10 , i+=
+<div class="highlight"><pre><span></span><code>incr key <span class="c1"># key值+1 ， i++</span>
+INCRBY key <span class="m">10</span> <span class="c1"># key值+10 , i+=</span>
 
-decr key # key值-1
-DECRBY key # key值-10 , i-=
-</code></pre>
+decr key <span class="c1"># key值-1</span>
+DECRBY key <span class="c1"># key值-10 , i-=</span>
+</code></pre></div>
 <p>字符串范围 </p>
-<pre><code class="language-bash">GETRANGE key 0 3 # 截取字符串[0,3]
-GETRANGE key 0 -1 # 拿到全部字符串,和get key一样
-</code></pre>
+<div class="highlight"><pre><span></span><code>GETRANGE key <span class="m">0</span> <span class="m">3</span> <span class="c1"># 截取字符串[0,3]</span>
+GETRANGE key <span class="m">0</span> -1 <span class="c1"># 拿到全部字符串,和get key一样</span>
+</code></pre></div>
 <p>字符串范围设置</p>
-<pre><code class="language-bash">SETRANGE key 1 xx # 替换指定位置的字符串
-</code></pre>
-<pre><code class="language-bash">setex key 30 &quot;hello&quot; # 设置一个过期时间为30s的key &quot;hello&quot; (set with expire 设置过期时间)
+<div class="highlight"><pre><span></span><code>SETRANGE key <span class="m">1</span> xx <span class="c1"># 替换指定位置的字符串</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>setex key <span class="m">30</span> <span class="s2">&quot;hello&quot;</span> <span class="c1"># 设置一个过期时间为30s的key &quot;hello&quot; (set with expire 设置过期时间)</span>
 
-setnx key &quot;xxx&quot; # (set if not exist) 不存在 再设置key &quot;xxx&quot; 。
-</code></pre>
+setnx key <span class="s2">&quot;xxx&quot;</span> <span class="c1"># (set if not exist) 不存在 再设置key &quot;xxx&quot; 。</span>
+</code></pre></div>
 <p>批量set、get</p>
-<pre><code class="language-bash">mset k1 v1 k2 v2 k3 v3
+<div class="highlight"><pre><span></span><code>mset k1 v1 k2 v2 k3 v3
 mget k1 k2 k3
 
-msetnx k1 v1 k4 v4 # msetnx 是一个原子性的操作，要么一起成功， 要么一起失败。若刚才已经设置k1 则该操作执行失败
-</code></pre>
+msetnx k1 v1 k4 v4 <span class="c1"># msetnx 是一个原子性的操作，要么一起成功， 要么一起失败。若刚才已经设置k1 则该操作执行失败</span>
+</code></pre></div>
 <p>设置对象</p>
-<pre><code class="language-bash">set user:1 {name:zhangsan,age:3} # 设置一个user:1对象 值为json字符来保存一个对象
+<div class="highlight"><pre><span></span><code><span class="nb">set</span> user:1 <span class="o">{</span>name:zhangsan,age:3<span class="o">}</span> <span class="c1"># 设置一个user:1对象 值为json字符来保存一个对象</span>
 
-# 这里的key是一个巧妙的设计：user:{id}:{filed}
+<span class="c1"># 这里的key是一个巧妙的设计：user:{id}:{filed}</span>
 
-mset use1:1:name zhangsan user:1:age 2
+mset use1:1:name zhangsan user:1:age <span class="m">2</span>
 mget use1:1:name ser:1:age
-</code></pre>
+</code></pre></div>
 <p>getset</p>
-<pre><code class="language-bash">127.0.0.1:6379&gt; getset db redis # 先get再set
-(nil)
-127.0.0.1:6379&gt; get db
-&quot;redis&quot;
-127.0.0.1:6379&gt; getset db MongoDB
-&quot;redis&quot;
-127.0.0.1:6379&gt; get db
-&quot;MongoDB&quot;
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="m">127</span>.0.0.1:6379&gt; getset db redis <span class="c1"># 先get再set</span>
+<span class="o">(</span>nil<span class="o">)</span>
+<span class="m">127</span>.0.0.1:6379&gt; get db
+<span class="s2">&quot;redis&quot;</span>
+<span class="m">127</span>.0.0.1:6379&gt; getset db MongoDB
+<span class="s2">&quot;redis&quot;</span>
+<span class="m">127</span>.0.0.1:6379&gt; get db
+<span class="s2">&quot;MongoDB&quot;</span>
+</code></pre></div>
 <p>String类似的使用场景：value除了是我们的字符串还可以是我们的数字</p>
 <ul>
 <li>计数器</li>
@@ -2330,83 +2329,83 @@ lrem list 2 three # 移除list中2个three</p>
 <p>可以应用为消息队列：Lpush Rpop ，栈（Lpush Lpop）</p>
 <h3 id="set">Set（集合）</h3>
 <p>set中的值不能重复</p>
-<pre><code class="language-bash">sadd set &quot;hello&quot; # 往set集合中添加hello
-sadd set &quot;kongcheng&quot;
+<div class="highlight"><pre><span></span><code>sadd <span class="nb">set</span> <span class="s2">&quot;hello&quot;</span> <span class="c1"># 往set集合中添加hello</span>
+sadd <span class="nb">set</span> <span class="s2">&quot;kongcheng&quot;</span>
 
-smembers set # 输出set中所有元素
+smembers <span class="nb">set</span> <span class="c1"># 输出set中所有元素</span>
 
-sismember list hello # 判断hello是否在set集合中
+sismember list hello <span class="c1"># 判断hello是否在set集合中</span>
 
-scard set # 获取set集合中元素个数
+scard <span class="nb">set</span> <span class="c1"># 获取set集合中元素个数</span>
 
-srem set &quot;hello&quot; # 移除set集合中的&quot;hello&quot;
+srem <span class="nb">set</span> <span class="s2">&quot;hello&quot;</span> <span class="c1"># 移除set集合中的&quot;hello&quot;</span>
 
-# set 为无序不重复集合
-srandmember set # 随机抽取出一个元素
-srandmember set 2 # 随机抽取出指定个数元素
+<span class="c1"># set 为无序不重复集合</span>
+srandmember <span class="nb">set</span> <span class="c1"># 随机抽取出一个元素</span>
+srandmember <span class="nb">set</span> <span class="m">2</span> <span class="c1"># 随机抽取出指定个数元素</span>
 
-spop set # 随机删除一些set集合中的元素
+spop <span class="nb">set</span> <span class="c1"># 随机删除一些set集合中的元素</span>
 
-smove set1 set2 &quot;hello&quot; # 将指定元素移动到另外的set集合中
+smove set1 set2 <span class="s2">&quot;hello&quot;</span> <span class="c1"># 将指定元素移动到另外的set集合中</span>
 
-sdiff set1 set2 # (set1 - set1与set2的交集)差集
-sinter set1 set2 # set1 与 set2 的交集
-sunion set1 set2 # set1 与 set2 的并集
-</code></pre>
+sdiff set1 set2 <span class="c1"># (set1 - set1与set2的交集)差集</span>
+sinter set1 set2 <span class="c1"># set1 与 set2 的交集</span>
+sunion set1 set2 <span class="c1"># set1 与 set2 的并集</span>
+</code></pre></div>
 <h3 id="hash">Hash</h3>
 <p>Map集合，key - map</p>
-<pre><code class="language-bash">hset hash field1 kongcheng # set 
-hmset hash field1 hello field2 world
+<div class="highlight"><pre><span></span><code>hset <span class="nb">hash</span> field1 kongcheng <span class="c1"># set </span>
+hmset <span class="nb">hash</span> field1 hello field2 world
 
-hget hash field1 # get
-hmget hash field1 field2
+hget <span class="nb">hash</span> field1 <span class="c1"># get</span>
+hmget <span class="nb">hash</span> field1 field2
 
-hgetall hash # 获取所有的key-value
+hgetall <span class="nb">hash</span> <span class="c1"># 获取所有的key-value</span>
 
-hdel hash field1 # 删除指定key，对应value也消失
+hdel <span class="nb">hash</span> field1 <span class="c1"># 删除指定key，对应value也消失</span>
 
-hlen hash # 得到长度
+hlen <span class="nb">hash</span> <span class="c1"># 得到长度</span>
 
-hexists hash field1 # 判断指定key是否存在
+hexists <span class="nb">hash</span> field1 <span class="c1"># 判断指定key是否存在</span>
 
-hkeys hash # 获取所有的key
-hvals hash # 获取所有的value
+hkeys <span class="nb">hash</span> <span class="c1"># 获取所有的key</span>
+hvals <span class="nb">hash</span> <span class="c1"># 获取所有的value</span>
 
-hincrby hash field11 1 # 增加
+hincrby <span class="nb">hash</span> field11 <span class="m">1</span> <span class="c1"># 增加</span>
 
-hsetnx hash field hello # set if not exist
-</code></pre>
+hsetnx <span class="nb">hash</span> field hello <span class="c1"># set if not exist</span>
+</code></pre></div>
 <h3 id="zset">Zset（有序集合）</h3>
 <p>在Set的基础上，增加了一个值：</p>
 <p>set k1 v1 </p>
 <p>zset k1 score1 v1</p>
-<pre><code class="language-bash">zadd set 1 one # 添加一个值
-zadd set 2 two 3 three # 添加多个值
+<div class="highlight"><pre><span></span><code>zadd <span class="nb">set</span> <span class="m">1</span> one <span class="c1"># 添加一个值</span>
+zadd <span class="nb">set</span> <span class="m">2</span> two <span class="m">3</span> three <span class="c1"># 添加多个值</span>
 
-zrange set 0 -1
+zrange <span class="nb">set</span> <span class="m">0</span> -1
 
-# 排序如何实现
-zadd salary 2500 zhangsan
-zadd salary 5000 lisi
-zadd salary 500 kc
+<span class="c1"># 排序如何实现</span>
+zadd salary <span class="m">2500</span> zhangsan
+zadd salary <span class="m">5000</span> lisi
+zadd salary <span class="m">500</span> kc
 
-#zrangebyscore set min max
-zrangebyscore salary -inf +inf # 从小到大逆序排列，最小的值到最大值排序，inf相当于无穷
-zrangebyscore salary -inf 2500 withscores # (输出(-∞, 2500] 之间的元素，并带上分数)
+<span class="c1">#zrangebyscore set min max</span>
+zrangebyscore salary -inf +inf <span class="c1"># 从小到大逆序排列，最小的值到最大值排序，inf相当于无穷</span>
+zrangebyscore salary -inf <span class="m">2500</span> withscores <span class="c1"># (输出(-∞, 2500] 之间的元素，并带上分数)</span>
 
-zrevrangebyscore salary 0 -1 # 从大到小逆序排列
+zrevrangebyscore salary <span class="m">0</span> -1 <span class="c1"># 从大到小逆序排列</span>
 
-# 默认情况是小于等于和大于等于，可以通过在前面加上(表示小于或者大于
-zrangebyscore salary (1 (2 
+<span class="c1"># 默认情况是小于等于和大于等于，可以通过在前面加上(表示小于或者大于</span>
+zrangebyscore salary <span class="o">(</span><span class="m">1</span> <span class="o">(</span><span class="m">2</span> 
 
 
-zrange set 0 -1 # 查看全部元素
-zrevrange salary 0 -1 # 从大到小逆序排列
+zrange <span class="nb">set</span> <span class="m">0</span> -1 <span class="c1"># 查看全部元素</span>
+zrevrange salary <span class="m">0</span> -1 <span class="c1"># 从大到小逆序排列</span>
 
-zrem set hello # 移除指定元素
+zrem <span class="nb">set</span> hello <span class="c1"># 移除指定元素</span>
 
-zcard set # 获取有序集合中的个数
-</code></pre>
+zcard <span class="nb">set</span> <span class="c1"># 获取有序集合中的个数</span>
+</code></pre></div>
 <p>案例思路：</p>
 <p>1、重要消息 带权重进行判断</p>
 <p>2、排行榜应用实现</p>
@@ -2416,13 +2415,13 @@ zcard set # 获取有序集合中的个数
 <p>Redis 的 Geo 在Redis3.2版本 就推出了，这个功能可以推算地理位置的信息，两地之间的距离，方圆几里的人。</p>
 <p>六个命令：</p>
 <p><img alt="image-20210930211239499" src="../Redis.assets/image-20210930211239499.png" /></p>
-<pre><code class="language-bash">geoadd # 添加地理位置
+<div class="highlight"><pre><span></span><code>geoadd <span class="c1"># 添加地理位置</span>
 
 geoadd key 经度 纬度 city
 
-geopos # 获得地理位置
-geopos key city # 得到city的经纬度
-</code></pre>
+geopos <span class="c1"># 获得地理位置</span>
+geopos key city <span class="c1"># 得到city的经纬度</span>
+</code></pre></div>
 <ul>
 <li>
 <p>有效的经度从-180度到180度。</p>
@@ -2432,22 +2431,22 @@ geopos key city # 得到city的经纬度
 </li>
 </ul>
 <p>当坐标位置超出上述指定范围时，该命令将会返回一个错误。</p>
-<pre><code class="language-bash">geodist # 返回两个给定位置之间的距离
+<div class="highlight"><pre><span></span><code>geodist <span class="c1"># 返回两个给定位置之间的距离</span>
 
-geodist key city1 city2 单位 # 查看两个city之间的距离
-</code></pre>
+geodist key city1 city2 单位 <span class="c1"># 查看两个city之间的距离</span>
+</code></pre></div>
 <p>dfdfd# 指定单位的参数 unit 必须是以下单位的其中一个：
 -   m 表示单位为米。
 -   km 表示单位为千米。
 -   mi 表示单位为英里。
 -   ft 表示单位为英尺。</p>
-<pre><code class="language-bash">georadis # 以给定的经纬度为中心， 返回键包含的位置元素当中， 与中心的距离不超过给定最大距离的所有位置元素。
-# 单位与geodist单位相同
+<div class="highlight"><pre><span></span><code>georadis <span class="c1"># 以给定的经纬度为中心， 返回键包含的位置元素当中， 与中心的距离不超过给定最大距离的所有位置元素。</span>
+<span class="c1"># 单位与geodist单位相同</span>
 
 georadius key 经度 纬度 半径 单位 其他参数
 
-georadiusbymember key member radius m|km|ft|mi [WITHCOORD] [WITHDIST] [WITHHASH] [COUNT count] # 指定成员的位置被用作查询的中心。
-</code></pre>
+georadiusbymember key member radius m<span class="p">|</span>km<span class="p">|</span>ft<span class="p">|</span>mi <span class="o">[</span>WITHCOORD<span class="o">]</span> <span class="o">[</span>WITHDIST<span class="o">]</span> <span class="o">[</span>WITHHASH<span class="o">]</span> <span class="o">[</span>COUNT count<span class="o">]</span> <span class="c1"># 指定成员的位置被用作查询的中心。</span>
+</code></pre></div>
 <p>其他参数</p>
 <ul>
 <li>WITHDIST: 在返回位置元素的同时， 将位置元素与中心之间的距离也一并返回。 距离的单位和用户给定的范围单位保持一致。</li>
@@ -2458,8 +2457,8 @@ georadiusbymember key member radius m|km|ft|mi [WITHCOORD] [WITHDIST] [WITHHASH]
 <li>DESC: 根据中心的位置， 按照从远到近的方式返回位置元素。</li>
 </ul>
 <p><strong>基于zset数据类型，可以通过zset的基本指令来操作key。</strong></p>
-<pre><code class="language-bash">zrange key 0 -1 # 可查询key中所有city
-</code></pre>
+<div class="highlight"><pre><span></span><code>zrange key <span class="m">0</span> -1 <span class="c1"># 可查询key中所有city</span>
+</code></pre></div>
 <h3 id="hyperloglogs">Hyperloglogs</h3>
 <h4 id="_13"><strong>什么是基数</strong>？</h4>
 <p>A {1, 3, 5, 7, 8, 7}</p>
@@ -2476,28 +2475,28 @@ georadiusbymember key member radius m|km|ft|mi [WITHCOORD] [WITHDIST] [WITHHASH]
 <h4 id="_15">常用命令</h4>
 <p><img alt="image-20211001152747685" src="../Redis.assets/image-20211001152747685.png" /></p>
 <p>1、PFADD</p>
-<pre><code class="language-bash">PFADD key element [element ...]
-</code></pre>
+<div class="highlight"><pre><span></span><code>PFADD key element <span class="o">[</span>element ...<span class="o">]</span>
+</code></pre></div>
 <p>2、PFCOUNT</p>
 <p>当参数为一个key时,返回存储在HyperLogLog结构体的该变量的近似基数，如果该变量不存在,则返回0.</p>
 <p>当参数为多个key时，返回这些HyperLogLog并集的近似基数，这个值是将所给定的所有key的HyperLoglog结构合并到一个临时的HyperLogLog结构中计算而得到的.</p>
-<pre><code class="language-bash">PFCOUNT key [key ...] # 统计一个key中基数
-</code></pre>
+<div class="highlight"><pre><span></span><code>PFCOUNT key <span class="o">[</span>key ...<span class="o">]</span> <span class="c1"># 统计一个key中基数</span>
+</code></pre></div>
 <p>3、PFMERGE</p>
 <p>将多个 HyperLogLog 合并（merge）为一个 HyperLogLog ， 合并后的 HyperLogLog 的基数接近于所有输入 HyperLogLog 的可见集合（observed set）的并集.</p>
-<pre><code class="language-bash">PFMERGE destkey sourcekey [sourcekey ...] # 合并两个key，destkey为目标key
-</code></pre>
+<div class="highlight"><pre><span></span><code>PFMERGE destkey sourcekey <span class="o">[</span>sourcekey ...<span class="o">]</span> <span class="c1"># 合并两个key，destkey为目标key</span>
+</code></pre></div>
 <p>4、测试使用</p>
-<pre><code class="language-bash">redis&gt; PFADD hll1 foo bar zap a # 创建第一组元素
-(integer) 1
-redis&gt; PFADD hll2 a b c foo # 创建第二组元素
-(integer) 1
-redis&gt; PFMERGE hll3 hll1 hll2 # 合并两组，得到两个组的并集
+<div class="highlight"><pre><span></span><code>redis&gt; PFADD hll1 foo bar zap a <span class="c1"># 创建第一组元素</span>
+<span class="o">(</span>integer<span class="o">)</span> <span class="m">1</span>
+redis&gt; PFADD hll2 a b c foo <span class="c1"># 创建第二组元素</span>
+<span class="o">(</span>integer<span class="o">)</span> <span class="m">1</span>
+redis&gt; PFMERGE hll3 hll1 hll2 <span class="c1"># 合并两组，得到两个组的并集</span>
 OK
 redis&gt; PFCOUNT hll3
-(integer) 6
+<span class="o">(</span>integer<span class="o">)</span> <span class="m">6</span>
 redis&gt; 
-</code></pre>
+</code></pre></div>
 <p>如果允许容错，那么可以使用Hyperloglog</p>
 <p>如果不允许容错，使用set或者自己的数据类型</p>
 <h3 id="bitmaps">Bitmaps</h3>
@@ -2508,19 +2507,19 @@ redis&gt;
 <p>Bitmaps 位图，数据结构。都是操作二进制位来进行记录，就只有0和1两个状态！</p>
 <h4 id="_17">常用命令</h4>
 <p>1、setbit</p>
-<pre><code class="language-bash">SETBIT key offset value
-</code></pre>
+<div class="highlight"><pre><span></span><code>SETBIT key offset value
+</code></pre></div>
 <p>2、getbit</p>
-<pre><code class="language-bash">GETBIT key offset
-</code></pre>
+<div class="highlight"><pre><span></span><code>GETBIT key offset
+</code></pre></div>
 <p>3、bitcount </p>
-<pre><code class="language-bash">BITCOUNT key [start end]
-</code></pre>
+<div class="highlight"><pre><span></span><code>BITCOUNT key <span class="o">[</span>start end<span class="o">]</span>
+</code></pre></div>
 <h2 id="_18">事务</h2>
 <p>Redis事务本质：一组命令的集合！一个事务中的所有命令都会被序列化，在事务执行过程中，会按照顺序执行。</p>
 <p>一次性、顺序性、排他性，执行一些列的命令</p>
-<pre><code class="language-bash">------ 队列 set set set 执行 ------
-</code></pre>
+<div class="highlight"><pre><span></span><code>------ 队列 <span class="nb">set</span> <span class="nb">set</span> <span class="nb">set</span> 执行 ------
+</code></pre></div>
 <h3 id="_19">重点：</h3>
 <ul>
 <li>Redis单条命令式保存原子性，但是事务不保证原子性！</li>
@@ -2534,30 +2533,30 @@ redis&gt;
 <li>执行事务（ exec ）</li>
 </ul>
 <h3 id="_20">正常事务执行顺序：</h3>
-<pre><code class="language-bash">&gt; MULTI # 开启事务
+<div class="highlight"><pre><span></span><code>&gt; MULTI <span class="c1"># 开启事务</span>
 OK
-# 命令入队
+<span class="c1"># 命令入队</span>
 &gt; INCR foo
 QUEUED
 &gt; INCR bar
 QUEUED
-&gt; EXEC # 执行事务
-1) (integer) 1
-2) (integer) 1
-</code></pre>
+&gt; EXEC <span class="c1"># 执行事务</span>
+<span class="m">1</span><span class="o">)</span> <span class="o">(</span>integer<span class="o">)</span> <span class="m">1</span>
+<span class="m">2</span><span class="o">)</span> <span class="o">(</span>integer<span class="o">)</span> <span class="m">1</span>
+</code></pre></div>
 <h3 id="_21">放弃事务：</h3>
 <p>当执行 DISCARD命令时， 事务会被放弃， 事务队列会被清空， 并且客户端会从事务状态中退出：</p>
-<pre><code class="language-bash">&gt; SET foo 1
+<div class="highlight"><pre><span></span><code>&gt; SET foo <span class="m">1</span>
 OK
 &gt; MULTI
 OK
 &gt; INCR foo
 QUEUED
-&gt; DISCARD # 取消事务
+&gt; DISCARD <span class="c1"># 取消事务</span>
 OK
 &gt; GET foo
-&quot;1&quot;
-</code></pre>
+<span class="s2">&quot;1&quot;</span>
+</code></pre></div>
 <h3 id="_22">编译性错误</h3>
 <p>代码有问题，命令有错，事务中<strong>所有的命令都不会被执行</strong></p>
 <h3 id="_23">运行时异常</h3>
@@ -2576,38 +2575,38 @@ OK
 <h3 id="redis_3">Redis监控测试</h3>
 <p>watch：标记所有指定的key 被监视起来，在<strong>事务中</strong>有条件的执行<strong>（乐观锁）</strong>。</p>
 <p>被 WATCH的键会被监视，并会发觉这些键是否被改动过了。 如果有至少一个被监视的键在 <strong>EXEC</strong> 执行之前被修改了， 那么整个事务都会被取消， EXEC返回nil-reply来表示事务已经失败。</p>
-<pre><code class="language-bash">WATCH key [key ...]
-</code></pre>
+<div class="highlight"><pre><span></span><code>WATCH key <span class="o">[</span>key ...<span class="o">]</span>
+</code></pre></div>
 <h2 id="jedis">Jedis</h2>
 <p>使用java来操作redis</p>
 <h3 id="jedis_1">什么是Jedis</h3>
 <p>Jedis 是 Redis 官方推荐的 java 连接开发工具，使用java操作 Redis 的中间件。，需要对 Jedis 十分的熟悉。</p>
 <h3 id="_24">导包</h3>
-<pre><code class="language-xml">&lt;!-- https://mvnrepository.com/artifact/redis.clients/jedis --&gt;
-&lt;dependency&gt;
-    &lt;groupId&gt;redis.clients&lt;/groupId&gt;
-    &lt;artifactId&gt;jedis&lt;/artifactId&gt;
-    &lt;version&gt;3.3.0&lt;/version&gt;
-&lt;/dependency&gt;
-&lt;dependency&gt;
-    &lt;groupId&gt;com.alibaba&lt;/groupId&gt;
-    &lt;artifactId&gt;fastjson&lt;/artifactId&gt;
-    &lt;version&gt;1.2.62&lt;/version&gt;
-&lt;/dependency&gt;
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="cm">&lt;!-- https://mvnrepository.com/artifact/redis.clients/jedis --&gt;</span>
+<span class="nt">&lt;dependency&gt;</span>
+    <span class="nt">&lt;groupId&gt;</span>redis.clients<span class="nt">&lt;/groupId&gt;</span>
+    <span class="nt">&lt;artifactId&gt;</span>jedis<span class="nt">&lt;/artifactId&gt;</span>
+    <span class="nt">&lt;version&gt;</span>3.3.0<span class="nt">&lt;/version&gt;</span>
+<span class="nt">&lt;/dependency&gt;</span>
+<span class="nt">&lt;dependency&gt;</span>
+    <span class="nt">&lt;groupId&gt;</span>com.alibaba<span class="nt">&lt;/groupId&gt;</span>
+    <span class="nt">&lt;artifactId&gt;</span>fastjson<span class="nt">&lt;/artifactId&gt;</span>
+    <span class="nt">&lt;version&gt;</span>1.2.62<span class="nt">&lt;/version&gt;</span>
+<span class="nt">&lt;/dependency&gt;</span>
+</code></pre></div>
 <h3 id="_25">编码测试</h3>
 <ul>
 <li>连接数据库</li>
 <li>操作命令</li>
 <li>断开连接</li>
 </ul>
-<pre><code class="language-java">public class TestJedis {
-    public static void main(String[] args) {
-        Jedis jedis = new Jedis(&quot;127.0.0.1&quot;, 6379);
-        System.out.println(jedis.ping());
-    }
-}
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">TestJedis</span> <span class="p">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">Jedis</span> <span class="n">jedis</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Jedis</span><span class="p">(</span><span class="s">&quot;127.0.0.1&quot;</span><span class="p">,</span> <span class="mi">6379</span><span class="p">);</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">jedis</span><span class="p">.</span><span class="na">ping</span><span class="p">());</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
 <p>输出：</p>
 <p><img alt="image-20211001173444144" src="../Redis.assets/image-20211001173444144.png" /></p>
 <h3 id="api">常用的API</h3>
@@ -2619,123 +2618,122 @@ OK
 <p>所有的API命令与上述命令相同</p>
 <p><img alt="image-20211002154203560" src="../Redis.assets/image-20211002154203560.png" /></p>
 <h3 id="jedis_2">Jedis事务</h3>
-<pre><code class="language-java">public class TestJedis {
-    public static void main(String[] args) {
-        Jedis jedis = new Jedis(&quot;127.0.0.1&quot;, 6379);
-        JSONObject json = new JSONObject();
-        json.put(&quot;user1&quot;, &quot;kongcheng&quot;);
-        json.put(&quot;user2&quot;, &quot;kc&quot;);
-        String str = json.toJSONString();
-        //开启事务
-        Transaction multi = jedis.multi();
-        try {
-            multi.set(&quot;user1&quot;, str);
-            multi.set(&quot;user2&quot;, str);
-            multi.exec();
-        } catch (Exception e) {
-            multi.discard();
-            e.printStackTrace();
-        } finally {
-            System.out.println(jedis.get(&quot;user1&quot;));
-            //System.out.println(jedis.get(&quot;user2&quot;));
-            jedis.close();
-        }
-    }
-}
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">TestJedis</span> <span class="p">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">Jedis</span> <span class="n">jedis</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Jedis</span><span class="p">(</span><span class="s">&quot;127.0.0.1&quot;</span><span class="p">,</span> <span class="mi">6379</span><span class="p">);</span>
+        <span class="n">JSONObject</span> <span class="n">json</span> <span class="o">=</span> <span class="k">new</span> <span class="n">JSONObject</span><span class="p">();</span>
+        <span class="n">json</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="s">&quot;user1&quot;</span><span class="p">,</span> <span class="s">&quot;kongcheng&quot;</span><span class="p">);</span>
+        <span class="n">json</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="s">&quot;user2&quot;</span><span class="p">,</span> <span class="s">&quot;kc&quot;</span><span class="p">);</span>
+        <span class="n">String</span> <span class="n">str</span> <span class="o">=</span> <span class="n">json</span><span class="p">.</span><span class="na">toJSONString</span><span class="p">();</span>
+        <span class="c1">//开启事务</span>
+        <span class="n">Transaction</span> <span class="n">multi</span> <span class="o">=</span> <span class="n">jedis</span><span class="p">.</span><span class="na">multi</span><span class="p">();</span>
+        <span class="k">try</span> <span class="p">{</span>
+            <span class="n">multi</span><span class="p">.</span><span class="na">set</span><span class="p">(</span><span class="s">&quot;user1&quot;</span><span class="p">,</span> <span class="n">str</span><span class="p">);</span>
+            <span class="n">multi</span><span class="p">.</span><span class="na">set</span><span class="p">(</span><span class="s">&quot;user2&quot;</span><span class="p">,</span> <span class="n">str</span><span class="p">);</span>
+            <span class="n">multi</span><span class="p">.</span><span class="na">exec</span><span class="p">();</span>
+        <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="n">Exception</span> <span class="n">e</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">multi</span><span class="p">.</span><span class="na">discard</span><span class="p">();</span>
+            <span class="n">e</span><span class="p">.</span><span class="na">printStackTrace</span><span class="p">();</span>
+        <span class="p">}</span> <span class="k">finally</span> <span class="p">{</span>
+            <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">jedis</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="s">&quot;user1&quot;</span><span class="p">));</span>
+            <span class="c1">//System.out.println(jedis.get(&quot;user2&quot;));</span>
+            <span class="n">jedis</span><span class="p">.</span><span class="na">close</span><span class="p">();</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
 <h2 id="springboot">SpringBoot整合</h2>
 <p>说明：在SpringBoot2.x 之后，原来使用的jedi 被替换为了lettuce</p>
 <p>jedis : 采用的直连，多个线程操作的话，是不安全的，如果想要避免不安全的话，使用 jedis pool 连接池。更像BIO模式</p>
 <p>lettuce : 采用netty， 实例可以在多个线程中进行共享，不存在线程不安全的情况，可以减少线程数据了，更像NIO模式</p>
 <p>源码分析：</p>
-<pre><code class="language-java">@Bean
-@ConditionalOnMissingBean(
-    name = {&quot;redisTemplate&quot;} //我们可以自己定义一个redisTemplate来替换合格默认的。
-)
-@ConditionalOnSingleCandidate(RedisConnectionFactory.class)
-public RedisTemplate&lt;Object, Object&gt; redisTemplate(RedisConnectionFactory redisConnectionFactory) {
-    //默认的 RedisTemplate 没有过多的设置，redis 对象都是需要序列化
-    //两个泛型都是 Object, Object 的类型， 我们之后使用需要强制转换&lt;String, Object&gt;
-    RedisTemplate&lt;Object, Object&gt; template = new RedisTemplate();
-    template.setConnectionFactory(redisConnectionFactory);
-    return template;
-}
+<div class="highlight"><pre><span></span><code><span class="nd">@Bean</span>
+<span class="nd">@ConditionalOnMissingBean</span><span class="p">(</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="p">{</span><span class="s">&quot;redisTemplate&quot;</span><span class="p">}</span> <span class="c1">//我们可以自己定义一个redisTemplate来替换合格默认的。</span>
+<span class="p">)</span>
+<span class="nd">@ConditionalOnSingleCandidate</span><span class="p">(</span><span class="n">RedisConnectionFactory</span><span class="p">.</span><span class="na">class</span><span class="p">)</span>
+<span class="kd">public</span> <span class="n">RedisTemplate</span><span class="o">&lt;</span><span class="n">Object</span><span class="p">,</span> <span class="n">Object</span><span class="o">&gt;</span> <span class="nf">redisTemplate</span><span class="p">(</span><span class="n">RedisConnectionFactory</span> <span class="n">redisConnectionFactory</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">//默认的 RedisTemplate 没有过多的设置，redis 对象都是需要序列化</span>
+    <span class="c1">//两个泛型都是 Object, Object 的类型， 我们之后使用需要强制转换&lt;String, Object&gt;</span>
+    <span class="n">RedisTemplate</span><span class="o">&lt;</span><span class="n">Object</span><span class="p">,</span> <span class="n">Object</span><span class="o">&gt;</span> <span class="n">template</span> <span class="o">=</span> <span class="k">new</span> <span class="n">RedisTemplate</span><span class="p">();</span>
+    <span class="n">template</span><span class="p">.</span><span class="na">setConnectionFactory</span><span class="p">(</span><span class="n">redisConnectionFactory</span><span class="p">);</span>
+    <span class="k">return</span> <span class="n">template</span><span class="p">;</span>
+<span class="p">}</span>
 
-@Bean
-@ConditionalOnMissingBean // 由于 String 是 redis 中最常使用的类型，所有单独提出来了一个Bean
-@ConditionalOnSingleCandidate(RedisConnectionFactory.class)
-public StringRedisTemplate stringRedisTemplate(RedisConnectionFactory redisConnectionFactory) {
-    StringRedisTemplate template = new StringRedisTemplate();
-    template.setConnectionFactory(redisConnectionFactory);
-    return template;
-}
-</code></pre>
+<span class="nd">@Bean</span>
+<span class="nd">@ConditionalOnMissingBean</span> <span class="c1">// 由于 String 是 redis 中最常使用的类型，所有单独提出来了一个Bean</span>
+<span class="nd">@ConditionalOnSingleCandidate</span><span class="p">(</span><span class="n">RedisConnectionFactory</span><span class="p">.</span><span class="na">class</span><span class="p">)</span>
+<span class="kd">public</span> <span class="n">StringRedisTemplate</span> <span class="nf">stringRedisTemplate</span><span class="p">(</span><span class="n">RedisConnectionFactory</span> <span class="n">redisConnectionFactory</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">StringRedisTemplate</span> <span class="n">template</span> <span class="o">=</span> <span class="k">new</span> <span class="n">StringRedisTemplate</span><span class="p">();</span>
+    <span class="n">template</span><span class="p">.</span><span class="na">setConnectionFactory</span><span class="p">(</span><span class="n">redisConnectionFactory</span><span class="p">);</span>
+    <span class="k">return</span> <span class="n">template</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
 <h3 id="_26">整合测试</h3>
 <p>1、导入依赖</p>
-<pre><code class="language-xml">&lt;dependency&gt;
-    &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
-    &lt;artifactId&gt;spring-boot-starter-data-redis&lt;/artifactId&gt;
-&lt;/dependency&gt;
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="nt">&lt;dependency&gt;</span>
+    <span class="nt">&lt;groupId&gt;</span>org.springframework.boot<span class="nt">&lt;/groupId&gt;</span>
+    <span class="nt">&lt;artifactId&gt;</span>spring-boot-starter-data-redis<span class="nt">&lt;/artifactId&gt;</span>
+<span class="nt">&lt;/dependency&gt;</span>
+</code></pre></div>
 <p>2、配置连接</p>
-<pre><code class="language-properties"># 配置redis
-spring.redis.host=127.0.0.1
-spring.redis.port=6379
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="c"># 配置redis</span><span class="w"></span>
+<span class="na">spring.redis.host</span><span class="o">=</span><span class="s">127.0.0.1</span><span class="w"></span>
+<span class="na">spring.redis.port</span><span class="o">=</span><span class="s">6379</span><span class="w"></span>
+</code></pre></div>
 <p>3、测试</p>
-<pre><code class="language-java">@SpringBootTest
-class RedisSpringbootApplicationTests {
+<div class="highlight"><pre><span></span><code><span class="nd">@SpringBootTest</span>
+<span class="kd">class</span> <span class="nc">RedisSpringbootApplicationTests</span> <span class="p">{</span>
 
-    @Autowired
-    private RedisTemplate redisTemplate;
+    <span class="nd">@Autowired</span>
+    <span class="kd">private</span> <span class="n">RedisTemplate</span> <span class="n">redisTemplate</span><span class="p">;</span>
 
-    @Test
-    void contextLoads() {
-        //redisTemplate 操作不同的数据类型，和基本命令相同
-        //opsForValue() 操作字符串 类似String
-        //opsForList() 操作List 类似List
-        //opsForHash()
-        //opsForGeo()
-        //....
+    <span class="nd">@Test</span>
+    <span class="kt">void</span> <span class="nf">contextLoads</span><span class="p">()</span> <span class="p">{</span>
+        <span class="c1">//redisTemplate 操作不同的数据类型，和基本命令相同</span>
+        <span class="c1">//opsForValue() 操作字符串 类似String</span>
+        <span class="c1">//opsForList() 操作List 类似List</span>
+        <span class="c1">//opsForHash()</span>
+        <span class="c1">//opsForGeo()</span>
+        <span class="c1">//....</span>
 
-        //除了基本的操作，常用的方法可以直接通过redisTemplate来操作，比如事务和基本的CRUD
+        <span class="c1">//除了基本的操作，常用的方法可以直接通过redisTemplate来操作，比如事务和基本的CRUD</span>
 
-        //获取redis的连接对象
-        //RedisConnection connection = redisTemplate.getConnectionFactory().getConnection();
-        //connection.flushDb();
-        //connection.flushAll();
-        redisTemplate.opsForValue().set(&quot;key&quot;, &quot;kc&quot;);
-        System.out.println(redisTemplate.opsForValue().get(&quot;key&quot;));
-    }
+        <span class="c1">//获取redis的连接对象</span>
+        <span class="c1">//RedisConnection connection = redisTemplate.getConnectionFactory().getConnection();</span>
+        <span class="c1">//connection.flushDb();</span>
+        <span class="c1">//connection.flushAll();</span>
+        <span class="n">redisTemplate</span><span class="p">.</span><span class="na">opsForValue</span><span class="p">().</span><span class="na">set</span><span class="p">(</span><span class="s">&quot;key&quot;</span><span class="p">,</span> <span class="s">&quot;kc&quot;</span><span class="p">);</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">redisTemplate</span><span class="p">.</span><span class="na">opsForValue</span><span class="p">().</span><span class="na">get</span><span class="p">(</span><span class="s">&quot;key&quot;</span><span class="p">));</span>
+    <span class="p">}</span>
 
-}
-</code></pre>
+<span class="p">}</span>
+</code></pre></div>
 <p>4、自定义redisTemplate 序列化</p>
-<pre><code class="language-java">@Configuration
-public class RedisConfig {
+<div class="highlight"><pre><span></span><code><span class="nd">@Configuration</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">RedisConfig</span> <span class="p">{</span>
 
-    @Bean(&quot;myRedisTemplate&quot;)
-    public RedisTemplate&lt;String, Object&gt; redisTemplate(RedisConnectionFactory redisConnectionFactory) {
-        RedisTemplate&lt;String, Object&gt; template = new RedisTemplate();
-        Jackson2JsonRedisSerializer&lt;Object&gt; jackson2JsonRedisSerializer = new Jackson2JsonRedisSerializer&lt;Object&gt;(
-                Object.class);
-        ObjectMapper om = new ObjectMapper();
-        om.setVisibility(PropertyAccessor.ALL, JsonAutoDetect.Visibility.ANY);
-        om.activateDefaultTyping(LaissezFaireSubTypeValidator.instance ,
-                ObjectMapper.DefaultTyping.NON_FINAL, JsonTypeInfo.As.PROPERTY);
-        StringRedisSerializer stringRedisSerializer = new StringRedisSerializer();
-        jackson2JsonRedisSerializer.setObjectMapper(om);
-        template.setKeySerializer(stringRedisSerializer);
-        template.setHashKeySerializer(stringRedisSerializer);
-        template.setValueSerializer(jackson2JsonRedisSerializer);
-        template.setHashValueSerializer(jackson2JsonRedisSerializer);
-        template.setConnectionFactory(redisConnectionFactory);
-        template.afterPropertiesSet();
-        return template;
-    }
-}
-
-</code></pre>
+    <span class="nd">@Bean</span><span class="p">(</span><span class="s">&quot;myRedisTemplate&quot;</span><span class="p">)</span>
+    <span class="kd">public</span> <span class="n">RedisTemplate</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span> <span class="n">Object</span><span class="o">&gt;</span> <span class="nf">redisTemplate</span><span class="p">(</span><span class="n">RedisConnectionFactory</span> <span class="n">redisConnectionFactory</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">RedisTemplate</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span> <span class="n">Object</span><span class="o">&gt;</span> <span class="n">template</span> <span class="o">=</span> <span class="k">new</span> <span class="n">RedisTemplate</span><span class="p">();</span>
+        <span class="n">Jackson2JsonRedisSerializer</span><span class="o">&lt;</span><span class="n">Object</span><span class="o">&gt;</span> <span class="n">jackson2JsonRedisSerializer</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Jackson2JsonRedisSerializer</span><span class="o">&lt;</span><span class="n">Object</span><span class="o">&gt;</span><span class="p">(</span>
+                <span class="n">Object</span><span class="p">.</span><span class="na">class</span><span class="p">);</span>
+        <span class="n">ObjectMapper</span> <span class="n">om</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ObjectMapper</span><span class="p">();</span>
+        <span class="n">om</span><span class="p">.</span><span class="na">setVisibility</span><span class="p">(</span><span class="n">PropertyAccessor</span><span class="p">.</span><span class="na">ALL</span><span class="p">,</span> <span class="n">JsonAutoDetect</span><span class="p">.</span><span class="na">Visibility</span><span class="p">.</span><span class="na">ANY</span><span class="p">);</span>
+        <span class="n">om</span><span class="p">.</span><span class="na">activateDefaultTyping</span><span class="p">(</span><span class="n">LaissezFaireSubTypeValidator</span><span class="p">.</span><span class="na">instance</span> <span class="p">,</span>
+                <span class="n">ObjectMapper</span><span class="p">.</span><span class="na">DefaultTyping</span><span class="p">.</span><span class="na">NON_FINAL</span><span class="p">,</span> <span class="n">JsonTypeInfo</span><span class="p">.</span><span class="na">As</span><span class="p">.</span><span class="na">PROPERTY</span><span class="p">);</span>
+        <span class="n">StringRedisSerializer</span> <span class="n">stringRedisSerializer</span> <span class="o">=</span> <span class="k">new</span> <span class="n">StringRedisSerializer</span><span class="p">();</span>
+        <span class="n">jackson2JsonRedisSerializer</span><span class="p">.</span><span class="na">setObjectMapper</span><span class="p">(</span><span class="n">om</span><span class="p">);</span>
+        <span class="n">template</span><span class="p">.</span><span class="na">setKeySerializer</span><span class="p">(</span><span class="n">stringRedisSerializer</span><span class="p">);</span>
+        <span class="n">template</span><span class="p">.</span><span class="na">setHashKeySerializer</span><span class="p">(</span><span class="n">stringRedisSerializer</span><span class="p">);</span>
+        <span class="n">template</span><span class="p">.</span><span class="na">setValueSerializer</span><span class="p">(</span><span class="n">jackson2JsonRedisSerializer</span><span class="p">);</span>
+        <span class="n">template</span><span class="p">.</span><span class="na">setHashValueSerializer</span><span class="p">(</span><span class="n">jackson2JsonRedisSerializer</span><span class="p">);</span>
+        <span class="n">template</span><span class="p">.</span><span class="na">setConnectionFactory</span><span class="p">(</span><span class="n">redisConnectionFactory</span><span class="p">);</span>
+        <span class="n">template</span><span class="p">.</span><span class="na">afterPropertiesSet</span><span class="p">();</span>
+        <span class="k">return</span> <span class="n">template</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
 <p>5、编写RedisUtils工具类，避免使用原生redisTemplate</p>
 <p>可在CSDN直接找别人封装好的，然后导入上面第4步自定义序列化的redisTemplate</p>
 <h2 id="redisconf">Redis.conf 详解</h2>
@@ -2747,80 +2745,80 @@ public class RedisConfig {
 <p><img alt="image-20211002173324619" src="../Redis.assets/image-20211002173324619.png" /></p>
 <p>就是好比我们学习Spring中的Import、include</p>
 <h3 id="network">网络（NETWORK）</h3>
-<pre><code class="language-bash">bind 127.0.0.1 -::1 # 绑定的ip
-protected-mode yes # 保护模式
-port 6379 # 端口设置
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="nb">bind</span> <span class="m">127</span>.0.0.1 -::1 <span class="c1"># 绑定的ip</span>
+protected-mode yes <span class="c1"># 保护模式</span>
+port <span class="m">6379</span> <span class="c1"># 端口设置</span>
+</code></pre></div>
 <h3 id="general">通用（GENERAL)</h3>
-<pre><code class="language-bash">daemonize yes # 以守护进程的方式来运行，默认是no，我们需要自己开启为yes
+<div class="highlight"><pre><span></span><code>daemonize yes <span class="c1"># 以守护进程的方式来运行，默认是no，我们需要自己开启为yes</span>
 
-pidfile /var/run/redis_6379.pid # 如果以后台方式运行，我们就需要指定一个pid 文件
+pidfile /var/run/redis_6379.pid <span class="c1"># 如果以后台方式运行，我们就需要指定一个pid 文件</span>
 
-# 日志
-# Specify the server verbosity level.
-# This can be one of:
-# debug (a lot of information, useful for development/testing)
-# verbose (many rarely useful info, but not a mess like the debug level)
-# notice (moderately verbose, what you want in production probably) 生产环境
-# warning (only very important / critical messages are logged)
+<span class="c1"># 日志</span>
+<span class="c1"># Specify the server verbosity level.</span>
+<span class="c1"># This can be one of:</span>
+<span class="c1"># debug (a lot of information, useful for development/testing)</span>
+<span class="c1"># verbose (many rarely useful info, but not a mess like the debug level)</span>
+<span class="c1"># notice (moderately verbose, what you want in production probably) 生产环境</span>
+<span class="c1"># warning (only very important / critical messages are logged)</span>
 loglevel notice
-logfile &quot;&quot; # 日志的文件位置名
-databases 16 # 数据库的数量，默认是 16 个数据库
-always-show logo yes # 是否总是显示logo
-</code></pre>
+logfile <span class="s2">&quot;&quot;</span> <span class="c1"># 日志的文件位置名</span>
+databases <span class="m">16</span> <span class="c1"># 数据库的数量，默认是 16 个数据库</span>
+always-show logo yes <span class="c1"># 是否总是显示logo</span>
+</code></pre></div>
 <h3 id="snapshotting">快照（SNAPSHOTTING）</h3>
 <p>持久化，在规定的时间内，执行了多少次操作，则会持久到文件 .rdb .aof</p>
 <p>redis是内存数据库，如果没有持久化，那么数据断电及失</p>
-<pre><code class="language-bash"># 如果3600s内，如果至少有1个key进行了修改，我们就进行持久化操作
-save 3600 1
-# 如果300s内，如果至少有100个key进行了修改，我们就进行持久化操作
-save 300 100
-# 如果60s内，如果至少有10000个key进行了修改，我们就进行持久化操作
-save 60 10000
-# 我们之后学习持久化，会自己定义这个测试
+<div class="highlight"><pre><span></span><code><span class="c1"># 如果3600s内，如果至少有1个key进行了修改，我们就进行持久化操作</span>
+save <span class="m">3600</span> <span class="m">1</span>
+<span class="c1"># 如果300s内，如果至少有100个key进行了修改，我们就进行持久化操作</span>
+save <span class="m">300</span> <span class="m">100</span>
+<span class="c1"># 如果60s内，如果至少有10000个key进行了修改，我们就进行持久化操作</span>
+save <span class="m">60</span> <span class="m">10000</span>
+<span class="c1"># 我们之后学习持久化，会自己定义这个测试</span>
 
-stop-writes-on-bgsave-error yes # 持久化如果出错，是否还需要继续工作
+stop-writes-on-bgsave-error yes <span class="c1"># 持久化如果出错，是否还需要继续工作</span>
 
-rdbcompression yes # 是否压缩 rdb 文件，需要消耗一些cpu资源
+rdbcompression yes <span class="c1"># 是否压缩 rdb 文件，需要消耗一些cpu资源</span>
 
-rdbcompression yes # 保存rdb文件的时候，进行错误的检查校验
+rdbcompression yes <span class="c1"># 保存rdb文件的时候，进行错误的检查校验</span>
 
-dir ./ # rdb 文件保存的目录
-</code></pre>
+dir ./ <span class="c1"># rdb 文件保存的目录</span>
+</code></pre></div>
 <h3 id="replication">复制（REPLICATION）</h3>
 <h3 id="security">安全（SECURITY）</h3>
-<pre><code class="language-bash">requirepass 123456 # 设置密码
+<div class="highlight"><pre><span></span><code>requirepass <span class="m">123456</span> <span class="c1"># 设置密码</span>
 
-# redis-cli中输入密码指令
-auth 123456
+<span class="c1"># redis-cli中输入密码指令</span>
+auth <span class="m">123456</span>
 
-config set requirepass 123456 # 命令行输入设置密码
-</code></pre>
+config <span class="nb">set</span> requirepass <span class="m">123456</span> <span class="c1"># 命令行输入设置密码</span>
+</code></pre></div>
 <h3 id="clients">客户端（CLIENTS)</h3>
-<pre><code class="language-bash">maxclients # 最大连接客户端数量
-</code></pre>
+<div class="highlight"><pre><span></span><code>maxclients <span class="c1"># 最大连接客户端数量</span>
+</code></pre></div>
 <h3 id="memorymanagement">内存（MEMORYMANAGEMENT）</h3>
-<pre><code class="language-bash">maxmemory &lt;bytes&gt; # redis 配置最大的内存容量
+<div class="highlight"><pre><span></span><code>maxmemory &lt;bytes&gt; <span class="c1"># redis 配置最大的内存容量</span>
 
-maxmemory-policy noeviction # 内存到达上限之后的处理策略
+maxmemory-policy noeviction <span class="c1"># 内存到达上限之后的处理策略</span>
 
-1、volatile-lru -&gt; 只对设置了过期时间的key进行LRU（默认值）
-2、allkeys-lru -&gt; 删除LRU算法的KEY
-3、volatile-lfu -&gt; 只对设置了过期时间的key进行LFU
-4、allkeys-lfu -&gt; 删除LFU算法的KEY
-5、volatile-random -&gt; 随机删除即将过期key
-6、allkeys-random -&gt; 随机删除
-7、volatile-ttl -&gt; 删除即将过期的
-8、noeviction -&gt; 永不过期，返回错误
-</code></pre>
+<span class="m">1</span>、volatile-lru -&gt; 只对设置了过期时间的key进行LRU（默认值）
+<span class="m">2</span>、allkeys-lru -&gt; 删除LRU算法的KEY
+<span class="m">3</span>、volatile-lfu -&gt; 只对设置了过期时间的key进行LFU
+<span class="m">4</span>、allkeys-lfu -&gt; 删除LFU算法的KEY
+<span class="m">5</span>、volatile-random -&gt; 随机删除即将过期key
+<span class="m">6</span>、allkeys-random -&gt; 随机删除
+<span class="m">7</span>、volatile-ttl -&gt; 删除即将过期的
+<span class="m">8</span>、noeviction -&gt; 永不过期，返回错误
+</code></pre></div>
 <h3 id="append-only-aof">APPEND ONLY aof配置</h3>
-<pre><code class="language-bash">appendonly no # 默认是不开启aof模式的。默认是使用rdb方式持久化的，在大部分所有的情况下，rdb完全够用
-appendfilename &quot;appendonly.aof&quot; # 持久化的文件的名字
+<div class="highlight"><pre><span></span><code>appendonly no <span class="c1"># 默认是不开启aof模式的。默认是使用rdb方式持久化的，在大部分所有的情况下，rdb完全够用</span>
+appendfilename <span class="s2">&quot;appendonly.aof&quot;</span> <span class="c1"># 持久化的文件的名字</span>
 
-appendfsync always  # 每次修改都会sync ，消耗性能
-appendfsync everysec # 每秒执行一次 sync ， 可能会丢失这1s的数据
-appendfsync no # 不执行sync， 这个时候操作系统自己同步数据，速度最快
-</code></pre>
+appendfsync always  <span class="c1"># 每次修改都会sync ，消耗性能</span>
+appendfsync everysec <span class="c1"># 每秒执行一次 sync ， 可能会丢失这1s的数据</span>
+appendfsync no <span class="c1"># 不执行sync， 这个时候操作系统自己同步数据，速度最快</span>
+</code></pre></div>
 <h2 id="redis_4">Redis持久化</h2>
 <p>面试和工作，持久化都是重点！</p>
 <p>Redis是内存数据库，如果不将内存中的数据库状态保存到磁盘，那么一旦服务器进程退出，服务器中的数据库状态也会消失。所以Redis提供了持久化功能!</p>
@@ -2841,10 +2839,10 @@ appendfsync no # 不执行sync， 这个时候操作系统自己同步数据，�
 <h4 id="rdb_1">恢复rdb文件</h4>
 <p>1、只需要将rdb文件放在我们redis启动目录（redis-server同级目录）就可以，redis启动的时候会自动检查dump.rdb 恢复其中的数据</p>
 <p>2、查看需要存在的位置</p>
-<pre><code class="language-bash">127.0.0.1:6379&gt; config get dir
-1) &quot;dir&quot;
-2) &quot;/usr/local/bin&quot; # 如果在这个目录下存在 dump.rdb 文件，启动就会自动恢复其中的数据
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="m">127</span>.0.0.1:6379&gt; config get dir
+<span class="m">1</span><span class="o">)</span> <span class="s2">&quot;dir&quot;</span>
+<span class="m">2</span><span class="o">)</span> <span class="s2">&quot;/usr/local/bin&quot;</span> <span class="c1"># 如果在这个目录下存在 dump.rdb 文件，启动就会自动恢复其中的数据</span>
+</code></pre></div>
 <h4 id="_29">优缺点</h4>
 <p>优点：</p>
 <p>1、适合大规模的数据恢复！ dump.rdb</p>
@@ -2861,8 +2859,8 @@ appendfsync no # 不执行sync， 这个时候操作系统自己同步数据，�
 <p>默认是不开启的，我们需要手动进行配置!我们只需要将appendonly改为yes就开启了aof !</p>
 <p>如果这个 appendonly.aof 文件有错误，此时redis启动不了，需要修复这个aof文件</p>
 <p>redis提供了工具 redis-check-aof </p>
-<pre><code class="language-bash">redis-check-aop --fix
-</code></pre>
+<div class="highlight"><pre><span></span><code>redis-check-aop --fix
+</code></pre></div>
 <h3 id="_30">优缺点</h3>
 <p>优点：</p>
 <p>1、每一次修改都同步，文件的完整性更好；</p>
@@ -2922,10 +2920,10 @@ appendfsync no # 不执行sync， 这个时候操作系统自己同步数据，�
 <p>主从复制，读写分离！80%的情况下都是在进行读操作，减缓服务器的压力，架构中经常使用，一主二从。</p>
 <h3 id="_35">环境配置</h3>
 <p>只配置从库，不用配置主库！</p>
-<pre><code class="language-bash">info replication # 查看当前库的信息
+<div class="highlight"><pre><span></span><code>info replication <span class="c1"># 查看当前库的信息</span>
 
-127.0.0.1:6379&gt; info replication
-# Replication
+<span class="m">127</span>.0.0.1:6379&gt; info replication
+<span class="c1"># Replication</span>
 role:master
 connected_slaves:0
 master_failover_state:no-failover
@@ -2937,7 +2935,7 @@ repl_backlog_active:0
 repl_backlog_size:1048576
 repl_backlog_first_byte_offset:0
 repl_backlog_histlen:0
-</code></pre>
+</code></pre></div>
 <p>此处采用伪集群，用三个redis进程来模拟</p>
 <p>配置文件修改过程：</p>
 <p>1、修改端口</p>
@@ -2948,8 +2946,8 @@ repl_backlog_histlen:0
 <h3 id="_36">一主二从</h3>
 <p><strong>默认情况下，每台Redis服务器都是主节点</strong>; 我们一般情况下只用配置从机就好了!</p>
 <p>配置从机：</p>
-<pre><code class="language-bash">SLAVEOF ip port # 认主，找主机
-</code></pre>
+<div class="highlight"><pre><span></span><code>SLAVEOF ip port <span class="c1"># 认主，找主机</span>
+</code></pre></div>
 <p>真实的从主配置应该在配置文件中配置，这样的话是永久的，我们这里使用的是命令，暂时的。</p>
 <p>配置文件：</p>
 <p><img alt="image-20211002203851580" src="../Redis.assets/image-20211002203851580.png" /></p>
@@ -2967,8 +2965,8 @@ repl_backlog_histlen:0
 <p>但是只要是重新连接master，一次完全同步（全量复制)将被自动执行，我们的数据一定可以在从机上面看到</p>
 <h3 id="_39">主机宕机</h3>
 <p>从机可以 “谋朝篡位” ，自己又当主机</p>
-<pre><code class="language-bash">slaveof no one
-</code></pre>
+<div class="highlight"><pre><span></span><code>slaveof no one
+</code></pre></div>
 <p>此时主机再恢复，主机下也没有此从机了。</p>
 <h3 id="_40">哨兵模式</h3>
 <p>（自动选择老大的模式）</p>
@@ -2987,14 +2985,14 @@ repl_backlog_histlen:0
 <p>假设主服务器宕机，哨兵1先检测到这个结果，系统并不会马上进行failover过程，仅仅是哨兵1主观的认为主服务器不可用，这个现象成为<strong>主观下线</strong>、当后面的哨兵也检测到主服务器不可用，并且数量达到一定值时，那么哨兵之间就会进行一次投票，投票的结果由一个哨兵发起了进行failover[故障转移]操作。切换成功后，就会通过发布订阅模式，让各个哨兵把自己监控的从服务器实现切换主机，这个过程称为<strong>客观下线</strong></p>
 <h4 id="_42">测试</h4>
 <p>1、配置哨兵配置文件sentinel.conf</p>
-<pre><code class="language-bash"># sentinel monitor 被监控的名称 ip port 1
-sentinel monitor myredis 127.0.0.1 6379 1
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="c1"># sentinel monitor 被监控的名称 ip port 1</span>
+sentinel monitor myredis <span class="m">127</span>.0.0.1 <span class="m">6379</span> <span class="m">1</span>
+</code></pre></div>
 <p>后面的这个数字1，代表主机挂了，slave投票看让谁接替成为主机，票数最多的，就会成为主机。</p>
 <p><strong>“1”指明当有1个sentinel认为一个master失效时，master才算真正失效</strong></p>
 <p>2、启动哨兵</p>
-<pre><code class="language-bash"> redis-sentinel myconf/sentinel.conf
-</code></pre>
+<div class="highlight"><pre><span></span><code> redis-sentinel myconf/sentinel.conf
+</code></pre></div>
 <p>主机宕机后，哨兵会自动投票选举一个新的从机作为主机；</p>
 <p>当主机恢复后，<strong>只能归并到新的主机下，当做从机</strong>，这就是哨兵模式的规则。</p>
 <h4 id="_43">优缺点</h4>
