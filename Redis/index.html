@@ -1,0 +1,1463 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-8.2.5">
+    
+    
+      
+        <title>Redis - KccccEmpty</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.2d9f7617.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.e6a45f82.min.css">
+        
+      
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#redis" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="KccccEmpty" class="md-header__button md-logo" aria-label="KccccEmpty" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            KccccEmpty
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Redis
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="KccccEmpty" class="md-nav__button md-logo" aria-label="KccccEmpty" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    KccccEmpty
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        Welcome to KccccEmpty's Blog
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Redis
+      </a>
+      
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ZeroTier/" class="md-nav__link">
+        ZeroTier
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4">
+          并发
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="并发" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          并发
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E5%B9%B6%E5%8F%91/" class="md-nav__link">
+        kccccempty_blogs
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+
+
+<h1 id="redis">Redis</h1>
+<h1 id="nosql">NoSQL概述</h1>
+<h2 id="nosql_1">为什么要用NoSQL</h2>
+<p><strong>1、单机MySQL的年代</strong></p>
+<p>App -&gt; DAL(Database Access Layer) -&gt; MySQL</p>
+<p>90年代，一个基本的网站访问量一般不会太大，单个数据库完全足够！</p>
+<p>那个时候，更多的去使用静态网页 html, 服务器压力较小</p>
+<p>网站的瓶颈：</p>
+<ol>
+<li>数据量如果太大，一个机器放不下了</li>
+<li>数据的索引（MySQL B+ tree），一个机器内存放不下</li>
+<li>访问量（读写混合），一个服务器承受不了</li>
+</ol>
+<p>出现以上的三种情况之一，必须要晋级</p>
+<p><strong>2、Memcached（缓存）+ MySQL + 垂直拆分（读写分离）</strong></p>
+<p>网站80%的情况都在读，每次都要去查询数据库的话就十分麻烦，所以说我们希望减轻数据库的压力，我们可以使用缓存来保证效率</p>
+<p>发展过程：优化数据结构和索引 --&gt; 文件缓存（IO） --&gt; Memcached（当时最热门的技术）</p>
+<p><strong>3、分库分表 + 水平拆分 + MySQL集群 （不同集群之间数据不同）</strong></p>
+<p>购买 订单 支付 三个表分开放在不同的数据库，减轻压力，放在不同集群。 </p>
+<p><strong>4、如今</strong></p>
+<p>MySQL关系型数据库不够用，数据量很多，变化很快。</p>
+<p>MySQL存储博客，图片等导致表很大，需要一种数据库来专门处理这种数据</p>
+<p><strong>5、目前一个基本的互联网项目</strong></p>
+<p><img alt="image-20210928114917429" src="../Redis.assets/image-20210928114917429.png" /></p>
+<p><strong>6、为什么要用NoSQL</strong></p>
+<p>用户的个人信息，社交网络，地理位置。用户自己产生的数据，用户日志等等爆发式增长。</p>
+<p>这时候我们就需要使用NoSQL数据库，Nosql 可以很好的处理以上情况。</p>
+<h2 id="nosql_2">什么是NoSQL</h2>
+<h3 id="1nosql"><strong>1、NoSQL</strong></h3>
+<p>NoSQL = Not Only SQL （不仅仅是SQL）泛指非关系型数据库 </p>
+<p>很多的数据类型用户的个人信息，社交网络，地理位置。这些数据类型的存储不需要一个固定的格式!不需要多月的操作就可以横向扩展的! Map<String,Object>使用键值对来控制!</p>
+<h3 id="2nosql">2、NoSQL特点</h3>
+<p>解耦！</p>
+<p>1、方便扩展（数据之间没有关系，很好扩展）</p>
+<p>2、大数据量高性能（Redis 可以一秒写8万次，读取11万次，NoSQL的缓存记录级，是一种细粒度的缓存，性能会比较高）</p>
+<p>3、数据类型是多样型（不需要事先设计数据库）</p>
+<p>4、传统RDBMS和NoSQL</p>
+<pre><code>传统的RDBMS
+- 结构化组织 
+- SQL
+- 数据和关系都存在单独的表中
+- 操作操作，数据定义语言
+- 严格的一致性
+- 基础的事务
+- ....
+</code></pre>
+<pre><code>Nosql
+- 不仅仅是数据
+- 没有固定的查询语言
+- 键值对存储，列存储， 文档存储，图形数据库（社交关系）
+- 最终一致性
+- CAP定理 和 BASE （异地多活）-》初级架构师
+- 高性能，高可用，高可扩
+- ...
+</code></pre>
+<p>5、了解：3V + 3高</p>
+<p>大数据时代的3V:主要是描述问题的</p>
+<ol>
+<li>海量Volume</li>
+<li>多样Variety</li>
+<li>实时Velocity</li>
+</ol>
+<p>大数据时代的3高:主要是对程序的要求</p>
+<ol>
+<li>高并发</li>
+<li>高可拓 （随时水平拆分，机器不够了，可用扩展机器来解决）</li>
+<li>高性能（保证用户体验和性能）</li>
+</ol>
+<h2 id="nosql_3">NoSQL的四大分类</h2>
+<p><strong>KV键值对：</strong></p>
+<ul>
+<li>新浪：Redis</li>
+<li>美团：Redis + Tair</li>
+<li>阿里、百度：Redis + Memcache</li>
+</ul>
+<p><strong>文档型数据库（bson格式和json一样）</strong>：</p>
+<ul>
+<li>MongoDB（一般必须要掌握）\<ul>
+<li>MongoDB是一个基于分布式文件存储的数据库，C++编写，主要用来处理大量的文档</li>
+<li>MongoDB是一个介于关系型数据库和非关系型数据库中间的产品，MongoDB是非关系型数据库中功能最丰富的，最像关系型数据库的。</li>
+</ul>
+</li>
+<li>ConthDB</li>
+</ul>
+<p><strong>列存储数据库</strong></p>
+<ul>
+<li>HBase（分布式文件系统）</li>
+</ul>
+<p><strong>图数据库</strong></p>
+<ul>
+<li>neo4j</li>
+<li>InfoGrid</li>
+</ul>
+<h1 id="redis_1">Redis 入门</h1>
+<h2 id="_1">概述</h2>
+<p><strong>Redis是什么？</strong></p>
+<p>Redis（Remote Dictionary Server )，即远程字典服务.</p>
+<p>是一个开源的使用ANSI C语言 编写、支持网络、可基于内存亦可持久化的日志型、Key-Value 数据库 ，并提供多种语言的API。</p>
+<p>免费和开源。当下最热门的NoSQL技术之一，也被人们称之为结构化数据库</p>
+<p><strong>Redis能干嘛？</strong></p>
+<p>1、内存存储、持久化，内存中是断电即失，所有持久化很重要（<strong>RDB,AOF</strong>）</p>
+<p>2、效率高，可用用于高速缓存</p>
+<p>3、发布订阅系统</p>
+<p>4、地图信息分析</p>
+<p>5、计时器、计数器（浏览量）</p>
+<p>6、...</p>
+<p><strong>特性</strong></p>
+<p>1、多样的数据类型</p>
+<p>2、持久化</p>
+<p>3、集群</p>
+<p>4、事务</p>
+<p>...</p>
+<p><strong>学习中需要用到的东西</strong></p>
+<p>1、官网：https://redis.io/</p>
+<p>2、中文站：http://www.redis.cn/</p>
+<p>3、下载地址：通过官网下载即可</p>
+<p><img alt="image-20210928161640561" src="../Redis.assets/image-20210928161640561.png" /></p>
+<p>注意：Window在 Github下载（停更很久了）</p>
+<p>Redis推荐都是在Linux服务器上搭建，基于Linux学习</p>
+<h2 id="windows">Windows安装</h2>
+<p>1、下载压缩包：https://github.com/MicrosoftArchive/redis/tags</p>
+<p><img alt="image-20211001172509134" src="../Redis.assets/image-20211001172509134.png" /></p>
+<p><img alt="image-20211001172524853" src="../Redis.assets/image-20211001172524853.png" /></p>
+<p>2、解压到相应文件夹</p>
+<p>3、开启Redis，双击redis-server.exe即可</p>
+<p>4、使用Redis-cli.exe 来连接redis</p>
+<p>5、输入ping命令测试连接</p>
+<p><img alt="image-20211001172918567" src="../Redis.assets/image-20211001172918567.png" /></p>
+<p>推荐使用Linux去开发，不推荐windows</p>
+<h2 id="linux">Linux安装</h2>
+<p>1、官网点击直接下载安装包</p>
+<p>2、移动安装包到/opt目录并解压</p>
+<pre><code class="language-bash">mv redis-6.2.5.tar.gz /opt
+tar -zxvf redis-6.2.5.tar.gz
+cd redis-6.2.5
+</code></pre>
+<p>3、进入解压后的文件，可以看到redis的配置文件</p>
+<p><img alt="image-20210928163017691" src="../Redis.assets/image-20210928163017691.png" /></p>
+<p>4、基本的环境安装</p>
+<pre><code class="language-bash">yum install gcc-c++
+
+make # 编译
+
+make install
+</code></pre>
+<p><img alt="image-20210928163311206" src="../Redis.assets/image-20210928163311206.png" /></p>
+<p><img alt="image-20210928163338102" src="../Redis.assets/image-20210928163338102.png" /></p>
+<p>5、redis的默认安装路径 <strong>/usr/local/bin</strong></p>
+<p><img alt="image-20210928163514096" src="../Redis.assets/image-20210928163514096.png" /></p>
+<p>6、将redis配置文件（<strong>/opt/redis-6.2.5/redis.conf</strong>），<strong>复制</strong>到<strong>/usr/local/bin/myconf</strong>下（没有则创建一个）</p>
+<pre><code class="language-bash">cp /opt/redis-6.2.5/redis.conf usr/local/bin/myconf
+</code></pre>
+<p>7、redis默认不是后台启动，修改配置文件</p>
+<p><img alt="image-20210928164305583" src="../Redis.assets/image-20210928164305583.png" /></p>
+<p>将daemonize 修改为 yes</p>
+<p>8、启动Redis服务并测试</p>
+<p><img alt="image-20210928164634512" src="../Redis.assets/image-20210928164634512.png" /></p>
+<pre><code class="language-bash">redis-server myconf/redis.conf
+
+redis-cli -p 6379 # 使用Redis客户端进行连接
+
+# 连接成功
+</code></pre>
+<p>9、查看redis的进程是否开启</p>
+<pre><code class="language-bash">ps -ef|grep redis
+</code></pre>
+<p><img alt="image-20210928164850463" src="../Redis.assets/image-20210928164850463.png" /></p>
+<p>11、关闭Redis服务</p>
+<pre><code class="language-bash">shutdown
+exit
+
+</code></pre>
+<p><img alt="image-20210928164952815" src="../Redis.assets/image-20210928164952815.png" /></p>
+<h2 id="_2">测试性能</h2>
+<p><strong>redis-benchmark</strong>是一个压力测试工具</p>
+<p>官方自带的性能测试工具</p>
+<p>redis-benchmark 命令参数：</p>
+<p><img alt="image-20210928165416333" src="../Redis.assets/image-20210928165416333.png" /></p>
+<p>测试：</p>
+<pre><code class="language-bash"># 100个并发连接 100000请求
+redis-benchmark -h localhost -p 6379 -c 100 -n 100000
+</code></pre>
+<p><img alt="image-20210928165903695" src="../Redis.assets/image-20210928165903695.png" /></p>
+<p>10w个请求</p>
+<p>100个并发客户端</p>
+<p>每次写入3个字节</p>
+<p>只有一台服务器来处理这些请求，单机性能</p>
+<h2 id="_3">基础的知识（面试题内容）</h2>
+<p><strong>1、redis默认有16个数据库</strong></p>
+<p><img alt="image-20210928170313289" src="../Redis.assets/image-20210928170313289.png" /></p>
+<p>2、默认使用的是第<strong>0</strong>个</p>
+<p>可以使用select来切换数据库</p>
+<pre><code class="language-bash">127.0.0.1:6379&gt; select 3 #切换到3数据库
+OK
+127.0.0.1:6379[3]&gt; DBSIZE # 查看数据库大小
+(integer) 0
+</code></pre>
+<p>3、Redis在4.0之前是单线程运行的的，之后开始<strong>支持</strong>多线程</p>
+<p>Redis是基于内存操作，CPU不是Redis性能瓶颈，Redis的瓶颈是根据机器的内存和网络带宽；</p>
+<p>Redis4.0之前使用单线程的原因：</p>
+<p>1、单线程模式方便开发和调试；</p>
+<p>2、Redis内部使用了基于epoll的多路复用；</p>
+<p>3、Redis主要的性能瓶颈是内存或网络带宽。</p>
+<p><strong>Redis为什么单线程还这么快？</strong></p>
+<ul>
+<li><strong>基于内存操作</strong>：Redis的所有数据都存在内存中，因此所有的运算都是内存级别的，所以它的性能比较高。</li>
+<li><strong>数据结构简单</strong>：Redis的数据结构比较简单，是为Redis专门设计的，而这些简单的数据结构的查找和操作的时间复杂度都是O(1)。</li>
+<li><strong>多路复用和非阻塞IO</strong>：Redis使用IO多路复用功能来监听多个socket连接的客户端，这样就可以使用一个线程来处理多个情况，从而减少线程切换带来的开销，同时也避免了IO阻塞操作，从而大大提高了Redis的性能。</li>
+<li><strong>避免上下文切换</strong>：因为是单线程模型，因此就避免了不必要的上下文切换和多线程竞争，这就省去了多线程切换带来的时间和性能上的开销，而且单线程不会导致死锁的问题发生。（CPU上下文切换：耗时的操作）</li>
+</ul>
+<p><strong>IO多路复用是什么？</strong></p>
+<p>套接字的读写方法默认是阻塞的，例如当调用读取操作read方法时，缓冲区没有任何数据，那么这个线程会卡在这里，直到缓冲区有数据或者连接被关闭时，read方法才会返回，该线程才能继续处理其他业务。</p>
+<p>但这样显然就降低了程序的执行效率，而Redis使用的时非阻塞的IO，这就意味着IO的读写流程不再是阻塞的，读写方法都是瞬间完成并且返回的，也就是它会采用能读多少就读多少、能写多少就写多少的策略来执行IO操作，这显然更符合我们对性能的追求。</p>
+<p>但这种非阻塞的IO也面临一个问题，那就是当我们执行读取操作时，有可能只读取了一部分数据；同理写数据也是这种情况，当缓冲区满了，而我们的数据还没有写完，那么生效的数据何时写就成了一个问题。</p>
+<p>而IO的多路复用就是解决上面的这个问题的，使用IO多路复用最简单的方式就是使用select函数，此函数是操作系统提供给用户程序的API接口，用于监控多个文件描述符的可读和可写情况的，这样就可以监控到文件描述符的读写事件了。当监控到相应的时间之后就可以通知线程处理相应的业务了，这样就保证了Redis读写功能的正常执行。</p>
+<p>【不过现在的操作系统已经基本上不适用select函数了，改为调用epoll函数（Linux）了，macOS则是使用Kqueue（继承与Unix），因为select函数在文件描述符非常多的时候性能非常差。】</p>
+<p><strong>Redis6.0中的多线程？</strong></p>
+<p>Redis单线程的优点非常，不但降低了Redis内部实现的负责性，也让所有操作都可以在无锁的情况下进行，并且不存在死锁和线程切换带来的性能以及时间上的消耗；但是其缺点也很明显，单线程机制导致Redis的QPS（Query Per Second，每秒查询数）很难得到有效的提高（虽然够快了，但人毕竟还是要有更高的追求的）。</p>
+<p>Redis在4.0版本中虽然引入了多线程，<strong>但是此版本的多线程只能用于大数据量的异步删除</strong>，对于非删除操作的意义并不是很大。</p>
+<p>如果我们使用Redis多线程就可以分摊Redis同步读写IO的压力，以及充分利用多核CPU资源，并且可以有效的提升Redis的QPS。在Redis中虽然使用了IO多路复用，并且是基于非阻塞的IO进行操作的，但是IO的读写本身是阻塞的。比如当socket中有数据时，Redis会先将数据从内核态空间拷贝到用户态空间，然后再进行相关操作，而这个拷贝过程是阻塞的，并且当数据量越大时拷贝所需要的的时间就越多，而这些操作都是基于单线程完成的。</p>
+<p>因此在Redis6.0中新增了多线程的功能来提高IO的读写性能，它的主要实现思路是将主线程的IO读写任务拆分给一组独立的线程去执行，这样就可以使用多个socket的读写并行化了，但Redis的命令依旧是主线程串行执行的。</p>
+<p>但是注意：<strong>Redis6.0是默认禁用多线程的</strong>，但可以通过配置文件redis.conf中的io-threads-do-reads 等于 true 来开启。但是还不够，除此之外我们还需要设置线程的数量才能正确地开启多线程的功能，同样是修改Redis的配置，例如设置 io-threads 4，表示开启4个线程。</p>
+<p>【关于线程数的设置，官方的建议是如果为4核CPU，那么设置线程数为2或3；如果为8核CPU，那么设置线程数为6.总之线程数一定要小于机器的CPU核数，线程数并不是越大越好。】</p>
+<p>关于Redis的性能，Redis的作者在2019年的RedisConf大会上提到，Redis6.0引入的多线程IO特性对性能的提升至少是一倍以上。国人也有在阿里云使用4个线程的Redis版本和单线程的Redis进行比较测试，发现测试结果和Redis作者说的一致，性能基本可以提高一倍。</p>
+<h1 id="_4">五大数据类型</h1>
+<p><img alt="image-20210928173321104" src="../Redis.assets/image-20210928173321104.png" /></p>
+<p>Redis 是一个开源（BSD许可）的，内存中的数据结构存储系统，它可以用作<strong>数据库</strong>、<strong>缓存</strong>和<strong>消息中间件</strong>。 它支持多种类型的数据结构，如 <a href="http://www.redis.cn/topics/data-types-intro.html#strings">字符串（strings）</a>， <a href="http://www.redis.cn/topics/data-types-intro.html#hashes">散列（hashes）</a>， <a href="http://www.redis.cn/topics/data-types-intro.html#lists">列表（lists）</a>， <a href="http://www.redis.cn/topics/data-types-intro.html#sets">集合（sets）</a>， <a href="http://www.redis.cn/topics/data-types-intro.html#sorted-sets">有序集合（sorted sets）</a> 与范围查询， <a href="http://www.redis.cn/topics/data-types-intro.html#bitmaps">bitmaps</a>， <a href="http://www.redis.cn/topics/data-types-intro.html#hyperloglogs">hyperloglogs</a> 和 <a href="http://www.redis.cn/commands/geoadd.html">地理空间（geospatial）</a> 索引半径查询。 Redis 内置了 <a href="http://www.redis.cn/topics/replication.html">复制（replication）</a>，<a href="http://www.redis.cn/commands/eval.html">LUA脚本（Lua scripting）</a>， <a href="http://www.redis.cn/topics/lru-cache.html">LRU驱动事件（LRU eviction）</a>，<a href="http://www.redis.cn/topics/transactions.html">事务（transactions）</a> 和不同级别的 <a href="http://www.redis.cn/topics/persistence.html">磁盘持久化（persistence）</a>， 并通过 <a href="http://www.redis.cn/topics/sentinel.html">Redis哨兵（Sentinel）</a>和自动 <a href="http://www.redis.cn/topics/cluster-tutorial.html">分区（Cluster）</a>提供高可用性（high availability）。</p>
+<h2 id="redis-key">Redis-Key</h2>
+<p>常用命令：</p>
+<pre><code class="language-bash">set key value # set
+get key # get
+
+key * # 查看当前数据库所有的key
+
+flushdb # 清空当前数据库的
+
+FLUSHALL # 清空所有数据库
+
+EXISTS KEY # 检查是否存在该KEY
+
+move key 1 # 将 key 移动到1数据库
+
+del key # 删除key
+
+EXPIRE KEY 10 # key 在10s后将会被清除
+
+ttl key  # 查看当前key的剩余时间
+
+type key # 查看当前key的类型
+</code></pre>
+<p>不清楚的命令可以去官网查</p>
+<h2 id="string">String（字符串）</h2>
+<p>所有命令不区分大小写</p>
+<pre><code class="language-bash">APPEND key &quot;xxx&quot; # 向一个key后追加xxx内容，如果当前key不存在，就相当于set key
+key1 = &quot;hello&quot;
+APPEND key1 &quot;world&quot;
+key1 = &quot;helloworld&quot;
+
+STRLEN key # 输出key的长度
+</code></pre>
+<p>增加减少命令：</p>
+<pre><code class="language-bash">incr key # key值+1 ， i++
+INCRBY key 10 # key值+10 , i+=
+
+decr key # key值-1
+DECRBY key # key值-10 , i-=
+</code></pre>
+<p>字符串范围 </p>
+<pre><code class="language-bash">GETRANGE key 0 3 # 截取字符串[0,3]
+GETRANGE key 0 -1 # 拿到全部字符串,和get key一样
+</code></pre>
+<p>字符串范围设置</p>
+<pre><code class="language-bash">SETRANGE key 1 xx # 替换指定位置的字符串
+</code></pre>
+<pre><code class="language-bash">setex key 30 &quot;hello&quot; # 设置一个过期时间为30s的key &quot;hello&quot; (set with expire 设置过期时间)
+
+setnx key &quot;xxx&quot; # (set if not exist) 不存在 再设置key &quot;xxx&quot; 。
+</code></pre>
+<p>批量set、get</p>
+<pre><code class="language-bash">mset k1 v1 k2 v2 k3 v3
+mget k1 k2 k3
+
+msetnx k1 v1 k4 v4 # msetnx 是一个原子性的操作，要么一起成功， 要么一起失败。若刚才已经设置k1 则该操作执行失败
+</code></pre>
+<p>设置对象</p>
+<pre><code class="language-bash">set user:1 {name:zhangsan,age:3} # 设置一个user:1对象 值为json字符来保存一个对象
+
+# 这里的key是一个巧妙的设计：user:{id}:{filed}
+
+mset use1:1:name zhangsan user:1:age 2
+mget use1:1:name ser:1:age
+</code></pre>
+<p>getset</p>
+<pre><code class="language-bash">127.0.0.1:6379&gt; getset db redis # 先get再set
+(nil)
+127.0.0.1:6379&gt; get db
+&quot;redis&quot;
+127.0.0.1:6379&gt; getset db MongoDB
+&quot;redis&quot;
+127.0.0.1:6379&gt; get db
+&quot;MongoDB&quot;
+</code></pre>
+<p>String类似的使用场景：value除了是我们的字符串还可以是我们的数字</p>
+<ul>
+<li>计数器</li>
+<li>统计多单位的数量 uid:323131:follow 0</li>
+<li>粉丝数</li>
+<li>对象缓存存储</li>
+</ul>
+<h2 id="list">List</h2>
+<p>在redis里面，可以用list实现栈、队列、阻塞队列</p>
+<p>```bash
+127.0.0.1:6379&gt; LPUSH list one # 将一个值或者多个值，插入到列表头部
+(integer) 1
+127.0.0.1:6379&gt; LPUSH list two
+(integer) 2
+127.0.0.1:6379&gt; LPUSH list three
+(integer) 3
+127.0.0.1:6379&gt; LRANGE list 0 -1 # 获取list中的值
+1) "three"
+2) "two"
+3) "one"
+127.0.0.1:6379&gt; LRANGE list 0 1 # 通过区间获取具体的值
+1) "three"
+2) "two"
+127.0.0.1:6379&gt; RPUSH list right
+(integer) 4
+127.0.0.1:6379&gt; LRANGE list 0 -1
+1) "three"
+2) "two"
+3) "one"
+4) "right"</p>
+<h6 id="_5"></h6>
+<p>Lpop Rpop
+127.0.0.1:6379&gt; Lpop list # 移除list的第一个元素
+"three"
+127.0.0.1:6379&gt; Rpop list # 移除list的最后一个元素
+"right"
+127.0.0.1:6379&gt; LRANGE list 0 -1
+1) "two"
+2) "one"</p>
+<h6 id="_6"></h6>
+<p>Lindex 
+127.0.0.1:6379&gt; lindex list 0
+"two"
+127.0.0.1:6379&gt; lindex list 1 # 通过下标获得list中的某个值
+"one"</p>
+<h6 id="_7"></h6>
+<p>Llen list # 返回列表的长度</p>
+<h6 id="_8"></h6>
+<p>lrem list 1 one # 移除list中1个one，精确匹配
+lrem list 2 three # 移除list中2个three</p>
+<h6 id="_9"></h6>
+<p>ltrim list 1 2 # 截取[1,2]中的元素，list被改变，只剩下截取的元素</p>
+<h6 id="_10"></h6>
+<p>lset list 0 value # list中0号元素存在时，将该下标的值替换为value，更新操作</p>
+<h6 id="_11"></h6>
+<p>LINSERT list before "b" "a" # list中在 b 前面添加 a
+  ```</p>
+<p>LPUSH相当于从list左边放（头插法），RPUSH相当于从LIST右边放（尾插法）</p>
+<p><strong>小结：</strong></p>
+<ul>
+<li>list 实际上是一个链表，before Node after , left , right都可以插入值</li>
+<li>如果key不存在，创建新的链表</li>
+<li>如果key存在，新增内容</li>
+<li>如果移除了所有值，空链表，也代表不存在!</li>
+<li>在两边插入或者改动值，效率最高!中间元素，相对来说效率会低一点~</li>
+</ul>
+<p>可以应用为消息队列：Lpush Rpop ，栈（Lpush Lpop）</p>
+<h2 id="set">Set（集合）</h2>
+<p>set中的值不能重复</p>
+<pre><code class="language-bash">sadd set &quot;hello&quot; # 往set集合中添加hello
+sadd set &quot;kongcheng&quot;
+
+smembers set # 输出set中所有元素
+
+sismember list hello # 判断hello是否在set集合中
+
+scard set # 获取set集合中元素个数
+
+srem set &quot;hello&quot; # 移除set集合中的&quot;hello&quot;
+
+# set 为无序不重复集合
+srandmember set # 随机抽取出一个元素
+srandmember set 2 # 随机抽取出指定个数元素
+
+spop set # 随机删除一些set集合中的元素
+
+smove set1 set2 &quot;hello&quot; # 将指定元素移动到另外的set集合中
+
+sdiff set1 set2 # (set1 - set1与set2的交集)差集
+sinter set1 set2 # set1 与 set2 的交集
+sunion set1 set2 # set1 与 set2 的并集
+</code></pre>
+<h2 id="hash">Hash</h2>
+<p>Map集合，key - map</p>
+<pre><code class="language-bash">hset hash field1 kongcheng # set 
+hmset hash field1 hello field2 world
+
+hget hash field1 # get
+hmget hash field1 field2
+
+hgetall hash # 获取所有的key-value
+
+hdel hash field1 # 删除指定key，对应value也消失
+
+hlen hash # 得到长度
+
+hexists hash field1 # 判断指定key是否存在
+
+hkeys hash # 获取所有的key
+hvals hash # 获取所有的value
+
+hincrby hash field11 1 # 增加
+
+hsetnx hash field hello # set if not exist
+</code></pre>
+<h2 id="zset">Zset（有序集合）</h2>
+<p>在Set的基础上，增加了一个值：</p>
+<p>set k1 v1 </p>
+<p>zset k1 score1 v1</p>
+<pre><code class="language-bash">zadd set 1 one # 添加一个值
+zadd set 2 two 3 three # 添加多个值
+
+zrange set 0 -1
+
+# 排序如何实现
+zadd salary 2500 zhangsan
+zadd salary 5000 lisi
+zadd salary 500 kc
+
+#zrangebyscore set min max
+zrangebyscore salary -inf +inf # 从小到大逆序排列，最小的值到最大值排序，inf相当于无穷
+zrangebyscore salary -inf 2500 withscores # (输出(-∞, 2500] 之间的元素，并带上分数)
+
+zrevrangebyscore salary 0 -1 # 从大到小逆序排列
+
+# 默认情况是小于等于和大于等于，可以通过在前面加上(表示小于或者大于
+zrangebyscore salary (1 (2 
+
+
+zrange set 0 -1 # 查看全部元素
+zrevrange salary 0 -1 # 从大到小逆序排列
+
+zrem set hello # 移除指定元素
+
+zcard set # 获取有序集合中的个数
+</code></pre>
+<p>案例思路：</p>
+<p>1、重要消息 带权重进行判断</p>
+<p>2、排行榜应用实现</p>
+<h1 id="_12">三种特殊数据类型</h1>
+<h2 id="geospatial">geospatial 地理位置</h2>
+<p>朋友的定位，附件的人，打车距离计算</p>
+<p>Redis 的 Geo 在Redis3.2版本 就推出了，这个功能可以推算地理位置的信息，两地之间的距离，方圆几里的人。</p>
+<p>六个命令：</p>
+<p><img alt="image-20210930211239499" src="../Redis.assets/image-20210930211239499.png" /></p>
+<pre><code class="language-bash">geoadd # 添加地理位置
+
+geoadd key 经度 纬度 city
+
+geopos # 获得地理位置
+geopos key city # 得到city的经纬度
+</code></pre>
+<ul>
+<li>
+<p>有效的经度从-180度到180度。</p>
+</li>
+<li>
+<p>有效的纬度从-85.05112878度到85.05112878度。</p>
+</li>
+</ul>
+<p>当坐标位置超出上述指定范围时，该命令将会返回一个错误。</p>
+<pre><code class="language-bash">geodist # 返回两个给定位置之间的距离
+
+geodist key city1 city2 单位 # 查看两个city之间的距离
+</code></pre>
+<p>dfdfd# 指定单位的参数 unit 必须是以下单位的其中一个：
+-   m 表示单位为米。
+-   km 表示单位为千米。
+-   mi 表示单位为英里。
+-   ft 表示单位为英尺。</p>
+<pre><code class="language-bash">georadis # 以给定的经纬度为中心， 返回键包含的位置元素当中， 与中心的距离不超过给定最大距离的所有位置元素。
+# 单位与geodist单位相同
+
+georadius key 经度 纬度 半径 单位 其他参数
+
+georadiusbymember key member radius m|km|ft|mi [WITHCOORD] [WITHDIST] [WITHHASH] [COUNT count] # 指定成员的位置被用作查询的中心。
+</code></pre>
+<p>其他参数</p>
+<ul>
+<li>WITHDIST: 在返回位置元素的同时， 将位置元素与中心之间的距离也一并返回。 距离的单位和用户给定的范围单位保持一致。</li>
+<li>WITHCOORD: 将位置元素的经度和维度也一并返回。</li>
+<li>WITHHASH: 以 52 位有符号整数的形式， 返回位置元素经过原始 geohash 编码的有序集合分值。 这个选项主要用于底层应用或者调试， 实际中的作用并不大。
+    命令默认返回未排序的位置元素。 通过以下两个参数， 用户可以指定被返回位置元素的排序方式：</li>
+<li>ASC: 根据中心的位置， 按照从近到远的方式返回位置元素。</li>
+<li>DESC: 根据中心的位置， 按照从远到近的方式返回位置元素。</li>
+</ul>
+<p><strong>基于zset数据类型，可以通过zset的基本指令来操作key。</strong></p>
+<pre><code class="language-bash">zrange key 0 -1 # 可查询key中所有city
+</code></pre>
+<h2 id="hyperloglogs">Hyperloglogs</h2>
+<h3 id="_13"><strong>什么是基数</strong>？</h3>
+<p>A {1, 3, 5, 7, 8, 7}</p>
+<p>B {1, 3, 5, 7, 8}</p>
+<p>基数（不重复的元素）= 5 ，可以接受误差</p>
+<h3 id="_14"><strong>简介：</strong></h3>
+<p>Redis 2.8.8版本就更新了Hyperloglogs数据结构</p>
+<p>Redis Hyperloglog 基数统计的算法</p>
+<p>优点：占用的内存是固定的，2^64 不同的元素的技术，（每个HyperLogLog结构需要12K字节再加上key本身的几个字节），如果要从内存角度来比较的话，Hyperloglog首选。</p>
+<p><strong>网页的 UV (一个人访问一个网站多次，但是还是算作一个人)</strong></p>
+<p>传统的方式，set 保存用户的ID，然后就可以统计 set 中的元素数量作为标准判断！</p>
+<p>这个方式如果保存大量的用户id，就会比较麻烦，我们的目的是为了计数，而不是保存用户ID</p>
+<p><strong>0.81% 错误率！</strong> 统计UV任务，可以忽略不计的。</p>
+<h3 id="_15">常用命令</h3>
+<p><img alt="image-20211001152747685" src="../Redis.assets/image-20211001152747685.png" /></p>
+<p>1、PFADD</p>
+<pre><code class="language-bash">PFADD key element [element ...]
+</code></pre>
+<p>2、PFCOUNT</p>
+<p>当参数为一个key时,返回存储在HyperLogLog结构体的该变量的近似基数，如果该变量不存在,则返回0.</p>
+<p>当参数为多个key时，返回这些HyperLogLog并集的近似基数，这个值是将所给定的所有key的HyperLoglog结构合并到一个临时的HyperLogLog结构中计算而得到的.</p>
+<pre><code class="language-bash">PFCOUNT key [key ...] # 统计一个key中基数
+</code></pre>
+<p>3、PFMERGE</p>
+<p>将多个 HyperLogLog 合并（merge）为一个 HyperLogLog ， 合并后的 HyperLogLog 的基数接近于所有输入 HyperLogLog 的可见集合（observed set）的并集.</p>
+<pre><code class="language-bash">PFMERGE destkey sourcekey [sourcekey ...] # 合并两个key，destkey为目标key
+</code></pre>
+<p>4、测试使用</p>
+<pre><code class="language-bash">redis&gt; PFADD hll1 foo bar zap a # 创建第一组元素
+(integer) 1
+redis&gt; PFADD hll2 a b c foo # 创建第二组元素
+(integer) 1
+redis&gt; PFMERGE hll3 hll1 hll2 # 合并两组，得到两个组的并集
+OK
+redis&gt; PFCOUNT hll3
+(integer) 6
+redis&gt; 
+</code></pre>
+<p>如果允许容错，那么可以使用Hyperloglog</p>
+<p>如果不允许容错，使用set或者自己的数据类型</p>
+<h2 id="bitmaps">Bitmaps</h2>
+<h3 id="_16">位存储</h3>
+<p>统计性别信息：0 1 0 0 1 1 0 （男、女）</p>
+<p>统计用户信息：登录、未登录 or 打卡、未打卡</p>
+<p>两个状态的，都可以使用Bitmaps</p>
+<p>Bitmaps 位图，数据结构。都是操作二进制位来进行记录，就只有0和1两个状态！</p>
+<h3 id="_17">常用命令</h3>
+<p>1、setbit</p>
+<pre><code class="language-bash">SETBIT key offset value
+</code></pre>
+<p>2、getbit</p>
+<pre><code class="language-bash">GETBIT key offset
+</code></pre>
+<p>3、bitcount </p>
+<pre><code class="language-bash">BITCOUNT key [start end]
+</code></pre>
+<h1 id="_18">事务</h1>
+<p>Redis事务本质：一组命令的集合！一个事务中的所有命令都会被序列化，在事务执行过程中，会按照顺序执行。</p>
+<p>一次性、顺序性、排他性，执行一些列的命令</p>
+<pre><code class="language-bash">------ 队列 set set set 执行 ------
+</code></pre>
+<h2 id="_19">重点：</h2>
+<ul>
+<li>Redis单条命令式保存原子性，但是事务不保证原子性！</li>
+<li>Redis事务没有隔离级别的概念</li>
+<li>所有的命令在事务中，并没有直接被执行，只有发起执行命令的时候才会执行</li>
+</ul>
+<h2 id="redis_2">Redis的事务:</h2>
+<ul>
+<li>开启事务（ multi ）</li>
+<li>命令入队（ ... ）</li>
+<li>执行事务（ exec ）</li>
+</ul>
+<h2 id="_20">正常事务执行顺序：</h2>
+<pre><code class="language-bash">&gt; MULTI # 开启事务
+OK
+# 命令入队
+&gt; INCR foo
+QUEUED
+&gt; INCR bar
+QUEUED
+&gt; EXEC # 执行事务
+1) (integer) 1
+2) (integer) 1
+</code></pre>
+<h2 id="_21">放弃事务：</h2>
+<p>当执行 DISCARD命令时， 事务会被放弃， 事务队列会被清空， 并且客户端会从事务状态中退出：</p>
+<pre><code class="language-bash">&gt; SET foo 1
+OK
+&gt; MULTI
+OK
+&gt; INCR foo
+QUEUED
+&gt; DISCARD # 取消事务
+OK
+&gt; GET foo
+&quot;1&quot;
+</code></pre>
+<h2 id="_22">编译性错误</h2>
+<p>代码有问题，命令有错，事务中<strong>所有的命令都不会被执行</strong></p>
+<h2 id="_23">运行时异常</h2>
+<p>如果事务队列中存在语法性，那么执行命令的时候，<strong>其他命令是可以正常执行的</strong>，错误命令抛出异 常!</p>
+<h2 id="watch">监控 watch（面试常问）</h2>
+<p><strong>悲观锁：</strong></p>
+<ul>
+<li>很悲观，什么时候都会出问题，无论做什么都会加锁</li>
+</ul>
+<p><strong>乐观锁：</strong></p>
+<ul>
+<li>很乐观，认为什么时候都不会出问题，所有不会上锁，更新数据的时候去判断一下在此期间是否有人修改过这个数据</li>
+<li>获取version</li>
+<li>更新的时候比较version</li>
+</ul>
+<h2 id="redis_3">Redis监控测试</h2>
+<p>watch：标记所有指定的key 被监视起来，在<strong>事务中</strong>有条件的执行<strong>（乐观锁）</strong>。</p>
+<p>被 WATCH的键会被监视，并会发觉这些键是否被改动过了。 如果有至少一个被监视的键在 <strong>EXEC</strong> 执行之前被修改了， 那么整个事务都会被取消， EXEC返回nil-reply来表示事务已经失败。</p>
+<pre><code class="language-bash">WATCH key [key ...]
+</code></pre>
+<h1 id="jedis">Jedis</h1>
+<p>使用java来操作redis</p>
+<h2 id="jedis_1">什么是Jedis</h2>
+<p>Jedis 是 Redis 官方推荐的 java 连接开发工具，使用java操作 Redis 的中间件。，需要对 Jedis 十分的熟悉。</p>
+<h2 id="_24">导包</h2>
+<pre><code class="language-xml">&lt;!-- https://mvnrepository.com/artifact/redis.clients/jedis --&gt;
+&lt;dependency&gt;
+    &lt;groupId&gt;redis.clients&lt;/groupId&gt;
+    &lt;artifactId&gt;jedis&lt;/artifactId&gt;
+    &lt;version&gt;3.3.0&lt;/version&gt;
+&lt;/dependency&gt;
+&lt;dependency&gt;
+    &lt;groupId&gt;com.alibaba&lt;/groupId&gt;
+    &lt;artifactId&gt;fastjson&lt;/artifactId&gt;
+    &lt;version&gt;1.2.62&lt;/version&gt;
+&lt;/dependency&gt;
+</code></pre>
+<h2 id="_25">编码测试</h2>
+<ul>
+<li>连接数据库</li>
+<li>操作命令</li>
+<li>断开连接</li>
+</ul>
+<pre><code class="language-java">public class TestJedis {
+    public static void main(String[] args) {
+        Jedis jedis = new Jedis(&quot;127.0.0.1&quot;, 6379);
+        System.out.println(jedis.ping());
+    }
+}
+</code></pre>
+<p>输出：</p>
+<p><img alt="image-20211001173444144" src="../Redis.assets/image-20211001173444144.png" /></p>
+<h2 id="api">常用的API</h2>
+<p>String</p>
+<p>List</p>
+<p>Set</p>
+<p>Hash</p>
+<p>Zset</p>
+<p>所有的API命令与上述命令相同</p>
+<p><img alt="image-20211002154203560" src="../Redis.assets/image-20211002154203560.png" /></p>
+<h2 id="jedis_2">Jedis事务</h2>
+<pre><code class="language-java">public class TestJedis {
+    public static void main(String[] args) {
+        Jedis jedis = new Jedis(&quot;127.0.0.1&quot;, 6379);
+        JSONObject json = new JSONObject();
+        json.put(&quot;user1&quot;, &quot;kongcheng&quot;);
+        json.put(&quot;user2&quot;, &quot;kc&quot;);
+        String str = json.toJSONString();
+        //开启事务
+        Transaction multi = jedis.multi();
+        try {
+            multi.set(&quot;user1&quot;, str);
+            multi.set(&quot;user2&quot;, str);
+            multi.exec();
+        } catch (Exception e) {
+            multi.discard();
+            e.printStackTrace();
+        } finally {
+            System.out.println(jedis.get(&quot;user1&quot;));
+            //System.out.println(jedis.get(&quot;user2&quot;));
+            jedis.close();
+        }
+    }
+}
+</code></pre>
+<h1 id="springboot">SpringBoot整合</h1>
+<p>说明：在SpringBoot2.x 之后，原来使用的jedi 被替换为了lettuce</p>
+<p>jedis : 采用的直连，多个线程操作的话，是不安全的，如果想要避免不安全的话，使用 jedis pool 连接池。更像BIO模式</p>
+<p>lettuce : 采用netty， 实例可以在多个线程中进行共享，不存在线程不安全的情况，可以减少线程数据了，更像NIO模式</p>
+<p>源码分析：</p>
+<pre><code class="language-java">@Bean
+@ConditionalOnMissingBean(
+    name = {&quot;redisTemplate&quot;} //我们可以自己定义一个redisTemplate来替换合格默认的。
+)
+@ConditionalOnSingleCandidate(RedisConnectionFactory.class)
+public RedisTemplate&lt;Object, Object&gt; redisTemplate(RedisConnectionFactory redisConnectionFactory) {
+    //默认的 RedisTemplate 没有过多的设置，redis 对象都是需要序列化
+    //两个泛型都是 Object, Object 的类型， 我们之后使用需要强制转换&lt;String, Object&gt;
+    RedisTemplate&lt;Object, Object&gt; template = new RedisTemplate();
+    template.setConnectionFactory(redisConnectionFactory);
+    return template;
+}
+
+@Bean
+@ConditionalOnMissingBean // 由于 String 是 redis 中最常使用的类型，所有单独提出来了一个Bean
+@ConditionalOnSingleCandidate(RedisConnectionFactory.class)
+public StringRedisTemplate stringRedisTemplate(RedisConnectionFactory redisConnectionFactory) {
+    StringRedisTemplate template = new StringRedisTemplate();
+    template.setConnectionFactory(redisConnectionFactory);
+    return template;
+}
+</code></pre>
+<h2 id="_26">整合测试</h2>
+<p>1、导入依赖</p>
+<pre><code class="language-xml">&lt;dependency&gt;
+    &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+    &lt;artifactId&gt;spring-boot-starter-data-redis&lt;/artifactId&gt;
+&lt;/dependency&gt;
+</code></pre>
+<p>2、配置连接</p>
+<pre><code class="language-properties"># 配置redis
+spring.redis.host=127.0.0.1
+spring.redis.port=6379
+</code></pre>
+<p>3、测试</p>
+<pre><code class="language-java">@SpringBootTest
+class RedisSpringbootApplicationTests {
+
+    @Autowired
+    private RedisTemplate redisTemplate;
+
+    @Test
+    void contextLoads() {
+        //redisTemplate 操作不同的数据类型，和基本命令相同
+        //opsForValue() 操作字符串 类似String
+        //opsForList() 操作List 类似List
+        //opsForHash()
+        //opsForGeo()
+        //....
+
+        //除了基本的操作，常用的方法可以直接通过redisTemplate来操作，比如事务和基本的CRUD
+
+        //获取redis的连接对象
+        //RedisConnection connection = redisTemplate.getConnectionFactory().getConnection();
+        //connection.flushDb();
+        //connection.flushAll();
+        redisTemplate.opsForValue().set(&quot;key&quot;, &quot;kc&quot;);
+        System.out.println(redisTemplate.opsForValue().get(&quot;key&quot;));
+    }
+
+}
+</code></pre>
+<p>4、自定义redisTemplate 序列化</p>
+<pre><code class="language-java">@Configuration
+public class RedisConfig {
+
+    @Bean(&quot;myRedisTemplate&quot;)
+    public RedisTemplate&lt;String, Object&gt; redisTemplate(RedisConnectionFactory redisConnectionFactory) {
+        RedisTemplate&lt;String, Object&gt; template = new RedisTemplate();
+        Jackson2JsonRedisSerializer&lt;Object&gt; jackson2JsonRedisSerializer = new Jackson2JsonRedisSerializer&lt;Object&gt;(
+                Object.class);
+        ObjectMapper om = new ObjectMapper();
+        om.setVisibility(PropertyAccessor.ALL, JsonAutoDetect.Visibility.ANY);
+        om.activateDefaultTyping(LaissezFaireSubTypeValidator.instance ,
+                ObjectMapper.DefaultTyping.NON_FINAL, JsonTypeInfo.As.PROPERTY);
+        StringRedisSerializer stringRedisSerializer = new StringRedisSerializer();
+        jackson2JsonRedisSerializer.setObjectMapper(om);
+        template.setKeySerializer(stringRedisSerializer);
+        template.setHashKeySerializer(stringRedisSerializer);
+        template.setValueSerializer(jackson2JsonRedisSerializer);
+        template.setHashValueSerializer(jackson2JsonRedisSerializer);
+        template.setConnectionFactory(redisConnectionFactory);
+        template.afterPropertiesSet();
+        return template;
+    }
+}
+
+</code></pre>
+<p>5、编写RedisUtils工具类，避免使用原生redisTemplate</p>
+<p>可在CSDN直接找别人封装好的，然后导入上面第4步自定义序列化的redisTemplate</p>
+<h1 id="redisconf">Redis.conf 详解</h1>
+<p>启动的时候，就通过配置文件来启动！</p>
+<h2 id="_27">单位</h2>
+<p><img alt="image-20211002173226026" src="../Redis.assets/image-20211002173226026.png" /></p>
+<p>1、配置文件 unit单位对大小写不敏感</p>
+<h2 id="includes">包含（INCLUDES)</h2>
+<p><img alt="image-20211002173324619" src="../Redis.assets/image-20211002173324619.png" /></p>
+<p>就是好比我们学习Spring中的Import、include</p>
+<h2 id="network">网络（NETWORK）</h2>
+<pre><code class="language-bash">bind 127.0.0.1 -::1 # 绑定的ip
+protected-mode yes # 保护模式
+port 6379 # 端口设置
+</code></pre>
+<h2 id="general">通用（GENERAL)</h2>
+<pre><code class="language-bash">daemonize yes # 以守护进程的方式来运行，默认是no，我们需要自己开启为yes
+
+pidfile /var/run/redis_6379.pid # 如果以后台方式运行，我们就需要指定一个pid 文件
+
+# 日志
+# Specify the server verbosity level.
+# This can be one of:
+# debug (a lot of information, useful for development/testing)
+# verbose (many rarely useful info, but not a mess like the debug level)
+# notice (moderately verbose, what you want in production probably) 生产环境
+# warning (only very important / critical messages are logged)
+loglevel notice
+logfile &quot;&quot; # 日志的文件位置名
+databases 16 # 数据库的数量，默认是 16 个数据库
+always-show logo yes # 是否总是显示logo
+</code></pre>
+<h2 id="snapshotting">快照（SNAPSHOTTING）</h2>
+<p>持久化，在规定的时间内，执行了多少次操作，则会持久到文件 .rdb .aof</p>
+<p>redis是内存数据库，如果没有持久化，那么数据断电及失</p>
+<pre><code class="language-bash"># 如果3600s内，如果至少有1个key进行了修改，我们就进行持久化操作
+save 3600 1
+# 如果300s内，如果至少有100个key进行了修改，我们就进行持久化操作
+save 300 100
+# 如果60s内，如果至少有10000个key进行了修改，我们就进行持久化操作
+save 60 10000
+# 我们之后学习持久化，会自己定义这个测试
+
+stop-writes-on-bgsave-error yes # 持久化如果出错，是否还需要继续工作
+
+rdbcompression yes # 是否压缩 rdb 文件，需要消耗一些cpu资源
+
+rdbcompression yes # 保存rdb文件的时候，进行错误的检查校验
+
+dir ./ # rdb 文件保存的目录
+</code></pre>
+<h2 id="replication">复制（REPLICATION）</h2>
+<h2 id="security">安全（SECURITY）</h2>
+<pre><code class="language-bash">requirepass 123456 # 设置密码
+
+# redis-cli中输入密码指令
+auth 123456
+
+config set requirepass 123456 # 命令行输入设置密码
+</code></pre>
+<h2 id="clients">客户端（CLIENTS)</h2>
+<pre><code class="language-bash">maxclients # 最大连接客户端数量
+</code></pre>
+<h2 id="memorymanagement">内存（MEMORYMANAGEMENT）</h2>
+<pre><code class="language-bash">maxmemory &lt;bytes&gt; # redis 配置最大的内存容量
+
+maxmemory-policy noeviction # 内存到达上限之后的处理策略
+
+1、volatile-lru -&gt; 只对设置了过期时间的key进行LRU（默认值）
+2、allkeys-lru -&gt; 删除LRU算法的KEY
+3、volatile-lfu -&gt; 只对设置了过期时间的key进行LFU
+4、allkeys-lfu -&gt; 删除LFU算法的KEY
+5、volatile-random -&gt; 随机删除即将过期key
+6、allkeys-random -&gt; 随机删除
+7、volatile-ttl -&gt; 删除即将过期的
+8、noeviction -&gt; 永不过期，返回错误
+</code></pre>
+<h2 id="append-only-aof">APPEND ONLY aof配置</h2>
+<pre><code class="language-bash">appendonly no # 默认是不开启aof模式的。默认是使用rdb方式持久化的，在大部分所有的情况下，rdb完全够用
+appendfilename &quot;appendonly.aof&quot; # 持久化的文件的名字
+
+appendfsync always  # 每次修改都会sync ，消耗性能
+appendfsync everysec # 每秒执行一次 sync ， 可能会丢失这1s的数据
+appendfsync no # 不执行sync， 这个时候操作系统自己同步数据，速度最快
+</code></pre>
+<h1 id="redis_4">Redis持久化</h1>
+<p>面试和工作，持久化都是重点！</p>
+<p>Redis是内存数据库，如果不将内存中的数据库状态保存到磁盘，那么一旦服务器进程退出，服务器中的数据库状态也会消失。所以Redis提供了持久化功能!</p>
+<h2 id="rdbredis-database">RDB（Redis DataBase）</h2>
+<h3 id="rdb">什么是RDB</h3>
+<p>主从复制中，rdb就是备用了，从机上面。</p>
+<p><img alt="image-20211002193115650" src="../Redis.assets/image-20211002193115650.png" /></p>
+<p>在指定的时间间隔内将内存中的数据集快照写入磁盘，也就是行话讲的Snapshot快照，它恢复时是将快照文件直接读到内存里。</p>
+<p>Redis会单独创建 ( fork )一个子进程来进行持久化，会先将数据写入到一个临时文件中，待持久化过程都结束了，再用这个临时文件替换上次持久化好的文件。整个过程中，主进程是不进行任何IO操作的。这就确保了极高的性能。如果需要进行大规模数据的恢复，且对于数据恢复的完整性不是非常敏感，那RDB方式要比AOF方式更加的高效。RDB的缺点是最后一次持久化后的数据可能丢失。我们默认的就是RDB，一般情况下不需要修改这个配置。</p>
+<p>有时候在生产环境我们会将这个文件进行备份</p>
+<p><strong>RDB保存的文件是 dump.rdb</strong> 都是在我们的配置文件 ：快照中配置</p>
+<p><img alt="image-20211002191721576" src="../Redis.assets/image-20211002191721576.png" /></p>
+<h3 id="_28">触发机制</h3>
+<p>1、save的规则满足的情况下，会自动触发rdb规则</p>
+<p>2、执行 flushall 命令， 也会触发我们的rdb规则</p>
+<p>3、退出redis ， 也会产生 rbd  文件</p>
+<p>备份就自动生成一个 dump.rdb</p>
+<h3 id="rdb_1">恢复rdb文件</h3>
+<p>1、只需要将rdb文件放在我们redis启动目录（redis-server同级目录）就可以，redis启动的时候会自动检查dump.rdb 恢复其中的数据</p>
+<p>2、查看需要存在的位置</p>
+<pre><code class="language-bash">127.0.0.1:6379&gt; config get dir
+1) &quot;dir&quot;
+2) &quot;/usr/local/bin&quot; # 如果在这个目录下存在 dump.rdb 文件，启动就会自动恢复其中的数据
+</code></pre>
+<h3 id="_29">优缺点</h3>
+<p>优点：</p>
+<p>1、适合大规模的数据恢复！ dump.rdb</p>
+<p>2、对数据的完整性要求不高</p>
+<p>缺点：</p>
+<p>1、需要一定的时间间隔进程操作，如果redis意外宕机了，最后一次修改数据就丢失了</p>
+<p>2、fork进程的时候，会占用一定的内存空间</p>
+<h1 id="aof-append-only-file">AOF ( Append Only FiLE)</h1>
+<p>将我们的所有的命令都记录下来，history，恢复的时候就把这个文件全部在执行一遍。</p>
+<h2 id="aof">AOF是什么</h2>
+<p>以日志的形式来记录每个写操作，将Redis执行过的所有指令记录下来(读操作不记录)，只许追加文件但不可以改写文件，redis启动之初会读取该文件重新构建数据，换言之，redis重启的话就根据日志文件的内容将写指令从前到后执行一次以完成数据的恢复工作</p>
+<p><strong>AOF保存的是 appendonly.aof 文件</strong></p>
+<p><img alt="image-20211002193743234" src="../Redis.assets/image-20211002193743234.png" /></p>
+<p>默认是不开启的，我们需要手动进行配置!我们只需要将appendonly改为yes就开启了aof !</p>
+<p>如果这个 appendonly.aof 文件有错误，此时redis启动不了，需要修复这个aof文件</p>
+<p>redis提供了工具 redis-check-aof </p>
+<pre><code class="language-bash">redis-check-aop --fix
+</code></pre>
+<h2 id="_30">优缺点</h2>
+<p>优点：</p>
+<p>1、每一次修改都同步，文件的完整性更好；</p>
+<p>2、每秒同步一次，可能会丢失一秒的数据</p>
+<p>3、从不同步、效率最高</p>
+<p>缺点：</p>
+<p>1、相对于数据文件来说，aof 远远大于 rdb，修复的速度也比 rdb 慢</p>
+<p>2、aof 的运行效率也要比 rdb 慢，所有默认的配置就是 rbd 持久化</p>
+<h2 id="_31">扩展</h2>
+<p>1、RDB持久化方式能够在指定的时间间隔内对你的数据进行快照存储</p>
+<p>2、AOF持久化方式记录每次对服务器写的操作，当服务器重启的时候会重新执行这些命令来恢复原始的数据，AOF命令以Redis 协议追加保存每次写的操作到文件末尾，Redis还能对AOF文件进行后台重写，使得AOF文件的体积不至于过大。</p>
+<p>3、<strong>只做缓存，如果你只希望你的数据在服务器运行的时候存在，你也可以不使用任何持久化</strong></p>
+<p>4、同时开启两种持久化方式</p>
+<ul>
+<li>在这种情况下，当redis重启的时候会<strong>优先载入AOF文件来恢复原始的数据</strong>，因为在通常情况下AOF文件保存的数据集要比RDB文件保存的数据集要<strong>完整</strong>。</li>
+<li>RDB的数据不实时，同时使用两者时服务器重启也只会找AOF文件，那要不要只使用AOF呢 ? 作者建议不要，因为RDB更适合用于备份数据库(AOF在不断变化不好备份），快速重启，而且不会有AOF可能潜在的Bug，留着作为一个万一的手段。</li>
+</ul>
+<p>5、性能建议</p>
+<ul>
+<li>因为RDB文件只用作后备用途，建议只在Slave上持久化RDB文件，而且只要15分钟备份一次就够了，只保留save 900 1这条
+    规则。</li>
+<li>如果Enable AOF，好处是在最恶劣情况下也只会丢失不超过两秒数据，启动脚本较简单只load自己的AOF文件就可以了，代价一是带来了持续的lO，二是AOF rewrite的最后将rewrite过程中产生的新数据写到新文件造成的阻塞几乎是不可避免的。只要硬盘许可，应该尽量减少AOF rewrite的频率，AOF重写的基础大小默认值64M太小了，可以设到5G以上，默认超过原大小100%大小重写可以改到适当的数值。</li>
+<li>如果不Enable AOF，仅靠Master-Slave Replcation实现高可用性也可以，能省掉一大笔IO，也减少了rewrite时带来的系统波动。代价是如果Master/Slave同时倒掉，会丢失十几分钟的数据，启动脚本也要比较两个Master/Slave中的RDB文件，载入较新的那个，微博就是这种架构。</li>
+</ul>
+<h1 id="redis_5">Redis 发布订阅</h1>
+<p>Redis 发布订阅(pub/sub)是一种消息通信模式∶发送者(pub)发送消息，订阅者(sub)接收消息。</p>
+<p>Redis客户端可以订阅任意数量的频道。</p>
+<p>订阅/发布消息图:</p>
+<p><img alt="image-20211002195236468" src="../Redis.assets/image-20211002195236468.png" /></p>
+<h2 id="_32">命令</h2>
+<p><img alt="image-20211002195907434" src="../Redis.assets/image-20211002195907434.png" /></p>
+<h2 id="_33">原理</h2>
+<p>Redis是使用C实现的，通过分析Redis源码里的pubsub.c文件，了解发布和订阅机制的底层实现，籍此加深对Redis的理解。</p>
+<p>Redis通过PUBLISH、SUBSCRIBE和PSUBSCRIBE等命令实现发布和订阅功能。</p>
+<p>通过SUBSCRIBE命令订阅某频道后，redis-server里维护了一个字典，字典的键就是一个个channel，而字典的值则是一个链表，链表中保存了所有订阅这个channel 的客户端。SUBSCRIBE命令的关键，就是将客户端添加到给定channel的订阅链表中。<img alt="image-20211002201142673" src="../Redis.assets/image-20211002201142673.png" /></p>
+<p>通过PUBLISH命令向订阅者发送消息，redis-server会使用给定的频道作为键，在它所维护的channel字典中查找记录了订阅这个频道的所有客户端的链表，遍历这个链表，将消息发布给所有订阅者。</p>
+<p>Pub/Sub从字面上理解就是发布( Publish )与订阅( Subscribe )，在Redis中，你可以设定对某一个key值进行消息发布及消息订阅，当一个key值上进行了消息发布后，所有订阅它的客户端都会收到相应的消息。这一功能最明显的用法就是用作实时消息系统，比如普通的即时聊天，群聊等功能。</p>
+<p>使用场景：</p>
+<p>1、实时消息系统！</p>
+<p>2、实时聊天！（频道当做聊天室，将信息回显给所有人）</p>
+<p>3、订阅、关注系统</p>
+<p>复杂场景 一般 使用消息中间件 MQ</p>
+<h1 id="redis_6">Redis 主从复制</h1>
+<h2 id="_34">概念</h2>
+<p>主从复制，是指将一台Redis服务器的数据，复制到其他的Redis服务器。前者称为主节点(master/leader)，后者称为从节点(slave/follower);<strong>数据的复制是单向的，只能由主节点到从节点</strong>。Master以写为主，Slave以读为主。</p>
+<p>默认情况下，每台Redis服务器都是主节点;且一个主节点可以有多个从节点(或没 有从节点)，但一个从节点只能有一个主节点。</p>
+<p><strong>主从复制的作用主要包括:</strong></p>
+<p>1、数据冗余︰主从复制实现了数据的热备份，是持久化之外的一种数据冗余方式。</p>
+<p>2、故障恢复∶当主节点出现问题时，可以由从节点提供服务，实现快速的故障恢复;实际上是一种服务的冗余。</p>
+<p>3、负载均衡∶在主从复制的基础上，配合读写分离，可以由主节点提供写服务，由从节点提供读服务（即写Redis数据时应用连接主节点，读Redis数据时应用连接从节点），分担服务器负载﹔尤其是在写少读多的场景下，通过多个从节点分担读负载，可以大大提高Redis服务器的并发量。</p>
+<p>4、高可用基石︰除了上述作用以外，主从复制还是哨兵和集群能够实施的基础，因此说主从复制是Redis高可用的基础。</p>
+<p>一般来说，要将Redis运用于工程项目中，只使用一台Redis是万万不能的，原因如下:</p>
+<p>1、从结构上，单个Redis服务器会发生单点故障，并且一台服务器需要处理所有的请求负载，压力较大;</p>
+<p>2、从容量上，单个Redis服务器内存容量有限，就算一台Redis服务器内存容量为256G，也不能将所有内存用作Redis存储内存-，一般来说，单台Redis最大使用内存不应该超过20G。</p>
+<p>电商网站上的商品，一般都是一次上传，无数次浏览的，说专业点也就是"多读少写"。</p>
+<p><img alt="image-20211002201639672" src="../Redis.assets/image-20211002201639672.png" /></p>
+<p>主从复制，读写分离！80%的情况下都是在进行读操作，减缓服务器的压力，架构中经常使用，一主二从。</p>
+<h2 id="_35">环境配置</h2>
+<p>只配置从库，不用配置主库！</p>
+<pre><code class="language-bash">info replication # 查看当前库的信息
+
+127.0.0.1:6379&gt; info replication
+# Replication
+role:master
+connected_slaves:0
+master_failover_state:no-failover
+master_replid:2f7713b8a336e8d3f405a21954d8491e88aec18e
+master_replid2:0000000000000000000000000000000000000000
+master_repl_offset:0
+second_repl_offset:-1
+repl_backlog_active:0
+repl_backlog_size:1048576
+repl_backlog_first_byte_offset:0
+repl_backlog_histlen:0
+</code></pre>
+<p>此处采用伪集群，用三个redis进程来模拟</p>
+<p>配置文件修改过程：</p>
+<p>1、修改端口</p>
+<p>2、修改pidfile （进程）</p>
+<p>3、修改logfile （日志）</p>
+<p>4、修改dbfilename  （rdb）</p>
+<p>根据不同配置文件启动三个redis进程</p>
+<h2 id="_36">一主二从</h2>
+<p><strong>默认情况下，每台Redis服务器都是主节点</strong>; 我们一般情况下只用配置从机就好了!</p>
+<p>配置从机：</p>
+<pre><code class="language-bash">SLAVEOF ip port # 认主，找主机
+</code></pre>
+<p>真实的从主配置应该在配置文件中配置，这样的话是永久的，我们这里使用的是命令，暂时的。</p>
+<p>配置文件：</p>
+<p><img alt="image-20211002203851580" src="../Redis.assets/image-20211002203851580.png" /></p>
+<h2 id="_37">细节</h2>
+<ul>
+<li>主机可以写，从机不能写只能读 ! 主机中的所有信息和数据，都会自动被从机保存 !</li>
+<li>主机断开连接，从机依旧连接到主机的，但是没有写操作，这个时候，主机如果回来了，从机依旧可以直接获取到主机写的信息!</li>
+<li>如果是使用命令行，来配置的主从，这个时候如果重启，就会变成主机。只要变为从机，立马就会从主机中获取值</li>
+</ul>
+<h2 id="_38">复制原理</h2>
+<p>Slave启动战功连接到 master 后会发送一个 sync 同步命令</p>
+<p>Master接到命令，启动后台的存盘进程，同时收集所有接收到的用于修改数据集命令，在后台进程执行完毕之后，<strong>master将传送整个数据文件到slave，并完成一次完全同步。</strong></p>
+<p><strong>全量复制 </strong>: 而slave服务在接收到数据库文件数据后，将其存盘并加载到内存中。</p>
+<p><strong>增量复制 </strong>: Master继续将新的所有收集到的修改命令依次传给slave，完成同步</p>
+<p>但是只要是重新连接master，一次完全同步（全量复制)将被自动执行，我们的数据一定可以在从机上面看到</p>
+<h2 id="_39">主机宕机</h2>
+<p>从机可以 “谋朝篡位” ，自己又当主机</p>
+<pre><code class="language-bash">slaveof no one
+</code></pre>
+<p>此时主机再恢复，主机下也没有此从机了。</p>
+<h2 id="_40">哨兵模式</h2>
+<p>（自动选择老大的模式）</p>
+<h3 id="_41">概述</h3>
+<p>主从切换技术的方法是︰当主服务器宕机后，需要手动把一台从服务器切换为主服务器，这就需要人工干预，费事费力，还会造成一段时间内服务不可用。这不是一种推荐的方式，更多时候，我们优先考虑哨兵模式。Redis从2.8开始正式提供了Sentinel (哨兵）架构来解决这个问题。</p>
+<p>谋朝篡位的自动版，能够后台监控主机是否故障，如果故障了根据投票数<strong>自动将从库转换为主库</strong>。</p>
+<p>哨兵模式是一种特殊的模式，首先Redis提供了哨兵的命令，哨兵是一个独立的进程，作为进程，它会独立运行。其原理是<strong>哨兵通过发送命令，等待Redis服务器响应，从而监控运行的多个Redis实例。</strong></p>
+<p><img alt="image-20211002205645512" src="../Redis.assets/image-20211002205645512.png" /></p>
+<p>这里的哨兵有两个作用</p>
+<ul>
+<li>通过发送命令，让Redis服务器返回监控其运行状态，包括主服务器和从服务器。</li>
+<li>当哨兵监测到master宕机，会自动将slave切换成master，然后通过<strong>发布订阅模式</strong>通知其他的从服务器，修改配置文件，让它们切换主机。</li>
+</ul>
+<p>然而一个哨兵进程对Redis服务器进行监控，可能会出现问题，为此，我们可以使用多个哨兵进行监控。各个哨兵之间还会进行监控，这样就形成了多哨兵模式。</p>
+<p><img alt="image-20211002205800838" src="../Redis.assets/image-20211002205800838.png" /></p>
+<p>假设主服务器宕机，哨兵1先检测到这个结果，系统并不会马上进行failover过程，仅仅是哨兵1主观的认为主服务器不可用，这个现象成为<strong>主观下线</strong>、当后面的哨兵也检测到主服务器不可用，并且数量达到一定值时，那么哨兵之间就会进行一次投票，投票的结果由一个哨兵发起了进行failover[故障转移]操作。切换成功后，就会通过发布订阅模式，让各个哨兵把自己监控的从服务器实现切换主机，这个过程称为<strong>客观下线</strong></p>
+<h3 id="_42">测试</h3>
+<p>1、配置哨兵配置文件sentinel.conf</p>
+<pre><code class="language-bash"># sentinel monitor 被监控的名称 ip port 1
+sentinel monitor myredis 127.0.0.1 6379 1
+</code></pre>
+<p>后面的这个数字1，代表主机挂了，slave投票看让谁接替成为主机，票数最多的，就会成为主机。</p>
+<p><strong>“1”指明当有1个sentinel认为一个master失效时，master才算真正失效</strong></p>
+<p>2、启动哨兵</p>
+<pre><code class="language-bash"> redis-sentinel myconf/sentinel.conf
+</code></pre>
+<p>主机宕机后，哨兵会自动投票选举一个新的从机作为主机；</p>
+<p>当主机恢复后，<strong>只能归并到新的主机下，当做从机</strong>，这就是哨兵模式的规则。</p>
+<h3 id="_43">优缺点</h3>
+<p>优点：</p>
+<p>1、哨兵集群，基于主从复制模式，所有的主从配置优点，它全有</p>
+<p>2、主从可以切换，故障可以转移，系统的可用性更好</p>
+<p>3、哨兵模式就是主从模式的升级，手动到自动，更加健壮</p>
+<p>缺点：</p>
+<p>1、Redis 不好在线扩容，集群容量一旦到达上限，在线扩容就十分麻烦</p>
+<p>2、实现哨兵模式的配置其实很麻烦，里面有很多选择</p>
+<h1 id="redis_7">Redis 缓存穿透和雪崩</h1>
+<p><strong>（面试高频，工作常用）</strong></p>
+<p>Redis缓存的使用，极大的提升了应用程序的性能和效率，特别是数据查询方面。但同时，它也带来了一些问题。其中，最要害的问题，就是数据的一致性问题，从严格意义上讲，这个问题无解。如果对数据的一致性要求很高，那么就不能使用缓存。</p>
+<p>另外的一些典型问题就是，缓存穿透、缓存雪崩和缓存击穿。目前，业界也都有比较流行的解决方案。</p>
+<h2 id="_44">缓存穿透（查不到）</h2>
+<h3 id="_45">概念</h3>
+<p>缓存穿透的概念很简单，用户想要查询一个数据，发现redis内存数据库没有，也就是缓存没有命中，于是向持久层数据库（MySQL）查询。发现也没有，于是本次查询失败。当用户很多的时候，缓存都没有命中（秒杀场景！），于是都去请求了持久层数据库。这会给持久层数据库造成很大的压力，这时候就相当于出现了缓存穿透。</p>
+<h3 id="_46">解决方案</h3>
+<p><strong>1、布隆过滤器</strong></p>
+<p>布隆过滤器是一种数据结构，对所有可能查询的参数以hash形式存储，在控制层先进行校验，不符合则丢弃，从而避免了对底层存储系统的查询压力;</p>
+<p><img alt="image-20211002212335259" src="../Redis.assets/image-20211002212335259.png" /></p>
+<p><strong>2、缓存空对象</strong></p>
+<p>当存储层不命中后，即使返回的空对象也将其缓存起来，同时会设置一个过期时间，之后再访问这个数据将会从缓存中获取，保护了后端数据源;</p>
+<p><img alt="image-20211002212456092" src="../Redis.assets/image-20211002212456092.png" /></p>
+<p>但是这种方法会存在两个问题∶</p>
+<p>1、如果空值能够被缓存起来，这就意味着缓存需要更多的空间存储更多的键，因为这当中可能会有很多的空值的键;</p>
+<p>2、即使对空值设置了过期时间，还是会存在缓存层和存储层的数据会有一段时间窗口的不一致，这对于需要保持一致性的业务会有影响。</p>
+<h2 id="_47">缓存击穿（量太大）</h2>
+<h3 id="_48">概述</h3>
+<p>这里需要注意和缓存击穿的区别，缓存击穿，是指一个key非常热点，在不停的扛着大并发，大并发集中对这一个点进行访问，当这个key在失效的瞬间，持续的大并发就穿破缓存，直接请求数据库，就像在一个屏障上凿开了一个洞。</p>
+<p>当某个key在过期的瞬间，有大量的请求并发访问，这类数据一般是热点数据，由于缓存过期，会同时访问数据库来查询最新数据，并且回写缓存，会导使数据库瞬间压力过大。</p>
+<h3 id="_49">解决方案</h3>
+<p><strong>1、设置热点数据永不过潮</strong></p>
+<p>从缓存层面来看，没有设置过期时间，所以不会出现热点 key过期后产生的问题。</p>
+<p><strong>2、加互斥锁</strong></p>
+<p>分布式锁︰使用分布式锁，保证对于每个key同时只有一个线程去查询后端服务，其他线程没有获得分布式锁的权限，因此只需要等待即可。这种方式将高并发的压力转移到了分布式锁，因此对分布式锁的考验很大。</p>
+<h2 id="_50">缓存雪崩</h2>
+<h3 id="_51">概念</h3>
+<p>缓存雪崩，是指在某一个时间段，<strong>缓存集中过期失效。</strong></p>
+<p>产生雪崩的原因之一，比如在写本文的时候，马上就要到双十二零点，很快就会迎来一波抢购，这波商品时间比较集中的放入了缓存，假设缓存一个小时。那么到了凌晨一点钟的时候，这批商品的缓存就都过期了。而对这批商品的访问查询，都落到了数据库上，对于数据库而言，就会产生周期性的压力波峰。于是所有的请求都会达到存储层，存储层的调用量会暴增，造成存储层也会挂掉的情况。</p>
+<h3 id="_52">解决方案</h3>
+<p><strong>1、redis高可用</strong></p>
+<p>这个思想的含义是，既然redis有可能挂掉，那我多增设几台redis ，这样一台挂掉之后其他的还可以继续工作，其实就是搭建的集群。（异地多活）</p>
+<p><strong>2、限流降级</strong></p>
+<p>这个解决方案的思想是，在缓存失效后，通过加锁或者队列来控制读数据库写缓存的线程数量。比如对某个key只允许一个线程查询数据和写缓存，其他线程等待。</p>
+<p><strong>3、数据预热</strong></p>
+<p>数据加热的含义就是在正式部署之前，我先把可能的数据先预先访问一遍，这样部分可能大量访问的数据就会加载到缓存中。在即将发生大并发访问前手动触发加载缓存不同的key，设置不同的过期时间，让缓存失效的时间点尽量均匀。</p>
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        
+        <a href=".." class="md-footer__link md-footer__link--prev" aria-label="Previous: Welcome to KccccEmpty&#39;s Blog" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Welcome to KccccEmpty's Blog
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../ZeroTier/" class="md-footer__link md-footer__link--next" aria-label="Next: ZeroTier" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              ZeroTier
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../assets/javascripts/workers/search.bd0b6b67.min.js"}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.467223ff.min.js"></script>
+      
+    
+  </body>
+</html>
